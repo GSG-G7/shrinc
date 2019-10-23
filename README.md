@@ -30,8 +30,7 @@ specialty, or even by Skype/remote possibility Or I can visit a therapist profil
 and I can see Glossary that explain scientific and strange words and I can move freely using the menu in the app, a can get more about the app using the description in the app.
 
 ### **User who gives proper therapy to patients**
-As a therapist I can sign up in the app as a a therapy by filling the form that let me enter full details about me to let the people see my profile and get all information about me
-Like my full name, my email, my personal photo, my city, my availability dates in the all days and Possibility for remote contact.
+As a therapist I can sign up in the app as a a therapy by filling the form that let me enter full details about me to let the people see my profile and get all information about me. 
 
 ## **User Story** 
 
