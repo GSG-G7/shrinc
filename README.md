@@ -15,11 +15,11 @@
 
 ## **Problem** 
 
-people who are busy and can't find a therapist quickly and easily or who don't have enough money to ask therapists and get contact with them or who don't know the appropriate type of therapy.
+People who are busy and can't find a therapist quickly and easily or who don't have enough money to ask therapists and get contact with them or who don't know the appropriate type of therapy.
     
 ## **Solution** 
 
-make app to facilitate user reaching to the appropirate therpay and connect with therapist At the right time and at with less costs.
+Make app to facilitate user reaching to the appropirate therpay and connect with therapist At the right time and at with less costs.
 
 ## **User Journey**  
 
@@ -43,13 +43,14 @@ Like my full name, my email, my personal photo, my city, my availability dates i
 - As a user, I can complete a questionnaire that will guide me towards the most suitable therapiest. 
 - As a user, I can see list of Therapies according to questionnaire. 
 - As a user, I can view therapist's profiles.
-- As a user, I can choose to search (filter) for therapists by various categories (possible to search instead of doing questionnaire).
+- As a user, I can choose to search (filter) for therapists by various categories.
     - location (need to think about implementing this properly).
     - cost (from list of price ranges).
     - speciality (from a list).
     - skype/remote possibilty (yes or no).
 - As a user, I can learn more about the different types of therapy available. 
 - As a user, I can see Glossary that explain scientific and strange word.
+- As a user, I can visit a therapist-specific page to find out more about the service.
+
 ### **User who gives proper therapy to patients**
-- As a therapist, I can visit a therapist-specific page to find out more about the service.
 - As a therapist, I can fill out a form to create and submit a profile.
