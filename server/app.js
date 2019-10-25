@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 const router = (req, res) => {
   res.send('hi from the server');
