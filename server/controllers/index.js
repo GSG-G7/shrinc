@@ -1,11 +1,7 @@
-const { errors } = require('./errors');
-const { middlewares } = require('./middlewares');
-const { routes } = require('./routes');
-const { utils } = require('./utils');
+const { clientError } = require('./errors/clientError');
+const { serverError } = require('./errors/serverError');
 
 module.exports = {
-  errors,
-  middlewares,
-  routes,
-  utils,
+  clientError,
+  serverError,
 };
