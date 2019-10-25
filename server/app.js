@@ -21,7 +21,6 @@ app.get('*', (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log(req.path, err);
   res.status(500).send({ message: 'Internal Server Error', statusCode: 500 });
 });
 
