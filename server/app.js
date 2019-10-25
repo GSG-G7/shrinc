@@ -1,9 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 
-const router = (req, res) => {
-  res.send('hi from the server');
-};
+const router = require('./controller');
 
 const app = express();
 app.use(express.json());
