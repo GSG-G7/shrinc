@@ -5,17 +5,14 @@ require('dotenv').config();
 
 const router = require('./controller');
 
+const PORT = process.env.PORT || 5000;
 const app = express();
+
+app.set('port', PORT);
 app.use(express.json());
-app.set('port', process.env.PORT || 5000);
+app.use(express.static(join(__dirname, '..', '..', 'public')));
 
-app.use('/api/v1/', router);
-
-app.use(express.static(join(__dirname, '..', 'client', 'public')));
-
-app.get('*', (_req, res) => {
-  res.sendFile(join(__dirname, '..', 'client', 'public', 'index.html'));
-});
+app.use('/api/v1', router);
 
 app.use((err, req, res, next) => {
   console.log(req.path, err);

@@ -1,2 +1,3 @@
-require("./queries");
-require("./routes");
+require('./queries');
+require('./routes');
+require('./utils');
