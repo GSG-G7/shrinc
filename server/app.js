@@ -4,7 +4,7 @@ const { join } = require('path');
 const express = require('express');
 require('dotenv').config();
 
-const router = require('./controller');
+const router = require('./router');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
