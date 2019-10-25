@@ -1,6 +1,6 @@
 const clientError = (req, res) => {
   res.status(404).send({
-    message: 'page not found',
+    message: 'Page Not Found',
     statusCode: 404,
   });
 };
