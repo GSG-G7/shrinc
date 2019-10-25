@@ -5,7 +5,7 @@
   "description": "## **Team Members** * Abdallah Ammar (Team Lead) * Hashem Taha  * Fadi Omar  * Mohammad Alhallaq * Asmaa Thabet",
   "scripts": {
     "test": "NODE_ENV=test node test | tap-spec",
-    "lint": "eslint server/",
+    "lint": "eslint server",
     "lint:react": "cd client/ && npm run lint",
     "start": "NODE_ENV=production node ./server/",
     "dev": "NODE_ENV=development nodemon ./server"
