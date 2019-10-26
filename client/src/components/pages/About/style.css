@@ -1,0 +1,23 @@
+.page {
+  margin: 0 0.5rem;
+}
+
+.page-header {
+  color: #32A48F;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.page-point {
+  color: #1C5C50;
+  font-size: 16px;
+}
+
+.page-parg {
+  font-size: 14px;
+  color: #242424;
+  text-align: justify;
+  margin-right: 1rem;
+  line-height: 1.5;
+  margin-top: 4px;
+}
