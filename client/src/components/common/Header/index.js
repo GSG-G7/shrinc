@@ -34,8 +34,6 @@ class Header extends Component {
             <img src={headerLogo} alt="header logo" />
           </Link>
         </div>
-        {/* side bar */}
-
         <div
           className={!isClosed ? 'menu__model' : ''}
           onClick={this.onclickForModel}
