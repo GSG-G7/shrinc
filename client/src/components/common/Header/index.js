@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { MenuIcon, headerLogo } from '../../assets';
+import { MenuIcon, headerLogo, MenuLogo } from '../../assets';
 import './style.css';
 
 class Header extends Component {
@@ -20,6 +20,19 @@ class Header extends Component {
           <Link to="home">
             <img src={headerLogo} alt="headerLogo" />
           </Link>
+        </div>
+        {/* side bar */}
+        <div className="menu-model" id="model">
+          <nav className="nav">
+            <div className="menu__head">
+              <h2 className="menu__title">Menu</h2>
+            </div>
+            <ul className="menu__list">
+              <div className="menu_img">
+                <img src={MenuLogo} alt="shrinc" />
+              </div>
+            </ul>
+          </nav>
         </div>
       </div>
     );
