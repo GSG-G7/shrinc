@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { MenuIcon } from '../../assets';
 import './style.css';
 
 class Header extends Component {
@@ -10,7 +11,9 @@ class Header extends Component {
       <div className="header">
         <div className="header__bar">
           <div className="menu-icon"></div>
-          <Link to="fade"></Link>
+          <Link to="fade">
+            <MenuIcon />
+          </Link>
         </div>
       </div>
     );
