@@ -1,0 +1,6 @@
+config.env
+.nyc_output
+.vscode
+.env
+coverage
+node_modules
