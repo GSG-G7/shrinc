@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-const RadioInput = ({
+export default function RadioInput({
   htmlFor,
   name,
   id,
@@ -13,7 +13,7 @@ const RadioInput = ({
   onChange,
   children,
   ...props
-}) => {
+}) {
   return (
     <label htmlFor={htmlFor} className="input-label">
       <input
@@ -29,7 +29,7 @@ const RadioInput = ({
       {children}
     </label>
   );
-};
+}
 
 RadioInput.propTypes = {
   htmlFor: PropTypes.string.isRequired,
