@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-const Button = ({ children, className = ' ', ...props }) => {
+const Button = ({ children, className, ...props }) => {
   return (
     <button className={`btn ${className}`} type="button" {...props}>
       {children}
