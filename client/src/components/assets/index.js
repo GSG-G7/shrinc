@@ -1,6 +1,6 @@
 import headerLogo from './menuTopLogo.svg';
-import MenuIcon from './MenuIcon';
 import MenuLogo from './MenuLogo.svg';
+import MenuIcon from './MenuIcon';
 import HomeIcone from './HomeIcone';
 import TypesTherapist from './TypesTherapist';
 import Questionnaire from './Questionnaire';
