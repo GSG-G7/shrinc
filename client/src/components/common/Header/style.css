@@ -1,0 +1,11 @@
+.header {
+    position: relative;
+}
+
+.header__bar {
+    background:#32A48F;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
