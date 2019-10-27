@@ -1,0 +1,59 @@
+.table {
+    position: relative;
+    border-radius:20px; 
+    width: fit-content;
+    border: 0.5px solid gray;
+}
+
+.table__day {
+    color: rgb(30, 31, 31);
+}
+
+td {
+    display: flex;
+    padding: 0;
+    width: 33%;
+    flex-direction: column;
+}
+  
+tr {
+    display: flex;
+    flex-direction: row;
+    border-top: none;
+    border-bottom:2px solid #82D9C9; 
+}
+
+.ant-table table {
+    border-spacing: 5px;
+}
+
+.ant-table-thead > tr > th {
+    background: #fff;
+}
+
+th {
+  width: 33%;
+  display: flex;
+  color: rgb(8, 255, 210);
+}
+
+.ant-table-pagination {
+    display: none;
+}
+
+tbody > tr:last-child { 
+    border:none;
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+    padding: 5px;
+    border:none;
+}
+
+tr > td:first-child {
+    width:80px;
+}
+
+tr > td:last-child, th:last-child, thead > tr > th:last-child  {
+    padding-left: 30px; 
+}
