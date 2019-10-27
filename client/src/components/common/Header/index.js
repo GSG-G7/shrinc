@@ -54,11 +54,11 @@ class Header extends Component {
               <div className="menu_img">
                 <img src={MenuLogo} alt="shrinc" />
               </div>
-              {menuData.map(item => (
-                <li key={item.label} className="menu__item">
-                  {item.icon ? item.icon : ''}
-                  <Link to={item.url} className="menu__link">
-                    {item.label}
+              {menuData.map(({ label, url, icon }) => (
+                <li key={label} className="menu__item">
+                  {icon || ''}
+                  <Link to={url} className="menu__link">
+                    {label}
                   </Link>
                 </li>
               ))}
