@@ -1,0 +1,14 @@
+.profile_card_container {
+  display: flex;
+  background: #E0E0E0;
+  width: 375px;
+  height: 223px;
+  padding: 2rem;
+}
+.profile_card_a{
+  width: 20vh;
+}
+.profile_card_b{
+  width: 30vh;
+  margin-top: 15%;
+}
