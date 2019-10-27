@@ -67,8 +67,9 @@ class F extends React.Component {
       <div>
         <Steps current={current}>
           {steps.map(item => (
-            <Step key={item.title} title={item.title} > </Step>
-           
+            <Step key={item.title} title={item.title}>
+              {' '}
+            </Step>
           ))}
 
           {/* {questions.map(question => (

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Radio } from 'antd';
 import questions from './questions';
-import { RFC_2822 } from 'moment';
 
 class RadioGroupInputs extends React.Component {
   state = {
@@ -9,7 +8,6 @@ class RadioGroupInputs extends React.Component {
   };
 
   onChange = (e, id) => {
-
     this.setState({
       selected: e.target.value,
     });
@@ -50,5 +48,3 @@ class RadioGroupInputs extends React.Component {
 }
 
 export default RadioGroupInputs;
-
-
