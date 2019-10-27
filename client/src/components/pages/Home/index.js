@@ -10,7 +10,11 @@ const HomePage = () => {
     <div className="home">
       <div className="home__header">
         <div className="home__image">
-          <img src={shrincHome} alt="class-img" className="vision__img"></img>
+          <img
+            src={shrincHome}
+            alt="class-img"
+            className="home__image-src"
+          ></img>
         </div>
         <div className="home__box">
           <h3 className="home__title">Shrinc</h3>
@@ -24,25 +28,29 @@ const HomePage = () => {
       <div className="home__actions">
         <div className="home_buttons">
           <Link to="/types" className="home__buttons__types">
-            <Icon type="copy" />
             <Button
               value="Find the Right Therapy for You"
               className="home__buttons__types-btn"
-            />
+            >
+              <Icon type="copy" className="home__buttons__types-icon" />
+              Find the Right Therapy for You
+            </Button>
           </Link>
           <Link to="/filter" className="home__buttons__filter">
-            <Icon type="filter" />
             <Button
               value="Search for Therapists"
               className="home__buttons__filter-btn"
-            />
+            >
+              <Icon type="filter" className="home__buttons__types-icon" />
+              Search for Therapists
+            </Button>
           </Link>
         </div>
         <div className="home__signup">
-          <p>Are you therapist?</p>
+          <p className="home__signup__question">Are you therapist?</p>
           <span>
-            <Link to="/signup" className="home__signup">
-              sign up
+            <Link to="/signup" className="home__signup-link">
+              Sign Up
             </Link>
           </span>
         </div>
