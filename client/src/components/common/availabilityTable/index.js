@@ -4,7 +4,7 @@ import './style.css';
 import { Table, TimePicker } from 'antd';
 import moment from 'moment';
 
-const TabelAvailability = () => {
+const TabelAvailability = onChange => {
   const columns = [
     {
       title: 'Day',
@@ -30,6 +30,9 @@ const TabelAvailability = () => {
       day: 'Mon.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '0', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -37,6 +40,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '0', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -48,6 +52,9 @@ const TabelAvailability = () => {
       day: 'Tue.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '1', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -55,6 +62,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '1', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -66,6 +74,9 @@ const TabelAvailability = () => {
       day: 'Wed.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '2', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -73,6 +84,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '2', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -84,6 +96,9 @@ const TabelAvailability = () => {
       day: 'Thu.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '3', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -91,6 +106,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '3', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -102,6 +118,9 @@ const TabelAvailability = () => {
       day: 'Fri.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '4', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -109,6 +128,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '4', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -120,6 +140,9 @@ const TabelAvailability = () => {
       day: 'Sat.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '5', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -127,6 +150,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '5', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -138,6 +162,9 @@ const TabelAvailability = () => {
       day: 'Sun.',
       from: (
         <TimePicker
+          onChange={(time, timeString) =>
+            onChange(time, timeString, '6', 'from')
+          }
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
@@ -145,6 +172,7 @@ const TabelAvailability = () => {
       ),
       to: (
         <TimePicker
+          onChange={(time, timeString) => onChange(time, timeString, '6', 'to')}
           use12Hours
           format="h:mm a"
           defaultOpenValue={moment('00:00 am', 'HH:mm A')}
