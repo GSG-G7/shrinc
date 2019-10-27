@@ -9,7 +9,6 @@ export default () => {
   return (
     <section>
       <Card />
-      <h1>Availablity</h1>
       <Contact />
       <Location />
     </section>
