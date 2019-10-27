@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from 'antd/lib/icon';
 import Button from '../../common/Button';
+import Header from '../../common/Header';
 import shrincHome from '../../../assets/shrincHome.svg';
 import './style.css';
 
 const HomePage = () => {
   return (
     <div className="home">
+      <Header />
       <div className="home__header">
         <div className="home__image">
           <img
