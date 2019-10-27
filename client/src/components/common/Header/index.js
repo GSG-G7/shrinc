@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuIcon, headerLogo, MenuLogo } from '../../assets';
 import menuData from './menuData';
+import Button from '../Button';
 import './style.css';
 
 class Header extends Component {
@@ -27,9 +28,9 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="header__bar">
-          <button type="button" className="menu-icon" onClick={this.onclick}>
-            <MenuIcon onClick={this.onclick} />
-          </button>
+          <Button className="menu-icon" onClick={this.onclick}>
+            <MenuIcon />
+          </Button>
           <Link to="home">
             <img src={headerLogo} alt="header logo" />
           </Link>

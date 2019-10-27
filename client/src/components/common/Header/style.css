@@ -30,6 +30,8 @@
     z-index: 2;
     transform: translateX(0);
     visibility: visible;
+    transition: all 0.5s ease-in-out;
+
 }
 
 .menu__nav {
@@ -100,6 +102,10 @@
 }
 
 .hide {
+    top:0;
+    position: absolute; 
     transform: translateX(-100%);
     visibility: hidden;
+    transition: all 0.5s ease-in-out;
+
 }
