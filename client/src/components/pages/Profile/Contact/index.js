@@ -15,7 +15,6 @@ export default () => {
         <p>sheley_watson_200@gmail.com</p>
         <h4>Phone</h4>
         <p>+02 532 -115-9914</p>
-
         <h4>Skype</h4>
         <p>SheleyWatson200</p>
       </section>

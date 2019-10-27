@@ -17,9 +17,9 @@ export default () => {
       <section className="profile_card_fees">
         <h3>
           <Icon type="dollar" />
-          &nbsp;&nbsp;Fees
+          &nbsp;&nbsp;
+          <span>Fees 15.00$ Session</span>
         </h3>
-        <p>15.00 $/Session</p>
       </section>
     </section>
   );
