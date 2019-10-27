@@ -14,7 +14,6 @@
   },
   "private": true,
   "dependencies": {
-    "antd": "^3.24.2",
     "axios": "^0.19.0",
     "babel-eslint": "^9.0.0",
     "prop-types": "^15.7.2",
@@ -23,7 +22,6 @@
     "react-notifications": "^1.4.3",
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.1.2",
-    "styled-components": "^4.4.0",
     "yup": "^0.27.0"
   },
   "scripts": {
