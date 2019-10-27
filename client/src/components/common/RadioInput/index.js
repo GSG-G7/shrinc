@@ -10,7 +10,6 @@ export default function RadioInput({
   value,
   className,
   checked,
-  onChange,
   children,
   ...props
 }) {
@@ -23,7 +22,6 @@ export default function RadioInput({
         value={value}
         className={`radio__input ${className}`}
         checked={checked}
-        onChange={onChange}
         {...props}
       />
       {children}
