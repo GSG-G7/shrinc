@@ -3,7 +3,7 @@ import React from 'react';
 import './style.css';
 import table from '../../../assets/table.svg';
 
-function glossary() {
+export default () => {
   return (
     <section>
       <h1 className="glossary_title">Glossary</h1>
@@ -13,6 +13,4 @@ function glossary() {
       <img className="glossary_table" src={table} alt="table for information" />
     </section>
   );
-}
-
-export default glossary;
+};
