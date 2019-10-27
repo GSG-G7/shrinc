@@ -1,18 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Steps } from 'antd';
-import 'antd/dist/antd.css';
+import questions from './questions';
 
 const { Step } = Steps;
 
 const StepsBar = ({ current, ...props }) => {
   return (
     <Steps current={current}>
-      <Step {...props} />
-      <Step {...props} />
-      <Step {...props} />
-      <Step {...props} />
-      <Step {...props} />
+      {questions.map(question => {
+        return <Step {...props} />;
+      })}
     </Steps>
   );
 };
