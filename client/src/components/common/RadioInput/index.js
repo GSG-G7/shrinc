@@ -1,46 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-import './style.css';
+import { Radio } from 'antd';
 
-export default function RadioInput({
-  htmlFor,
-  name,
-  id,
-  value,
-  className,
-  checked,
-  children,
-  ...props
-}) {
-  return (
-    <label htmlFor={htmlFor} className="input-label">
-      <input
-        name={name}
-        id={id}
-        type="radio"
-        value={value}
-        className={`radio__input ${className}`}
-        checked={checked}
-        {...props}
-      />
-      {children}
-    </label>
-  );
+class RadioInput extends Component {
+  state = {
+    value: 1,
+  };
+
+  onChange = e => {
+    // eslint-disable-next-line no-console
+    console.log('radio checked', e.target.value);
+    this.setState({
+      value: e.target.value,
+    });
+  };
+
+  render() {
+    const radioStyle = {
+      display: 'block',
+      height: '30px',
+      lineHeight: '30px',
+    };
+    const { value } = this.state;
+    return (
+      <Radio.Group onChange={this.onChange} value={value}>
+        <Radio style={radioStyle} value={1}>
+          Option A
+        </Radio>
+        <Radio style={radioStyle} value={2}>
+          Option B
+        </Radio>
+        <Radio style={radioStyle} value={3}>
+          Option C
+        </Radio>
+        <Radio style={radioStyle} value={4}>
+          Option D
+        </Radio>
+      </Radio.Group>
+    );
+  }
 }
-
-RadioInput.propTypes = {
-  htmlFor: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
-  children: PropTypes.string.isRequired,
-};
-
-RadioInput.defaultProps = {
-  id: 0,
-  className: '',
-};
+export default RadioInput;
