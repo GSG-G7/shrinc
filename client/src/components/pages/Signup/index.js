@@ -15,7 +15,7 @@ import Avalibility from '../../common/availabilityTable';
 import './style.css';
 
 class Signup extends Component {
-  state = { remote: false, confirmDirty: false };
+  state = { remote: false, confirmDirty: false, available: [] };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -57,6 +57,14 @@ class Signup extends Component {
 
   handleRemote = checked => {
     this.setState({ remote: checked });
+  };
+
+  onChange = (time, timeString, key, point) => {
+    this.setState(previous => {
+      const newAvailable = [...previous.available];
+      newAvailable[key] = { ...newAvailable[key], [point]: timeString };
+      return { available: newAvailable };
+    });
   };
 
   render() {
@@ -188,7 +196,7 @@ class Signup extends Component {
             })(<Input placeholder="Enter post code" />)}
           </Form.Item>
           <Form.Item>
-            <Avalibility />
+            <Avalibility onChange={this.onChange} />
           </Form.Item>
           <Form.Item label="Add Photo:">
             <Upload
