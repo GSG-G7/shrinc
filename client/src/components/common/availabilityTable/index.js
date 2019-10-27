@@ -1,10 +1,10 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import './style.css';
 import { Table, TimePicker } from 'antd';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+
 import columns from './staticData';
+import './style.css';
 
 const TabelAvailability = ({ onChange }) => {
   const data = [
