@@ -38,12 +38,11 @@ th {
   width: 33%;
   display: flex;
   color: rgb(8, 255, 210);
-
 }
+
 .ant-table-thead > tr:first-child > th:last-child {
     border-top-right-radius: 20px;
 }
-
 
 .ant-table-pagination {
     display: none;
@@ -52,7 +51,6 @@ th {
 tbody > tr:last-child { 
     border:none;
 }
-
 
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
     padding: 5px;
