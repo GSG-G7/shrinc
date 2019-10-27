@@ -1,6 +1,4 @@
 .table {
-    margin:auto; 
-    margin-top:200px; 
     position: relative;
     border-radius:20px; 
     width: fit-content;
@@ -38,10 +36,6 @@ th {
   width: 33%;
   display: flex;
   color: rgb(8, 255, 210);
-}
-
-.ant-table-thead > tr:first-child > th:last-child {
-    border-top-right-radius: 20px;
 }
 
 .ant-table-pagination {
