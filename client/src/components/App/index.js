@@ -1,5 +1,6 @@
 import React from 'react';
 
+import 'antd/dist/antd.css';
 import './style.css';
 import Profile from '../pages/Profile';
 
