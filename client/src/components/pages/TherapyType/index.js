@@ -4,8 +4,9 @@ import { Collapse, Icon } from 'antd';
 import typesData from './staticData';
 import './style.css';
 
+const { Panel } = Collapse;
+
 const TherapyType = () => {
-  const { Panel } = Collapse;
   const customPanelStyle = {
     background: '#e0e0e0',
     borderRadius: 4,
@@ -19,7 +20,6 @@ const TherapyType = () => {
       <Collapse
         accordion
         bordered={false}
-        destroyInactivePanel
         expandIcon={({ isActive }) => (
           <Icon type="caret-right" rotate={isActive ? 90 : 0} />
         )}
