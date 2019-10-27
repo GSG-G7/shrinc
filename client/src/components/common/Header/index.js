@@ -11,13 +11,12 @@ class Header extends Component {
   };
 
   onclick = () => {
-    const { isClosed } = this.state;
-    this.setState({ isClosed: !isClosed });
+    this.setState(prevState => ({ isClosed: !prevState.isClosed }));
   };
 
   onclickForModel = e => {
     if (e.target.id === 'model') {
-      this.setState({ isClosed: true });
+      this.setState(() => ({ isClosed: true }));
     }
   };
 
