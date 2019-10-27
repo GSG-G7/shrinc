@@ -11,94 +11,60 @@ import {
   Checkbox,
 } from 'antd';
 
+import Avalibility from '../../common/availabilityTable';
 import './style.css';
 
 class Signup extends Component {
-  state = {
-    therapistInfo: {
-      fullName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      city: '',
-      therapyType: '',
-      priceRange: '',
-      postCode: '',
-      remote: false,
-      skype: '',
-      termAccepted: false,
-    },
-  };
+  state = { remote: false, confirmDirty: false };
 
   handleSubmit = e => {
     e.preventDefault();
-    const {
-      form: { validateFieldsAndScroll },
-    } = this.props;
-    validateFieldsAndScroll();
+    // const {
+    //   form: { validateFieldsAndScroll },
+    // } = this.props;
+    // validateFieldsAndScroll((err, values) => {
+    //   console.log(values);
+    // });
   };
 
-  handleChange = ({ target: input }) => {
-    const {
-      therapistInfo: { ...therapistInfo },
-    } = this.state;
-    therapistInfo[input.name] = input.value;
-    this.setState({ therapistInfo });
+  handleConfirmBlur = e => {
+    const { value } = e.target;
+    const { confirmDirty } = this.state;
+    this.setState({ confirmDirty: confirmDirty || !!value });
   };
 
-  handleSelect = value => {
-    const {
-      therapistInfo: { ...therapistInfo },
-    } = this.state;
-    therapistInfo.therapyType = value;
-    this.setState({ therapistInfo });
+  compareToFirstPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
+      callback();
+    }
   };
 
-  handlePrice = value => {
-    const {
-      therapistInfo: { ...therapistInfo },
-    } = this.state;
-    therapistInfo.priceRange = value;
-    this.setState({ therapistInfo });
+  validateToNextPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    const { confirmDirty } = this.state;
+    if (value && confirmDirty) {
+      form.validateFields(['confirm'], { force: true });
+    }
+    callback();
+  };
+
+  uploadInput = file => {
+    this.image = file;
   };
 
   handleRemote = checked => {
-    const {
-      therapistInfo: { ...therapistInfo },
-    } = this.state;
-    therapistInfo.remote = checked;
-    this.setState({ therapistInfo });
+    this.setState({ remote: checked });
   };
-
-  handleChecked = ({ target: { checked } }) => {
-    const {
-      therapistInfo: { ...therapistInfo },
-    } = this.state;
-    therapistInfo.termAccepted = checked;
-    this.setState({ therapistInfo });
-  };
-
-  // handlePhoto = info => {
-  //   console.log('handle', info);
-  // };
-
-  uploadInput = e => {
-    this.image = e;
-  };
-
-  // beforeUpload = info => {
-  //   console.log('before', info);
-  // };
 
   render() {
     const { Option } = Select;
-    const {
-      therapistInfo: { remote },
-    } = this.state;
+    const { remote } = this.state;
     const {
       form: { getFieldDecorator },
     } = this.props;
-    // console.log(this.props);
     return (
       <div>
         <h2>Therapist Signup</h2>
@@ -107,7 +73,7 @@ class Signup extends Component {
             {getFieldDecorator('fullName', {
               rules: [
                 {
-                  message: 'The input is not valid!',
+                  message: 'The name is not valid!',
                 },
                 {
                   required: true,
@@ -118,13 +84,7 @@ class Signup extends Component {
                   message: 'must be at least 7 character',
                 },
               ],
-            })(
-              <Input
-                name="fullName"
-                onChange={this.handleChange}
-                placeholder="Enter your full name"
-              />
-            )}
+            })(<Input placeholder="Enter your full name" />)}
           </Form.Item>
           <Form.Item label="Email:">
             {getFieldDecorator('email', {
@@ -138,14 +98,9 @@ class Signup extends Component {
                   message: 'Please input your E-mail!',
                 },
               ],
-            })(
-              <Input
-                onChange={this.handleChange}
-                placeholder="Enter your email"
-              />
-            )}
+            })(<Input placeholder="Enter your email" />)}
           </Form.Item>
-          <Form.Item label="Password:">
+          <Form.Item label="Password" hasFeedback>
             {getFieldDecorator('password', {
               rules: [
                 {
@@ -153,24 +108,37 @@ class Signup extends Component {
                   message: 'Please input your password!',
                 },
                 {
+                  min: 8,
+                  message: 'at least 8 character',
+                },
+                {
                   validator: this.validateToNextPassword,
                 },
               ],
             })(<Input.Password />)}
-            {/* <Input.Password
-              name="password"
-              onChange={this.handleChange}
-              placeholder=""
-            /> */}
           </Form.Item>
-          <Form.Item label="Confirm Password:">
-            <Input.Password
-              name="confirmPassword"
-              onChange={this.handleChange}
-            />
+          <Form.Item label="Confirm Password" hasFeedback>
+            {getFieldDecorator('confirm', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please confirm your password!',
+                },
+                {
+                  validator: this.compareToFirstPassword,
+                },
+              ],
+            })(<Input.Password onBlur={this.handleConfirmBlur} />)}
           </Form.Item>
           <Form.Item label="City:">
-            <Input name="city" onChange={this.handleChange} placeholder="" />
+            {getFieldDecorator('city', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please input your city!',
+                },
+              ],
+            })(<Input placeholder="Enter your city" />)}
           </Form.Item>
           <Form.Item label="Type Of Therapy:">
             {getFieldDecorator('types', {
@@ -207,11 +175,20 @@ class Signup extends Component {
             )}
           </Form.Item>
           <Form.Item label="Post Code:">
-            <Input
-              name="postCode"
-              onChange={this.handleChange}
-              placeholder=""
-            />
+            {getFieldDecorator('postCode', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please input post code!',
+                },
+                {
+                  validator: this.validateToNextPassword,
+                },
+              ],
+            })(<Input placeholder="Enter post code" />)}
+          </Form.Item>
+          <Form.Item>
+            <Avalibility />
           </Form.Item>
           <Form.Item label="Add Photo:">
             <Upload
@@ -231,15 +208,27 @@ class Signup extends Component {
           </Form.Item>
           {remote ? (
             <Form.Item label="Skype:">
-              <Input name="skype" onChange={this.handleChange} placeholder="" />
+              {getFieldDecorator('skype', {
+                rules: [
+                  {
+                    required: true,
+                    message: 'Please input your skype!',
+                  },
+                ],
+              })(<Input name="skype" placeholder="Enter your skype" />)}
             </Form.Item>
           ) : (
             ''
           )}
           <Form.Item>
-            <Checkbox onChange={this.handleChecked}>
-              I Accept the Terms of Services
-            </Checkbox>
+            {getFieldDecorator('terms', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please accept the terms of services ',
+                },
+              ],
+            })(<Checkbox>I Accept the Terms of Services</Checkbox>)}
           </Form.Item>
           <Button type="primary" htmlType="submit">
             Signup
