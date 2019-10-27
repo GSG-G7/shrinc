@@ -10,7 +10,7 @@ const TabelAvailability = () => {
       title: 'Day',
       dataIndex: 'day',
       key: 'day',
-      render: text => <span>{text}</span>,
+      render: text => <span className="table__day">{text}</span>,
     },
     {
       title: 'From',
