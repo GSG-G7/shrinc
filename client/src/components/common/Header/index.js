@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuIcon, headerLogo, MenuLogo } from '../../assets';
@@ -39,9 +38,16 @@ class Header extends Component {
           className={!isClosed ? 'menu__model' : ''}
           onClick={this.onclickForModel}
           id="model"
+          role="button"
+          tabIndex={0}
         >
           <nav className={isClosed ? 'hide' : 'menu__nav'}>
-            <div className="menu__head" onClick={this.onclick}>
+            <div
+              className="menu__head"
+              role="button"
+              tabIndex={0}
+              onClick={this.onclick}
+            >
               <h2 className="menu__title">Menu</h2>
             </div>
             <ul className="menu__list">
