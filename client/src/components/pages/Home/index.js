@@ -24,14 +24,14 @@ const HomePage = () => {
       <div className="home__actions">
         <div className="home_buttons">
           <Link to="/types" className="home__buttons__types">
-            <Icon type="user" />
+            <Icon type="copy" />
             <Button
               value="Find the Right Therapy for You"
               className="home__buttons__types-btn"
             />
           </Link>
           <Link to="/filter" className="home__buttons__filter">
-            <Icon type="user" />
+            <Icon type="filter" />
             <Button
               value="Search for Therapists"
               className="home__buttons__filter-btn"
