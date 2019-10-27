@@ -27,7 +27,6 @@ class Signup extends Component {
       skype: '',
       termAccepted: false,
     },
-    photoLoading: false,
   };
 
   handleSubmit = e => {
@@ -75,22 +74,19 @@ class Signup extends Component {
   };
 
   // handlePhoto = info => {
-  //   console.log(info);
+  //   console.log('handle', info);
   // };
 
+  uploadInput = e => {
+    this.image = e;
+  };
+
   // beforeUpload = info => {
-  //   console.log(info);
+  //   console.log('before', info);
   // };
 
   render() {
-    const { photoLoading } = this.state;
     const { Option } = Select;
-    const uploadPhoto = (
-      <div>
-        <Icon type={photoLoading ? 'loading' : 'plus'} />
-        <div className="ant-upload-text">Upload</div>
-      </div>
-    );
     return (
       <div>
         <h2>Therapist Signup</h2>
@@ -146,14 +142,15 @@ class Signup extends Component {
           </Form.Item>
           <Form.Item label="Add Photo:">
             <Upload
-              name="avatar"
-              listType="picture-card"
-              className="avatar-uploader"
-              showUploadList={false}
-              beforeUpload={this.beforeUpload}
-              onChange={this.handlePhoto}
+              accept="image/*"
+              style={{ width: '100%' }}
+              customRequest={() => {}}
+              listType="picture"
+              ref={this.uploadInput}
             >
-              <uploadPhoto />
+              <Button size="large">
+                <Icon type="upload" /> Click to upload
+              </Button>
             </Upload>
           </Form.Item>
           <Form.Item label="Remote Therapy:">
