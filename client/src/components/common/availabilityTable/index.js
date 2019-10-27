@@ -3,27 +3,10 @@ import 'antd/dist/antd.css';
 import './style.css';
 import { Table, TimePicker } from 'antd';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+import columns from './staticData';
 
-const TabelAvailability = onChange => {
-  const columns = [
-    {
-      title: 'Day',
-      dataIndex: 'day',
-      key: 'day',
-      render: text => <span className="table__day">{text}</span>,
-    },
-    {
-      title: 'From',
-      dataIndex: 'from',
-      key: 'from',
-    },
-    {
-      title: 'To',
-      dataIndex: 'to',
-      key: 'to',
-    },
-  ];
-
+const TabelAvailability = ({ onChange }) => {
   const data = [
     {
       key: '0',
@@ -180,8 +163,11 @@ const TabelAvailability = onChange => {
       ),
     },
   ];
-
   return <Table columns={columns} dataSource={data} className="table" />;
+};
+
+TabelAvailability.propTypes = {
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TabelAvailability;
