@@ -27,12 +27,7 @@ const TherapyType = () => {
         {typesData.map(type => {
           const { title, key, text } = type;
           return (
-            <Panel
-              header={title}
-              key={key}
-              style={customPanelStyle}
-              className="types-page__point"
-            >
+            <Panel header={title} key={key} style={customPanelStyle}>
               <p className="types-page__content">{text}</p>
             </Panel>
           );
