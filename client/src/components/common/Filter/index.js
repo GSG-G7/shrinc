@@ -7,7 +7,6 @@ import { Select, Form, Button, Switch } from 'antd';
 
 const { Option } = Select;
 
-// const { Option } = Select;
 class Filter extends Component {
   citeies = [
     'London',
