@@ -2,14 +2,9 @@ import React from 'react';
 
 import 'antd/dist/antd.css';
 import './style.css';
-import Profile from '../pages/Profile';
 
 function App() {
-  return (
-    <div className="App">
-      <Profile />
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;

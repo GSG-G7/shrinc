@@ -1,11 +1,11 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import { Icon } from 'antd';
 
 import './style.css';
-import map from '../../../../assets/map1.png';
 
-export default () => {
+const Location = ({ locationInfo: { address, postalCode, map } }) => {
   return (
     <section className="location_contact_container">
       <h2>
@@ -14,14 +14,22 @@ export default () => {
       <section className="location_contact_info">
         <section className="location_info">
           <h5 className="location_titles">Address</h5>
-          <p>sheley_watson_200@gmail.com</p>
+          <p>{address}</p>
         </section>
         <section className="location_info">
           <h5 className="location_titles">Postal Code</h5>
-          <p>+02 532-115-9914</p>
+          <p>{postalCode}</p>
         </section>
       </section>
       <img src={map} alt="therapist location" className="location_img_map" />
     </section>
   );
+};
+export default Location;
+Location.propTypes = {
+  locationInfo: propTypes.shape({
+    address: propTypes.string.isRequired,
+    postalCode: propTypes.string.isRequired,
+    map: propTypes.string.isRequired,
+  }).isRequired,
 };
