@@ -1,7 +1,8 @@
-export default [
+const questions = [
   {
-    text: 'What do you plan to achieve from therapy',
-    id: 1,
+    id: 'q1',
+    content: 'What do you plan to achieve from therapy',
+    title: 'First',
     options: [
       {
         id: 0,
@@ -21,8 +22,9 @@ export default [
     ],
   },
   {
-    text: 'What do you look for in a therapist?',
-    id: 2,
+    id: 'q2',
+    title: 'second',
+    content: 'What do you look for in a therapist?',
     options: [
       {
         id: 0,
@@ -30,10 +32,26 @@ export default [
           'A professional who can give me good, impartial advice on my problems',
       },
       { id: 1, content: 'Someone who understands me truly ' },
+      { id: 2, content: 'A reliable person who I can trust and confide in ' },
       {
-        id: 2,
-        content: 'A reliable person who I can trust and confide in ',
+        id: 3,
+        content:
+          'Someone who can challenge me to resolve my interpersonal problems by showing me by blind spots',
       },
+    ],
+  },
+  {
+    id: 'q3',
+    title: 'Third',
+    content: 'What do you look for in a therapist22222?',
+    options: [
+      {
+        id: 0,
+        content:
+          'A professional who can give me good, impartial advice on my problems',
+      },
+      { id: 1, content: 'Someone who understands me truly ' },
+      { id: 2, content: 'A reliable person who I can trust and confide in ' },
       {
         id: 3,
         content:
@@ -42,3 +60,4 @@ export default [
     ],
   },
 ];
+export default questions;

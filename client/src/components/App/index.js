@@ -2,13 +2,14 @@ import React from 'react';
 
 import 'antd/dist/antd.css';
 import './style.css';
-import D from '../common/RadioInput/ddd'
-import F from '../common/RadioInput/index'
+import RadioInput from '../common/RadioInput';
 
 function App() {
-  return <div className="App">
-    <F />
-  </div>;
+  return (
+    <div className="App">
+      <RadioInput />
+    </div>
+  );
 }
 
 export default App;

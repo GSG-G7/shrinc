@@ -1,115 +1,61 @@
-// import React from 'react';
-// import { Radio } from 'antd';
-// import questions from './questions';
-
-// const RadioInput = (questions) => {
-//   const radioStyle = {
-//     display: 'block',
-//     height: '30px',
-//     lineHeight: '30px',
-//   };
-//   return (
-//       {questions.map(question => {
-//     <Radio.Group onChange={this.onChange} value="1">
-//         const { text, options } = question;
-//         {text}
-//         <Radio style={radioStyle} value=''>
-//           ''
-//         </Radio>
-//       })}
-//     </Radio.Group>
-//   );
-// };
-
-// export default RadioInput;
-
 import React from 'react';
-import { Steps, Button, message, Radio } from 'antd';
-
-import S from './ddd';
+import { Radio } from 'antd';
 import questions from './questions';
 
-const { Step } = Steps;
+import './style.css';
 
-const steps = [
-  {
-    title: 'First',
-    content: 'First-content',
-  },
-  {
-    title: 'Second',
-    content: 'Second-content',
-  },
-  {
-    title: 'Last',
-    content: 'Last-content',
-  },
-];
-
-class F extends React.Component {
+class RadioInput extends React.Component {
   state = {
-    current: 0,
+    q1: 1,
+    q2: 1,
+    q3: 1,
+    q4: 1,
   };
 
-  next() {
-    const current = this.state.current + 1;
-    this.setState({ current });
-  }
+  onChange = (e, a) => {
+    console.log(11111, a);
+    console.log(e.target.value);
 
-  prev() {
-    const current = this.state.current - 1;
-    this.setState({ current });
-  }
+    this.setState({
+      q1: e.target.value,
+    });
+    console.log(this.state);
+  };
 
   render() {
-    const { current } = this.state;
+    const radioStyle = {
+      display: 'block',
+      height: '30px',
+      lineHeight: '30px',
+    };
+    const {q1, q2, q3, q4} = this.state
+
     return (
       <div>
-        <Steps current={current}>
-          {steps.map(item => (
-            <Step key={item.title} title={item.title}>
-              {' '}
-            </Step>
-          ))}
-
-          {/* {questions.map(question => (
-            <Step>
-              <Radio.Group
-                onChange={e => this.onChange(e, question.id)}
-                // value={this.state.selected}
-              >
-                {question.text}
-                {question.options.map(option => {
-                  return <Radio value={option.id}>{option.content}</Radio>;
-                })}
-              </Radio.Group>
-            </Step>
-          ))} */}
-        </Steps>
-        <div className="steps-content">{steps[current].content}</div>
-        <div className="steps-action">
-          {current < steps.length - 1 && (
-            <Button type="primary" onClick={() => this.next()}>
-              Next
-            </Button>
-          )}
-          {current === steps.length - 1 && (
-            <Button
-              type="primary"
-              onClick={() => message.success('Processing complete!')}
+        {questions.map(question => {
+          return (
+            <Radio.Group
+              onChange={e => this.onChange(e, question.id)}
+              value={question.id}
+              className="Radio__Group"
             >
-              Done
-            </Button>
-          )}
-          {current > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-              Previous
-            </Button>
-          )}
-        </div>
+              {question.options.map(option => {
+                return (
+                  <Radio
+                    value={option.id}
+                    onChange={this.onEntierChange}
+                    style={radioStyle}
+                  >
+                    {option.content}
+                  </Radio>
+                );
+              })}
+            </Radio.Group>
+          );
+        })}
       </div>
     );
   }
 }
 
-export default F;
+export default RadioInput;
