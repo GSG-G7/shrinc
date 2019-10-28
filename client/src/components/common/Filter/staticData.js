@@ -1,4 +1,4 @@
-const citeies = [
+const cities = [
   'London',
   ' Midlands',
   ' Manchester',
@@ -17,4 +17,4 @@ const types = [
 
 const ranges = ['1000-2000', '2000-3000', '3000-4000', '4000<'];
 
-export { citeies, types, ranges };
+export { cities, types, ranges };

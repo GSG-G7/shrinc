@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Select, Form, Button, Switch } from 'antd';
-import { citeies, types, ranges } from './staticData';
+import { cities, types, ranges } from './staticData';
 import './style.css';
 
 const { Option } = Select;
@@ -42,7 +42,7 @@ class Filter extends Component {
         <Form.Item label="Location">
           {getFieldDecorator('location')(
             <Select>
-              {citeies.map(type => (
+              {cities.map(type => (
                 <Option value={type} key={type}>
                   {type} Therapy
                 </Option>
