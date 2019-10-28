@@ -2,31 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.css';
-
 import { Select, Form, Button, Switch } from 'antd';
+import { citeies, types, ranges } from './staticData';
 
 const { Option } = Select;
 
 class Filter extends Component {
-  citeies = [
-    'London',
-    ' Midlands',
-    ' Manchester',
-    'West-Yorkshire ',
-    'Merseyside',
-    'South-Yorkshire ',
-    'Tyne-&-Wea',
-  ];
-
-  types = [
-    'Interpersonal',
-    'Family-focused',
-    'Dialectical-behavior',
-    'Cognitive-behavioral',
-  ];
-
-  ranges = ['1000-2000', '2000-3000', '3000-4000', '4000<'];
-
   handleSubmit = e => {
     e.preventDefault();
     const {
@@ -71,7 +52,7 @@ class Filter extends Component {
         <Form.Item label="Type of therapy">
           {getFieldDecorator('TypeOfTherapy')(
             <Select>
-              {this.types.map(type => (
+              {types.map(type => (
                 <Option value={type} key={type}>
                   {type} Therapy
                 </Option>
@@ -83,7 +64,7 @@ class Filter extends Component {
         <Form.Item label="Location">
           {getFieldDecorator('location')(
             <Select>
-              {this.citeies.map(type => (
+              {citeies.map(type => (
                 <Option value={type} key={type}>
                   {type} Therapy
                 </Option>
@@ -95,7 +76,7 @@ class Filter extends Component {
         <Form.Item label="Price">
           {getFieldDecorator('range')(
             <Select>
-              {this.ranges.map(type => (
+              {ranges.map(type => (
                 <Option value={type} key={type}>
                   {type} Therapy
                 </Option>
