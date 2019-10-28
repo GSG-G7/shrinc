@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './style.css';
-import { Select, Switch, Icon } from 'antd';
+
+import { Select, Form, Button, Switch } from 'antd';
 
 const { Option } = Select;
 
+// const { Option } = Select;
 class Filter extends Component {
-  state = {
-    typeOfTherapy: '',
-    location: '',
-    PriceRange: '',
-    isRemote: true,
-  };
-
   citeies = [
     'London',
     ' Midlands',
@@ -31,75 +28,110 @@ class Filter extends Component {
 
   ranges = ['1000-2000', '2000-3000', '3000-4000', '4000<'];
 
-  handleChange = (key, asd) => {
-    this.setState(
-      () => ({ [asd.props.state]: key }),
-      () => console.log(this.state)
-    );
+  handleSubmit = e => {
+    e.preventDefault();
+    const {
+      form: { validateFieldsAndScroll },
+    } = this.props;
+    validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
   };
 
-  handleClick = e => this.setState(() => ({ isRemote: e }));
-
   render() {
+    const {
+      form: { getFieldDecorator },
+    } = this.props;
+
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        xs: {
+          span: 24,
+          offset: 0,
+        },
+        sm: {
+          span: 16,
+          offset: 8,
+        },
+      },
+    };
     return (
-      <div>
-        <label htmlFor="business">
-          <span>Type of therapy</span>
-          <Select
-            key="typeOfTherapy"
-            defaultValue="selecte type"
-            style={{ width: 200, color: 'red' }}
-            onChange={this.handleChange}
-          >
-            {this.types.map(type => (
-              <Option value={type} state="typeOfTherapy" key={type}>
-                {type} Therapy
-              </Option>
-            ))}
-          </Select>
-        </label>
-        <label>
-          <span>Location</span>
-          <Select
-            key="location"
-            defaultValue="selecte location"
-            style={{ width: 200, color: 'red' }}
-            onChange={this.handleChange}
-          >
-            {this.citeies.map(city => (
-              <Option value={city} state="location" key={city}>
-                {city}
-              </Option>
-            ))}
-          </Select>
-        </label>
-        <label>
-          <span>Price range</span>
-          <Select
-            key="price-range"
-            defaultValue="selecte range"
-            style={{ width: 200, color: 'red' }}
-            onChange={this.handleChange}
-          >
-            {this.ranges.map(range => (
-              <Option value={range} state="PriceRange" key={range}>
-                {range}
-              </Option>
-            ))}
-          </Select>
-        </label>
-        <div>
-          <span>Remote therapy</span>
-          <Switch
-            checkedChildren={<Icon type="check" />}
-            unCheckedChildren={<Icon type="close" />}
-            defaultChecked
-            onClick={this.handleClick}
-          />
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+        <Form.Item label="Type of therapy">
+          {getFieldDecorator('TypeOfTherapy')(
+            <Select>
+              {this.types.map(type => (
+                <Option value={type} key={type}>
+                  {type} Therapy
+                </Option>
+              ))}
+            </Select>
+          )}
+        </Form.Item>
+
+        <Form.Item label="Location">
+          {getFieldDecorator('location')(
+            <Select>
+              {this.citeies.map(type => (
+                <Option value={type} key={type}>
+                  {type} Therapy
+                </Option>
+              ))}
+            </Select>
+          )}
+        </Form.Item>
+
+        <Form.Item label="Price">
+          {getFieldDecorator('range')(
+            <Select>
+              {this.ranges.map(type => (
+                <Option value={type} key={type}>
+                  {type} Therapy
+                </Option>
+              ))}
+            </Select>
+          )}
+        </Form.Item>
+        <div className="asd">
+          <Form.Item label="isRemote" className="label__swich-btn">
+            {getFieldDecorator('isRomete')(
+              <Switch defaultChecked className="" />
+            )}
+          </Form.Item>
         </div>
-      </div>
+
+        <Form.Item {...tailFormItemLayout}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="filter__submit-button"
+          >
+            Filter
+          </Button>
+        </Form.Item>
+      </Form>
     );
   }
 }
 
-export default Filter;
+const WrappedRegistrationForm = Form.create({ name: 'register' })(Filter);
+
+Filter.propTypes = {
+  form: PropTypes.shape({
+    validateFieldsAndScroll: PropTypes.func.isRequired,
+    getFieldDecorator: PropTypes.func.isRequired,
+  }).isRequired,
+};
+export default WrappedRegistrationForm;
