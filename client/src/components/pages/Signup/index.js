@@ -14,7 +14,7 @@ import {
 import Avalibility from '../../common/availabilityTable';
 import './style.css';
 
-class Signup extends Component {
+class SignupForm extends Component {
   state = {
     remote: false,
     confirmDirty: false,
@@ -277,13 +277,11 @@ class Signup extends Component {
   }
 }
 
-Signup.propTypes = {
+SignupForm.propTypes = {
   form: PropTypes.objectOf(PropTypes.func).isRequired,
   getFieldDecorator: PropTypes.func.isRequired,
 };
 
-const WrappedTimeRelatedForm = Form.create({ name: 'time_related_controls' })(
-  Signup
-);
+const Signup = Form.create({ name: 'Signup' })(SignupForm);
 
-export default WrappedTimeRelatedForm;
+export default Signup;
