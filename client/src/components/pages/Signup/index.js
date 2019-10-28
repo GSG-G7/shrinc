@@ -15,16 +15,36 @@ import Avalibility from '../../common/availabilityTable';
 import './style.css';
 
 class Signup extends Component {
-  state = { remote: false, confirmDirty: false, available: [] };
+  state = {
+    remote: false,
+    confirmDirty: false,
+    available: [
+      { day: 'Mon', from: '', to: '' },
+      { day: 'Tue', from: '', to: '' },
+      { day: 'Wen', from: '', to: '' },
+      { day: 'Thu', from: '', to: '' },
+      { day: 'Fri', from: '', to: '' },
+      { day: 'Sat', from: '', to: '' },
+      { day: 'Sun', from: '', to: '' },
+    ],
+  };
 
   handleSubmit = e => {
     e.preventDefault();
-    // const {
-    //   form: { validateFieldsAndScroll },
-    // } = this.props;
-    // validateFieldsAndScroll((err, values) => {
-    //   console.log(values);
-    // });
+    const {
+      form: { validateFieldsAndScroll },
+    } = this.props;
+    const { remote, available } = this.state;
+    validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        const formData = new FormData();
+        const data = { ...values };
+        data[remote] = remote;
+        formData.append('data', data);
+        formData.append('avalibility', available);
+        formData.append('image', this.image);
+      }
+    });
   };
 
   handleConfirmBlur = e => {
@@ -73,10 +93,11 @@ class Signup extends Component {
     const {
       form: { getFieldDecorator },
     } = this.props;
+
     return (
-      <div>
-        <h2>Therapist Signup</h2>
-        <Form onSubmit={this.handleSubmit}>
+      <div className="signup-page">
+        <h2 className="signup-page__title">Therapist Signup</h2>
+        <Form onSubmit={this.handleSubmit} className="signup-page__form">
           <Form.Item label="Full Name:">
             {getFieldDecorator('fullName', {
               rules: [
@@ -123,7 +144,7 @@ class Signup extends Component {
                   validator: this.validateToNextPassword,
                 },
               ],
-            })(<Input.Password />)}
+            })(<Input.Password placeholder="Enter your password" />)}
           </Form.Item>
           <Form.Item label="Confirm Password" hasFeedback>
             {getFieldDecorator('confirm', {
@@ -136,7 +157,12 @@ class Signup extends Component {
                   validator: this.compareToFirstPassword,
                 },
               ],
-            })(<Input.Password onBlur={this.handleConfirmBlur} />)}
+            })(
+              <Input.Password
+                placeholder="Condirm your password"
+                onBlur={this.handleConfirmBlur}
+              />
+            )}
           </Form.Item>
           <Form.Item label="City:">
             {getFieldDecorator('city', {
@@ -238,7 +264,11 @@ class Signup extends Component {
               ],
             })(<Checkbox>I Accept the Terms of Services</Checkbox>)}
           </Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button
+            type="primary"
+            className="signup-page__button"
+            htmlType="submit"
+          >
             Signup
           </Button>
         </Form>
