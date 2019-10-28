@@ -85,7 +85,7 @@ class Filter extends Component {
           )}
         </Form.Item>
         <Form.Item label="isRemote" className="label__swich-btn">
-          {getFieldDecorator('isRomete')(<Switch />)}
+          {getFieldDecorator('isRomete')(<Switch defaultChecked />)}
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
