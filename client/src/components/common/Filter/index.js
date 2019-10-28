@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
 import { Select, Form, Button, Switch } from 'antd';
 import { citeies, types, ranges } from './staticData';
+
+import './style.css';
 
 const { Option } = Select;
 
@@ -35,18 +36,7 @@ class Filter extends Component {
         sm: { span: 16 },
       },
     };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
+
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <Form.Item label="Type of therapy">
@@ -88,7 +78,7 @@ class Filter extends Component {
           {getFieldDecorator('isRomete')(<Switch defaultChecked />)}
         </Form.Item>
 
-        <Form.Item {...tailFormItemLayout}>
+        <Form.Item>
           <Button
             type="primary"
             htmlType="submit"

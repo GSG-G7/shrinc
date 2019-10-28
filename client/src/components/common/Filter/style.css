@@ -15,25 +15,18 @@
     color: #fff;
 }
 
-
-.ant-form-item-children {
+.ant-form-item-children { 
     width: 100%;
-}
-
-.ant-form-item-control {
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
-.ant-col-xs-24 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.ant-switch-checked {
+    background-color: #32A48F !important;
 }
 
-.ant-form-item-control {
-    display: flex;
+.ant-btn-primary {
+    background-color:#32A48F !important;    
 }
 
 .label__swich-btn {
@@ -42,11 +35,6 @@
     width:50%;
 }
 
-.ant-select-enabled {
-    width: 100%;
-}
-
-.ant-form-item-label {
-    line-height: 40px;
-    width: 150%;
+.label__swich-btn {
+    display: flex !important;
 }
