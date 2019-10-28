@@ -1,7 +1,7 @@
 const cities = [
   'London',
-  ' Midlands',
-  ' Manchester',
+  'Midlands',
+  'Manchester',
   'West-Yorkshire ',
   'Merseyside',
   'South-Yorkshire ',
