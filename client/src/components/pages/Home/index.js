@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Icon from 'antd/lib/icon';
+import { Icon } from 'antd';
 import Button from '../../common/Button';
 import HomeLogo from '../../assets/HomeLogo';
 import './style.css';
