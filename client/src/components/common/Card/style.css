@@ -25,3 +25,23 @@
     align-items: center;
     color: #242424;
 }
+
+.Card__content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card__approach, .card__type {
+    font-family: Sansation;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    color: #33000E;
+}
+
+.card__type {
+    font-size: 14px;
+}
