@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Select, Form, Button, Switch } from 'antd';
 import { citeies, types, ranges } from './staticData';
-
 import './style.css';
 
 const { Option } = Select;
@@ -26,19 +25,8 @@ class Filter extends Component {
       form: { getFieldDecorator },
     } = this.props;
 
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
-
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Item label="Type of therapy">
           {getFieldDecorator('TypeOfTherapy')(
             <Select>
