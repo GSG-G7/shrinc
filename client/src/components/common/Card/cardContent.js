@@ -1,17 +1,25 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import './style.css';
 
-const CardContent = data => (
+const CardContent = ({ data: { avatar, name, approach, type } }) => (
   <div>
-    <div className="card__photo">
-      <img src={data.avatar} alt={data.name} />
-    </div>
+    <img src={avatar} alt={name} className="card__photo" />
+
     <div className="card__content">
-      <h2 className="card__approach">{data.approach} </h2>
-      <h3 className="card__type">{data.type}</h3>
+      <h2 className="card__approach">{approach} </h2>
+      <h3 className="card__type">{type}</h3>
     </div>
   </div>
 );
 
+CardContent.propTypes = {
+  data: propTypes.shape({
+    avatar: propTypes.string.isRequired,
+    approach: propTypes.string.isRequired,
+    name: propTypes.string.isRequired,
+    type: propTypes.string.isRequired,
+  }).isRequired,
+};
 export default CardContent;

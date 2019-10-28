@@ -1,0 +1,27 @@
+.card__photo {
+    border: 1px solid gray;
+    border-radius: 100%;
+    background-color:#82D9C9; 
+    width:100px;
+}
+
+.card__price {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    color: #33000E;
+}
+
+.card__header {
+    font-family: Sansation;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    align-items: center;
+    color: #242424;
+}
