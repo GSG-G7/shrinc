@@ -1,14 +1,17 @@
 .home{
     margin-top:0px;
 }
+
 .home__header{
     margin: 50px 20px 5px 20px;
     display: inline-flex;
     width: 90%;
 }
+
 .home__box{
     margin-top: 52px;
 }
+
 .home__title{
     font-size: 36px;
     font-weight: bold;
@@ -16,12 +19,14 @@
     color: #32A48F;
     line-height: 2px;
 }
+
 .home__subTitle{
     font-size: 24px;
     font-weight: bold;
     font-family: Roboto;
     color: #32A48F;
 }
+
 .home__description{
     font-size: 16px;
     font-family: Roboto;
@@ -29,32 +34,39 @@
     margin: 0px 30px 30px 30px;
     text-align: center;
 }
+
 .home_buttons{
     margin-top: 130px;
     margin-left: 10px;
     margin-right: 10px;
 }
+
 .home__buttons__types-btn{
     width: 100%;
     margin-bottom: 10px;
 }
+
 .home__buttons__filter-btn{
     width: 100%;
     margin-bottom: 10px;
-}
+} 
+
 .home__buttons__types-icon{
     margin-right: 5px;
 }
+
 .home__signup{
     display: inline-flex;
     margin-left: 95px;
 }
+
 .home__signup__question{
     text-align: center;
     font-size: 18px;
     font-family: Roboto;
     margin-right: 10px;
 }
+
 .home__signup-link{
     color: #45CBB2;
     font-size: 18px;
