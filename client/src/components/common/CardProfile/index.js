@@ -11,8 +11,8 @@ const Card = ({ cardInfo: { imgUrl, therapyApproach, therapyType, fees } }) => {
         <Avatar shape="circle" src={imgUrl} size={100} icon="user" />
 
         <section className="profile_card_b">
-          <h4>Therapy approach: {therapyApproach}</h4>
-          <h4>Therapy type: {therapyType}</h4>
+          <h4>Approach: {therapyApproach}</h4>
+          <h4>Type: {therapyType}</h4>
         </section>
       </section>
       <section className="profile_card_fees">
