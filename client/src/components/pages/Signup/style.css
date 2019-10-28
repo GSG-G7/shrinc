@@ -1,0 +1,24 @@
+.signup-page {
+  margin: .5rem;
+}
+
+.signup-page__title {
+  color: #32A48F;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.signup-page__form {
+  margin: 0.5rem;
+}
+
+.signup-page__button {
+  display: block;
+  margin: 0 auto;
+  background-color: #32A48F;
+  width: 20rem;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-size: 20px;
+}
