@@ -159,7 +159,7 @@ class SignupForm extends Component {
               ],
             })(
               <Input.Password
-                placeholder="Condirm your password"
+                placeholder="Confirm your password"
                 onBlur={this.handleConfirmBlur}
               />
             )}
