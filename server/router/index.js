@@ -1,9 +1,10 @@
 const express = require('express');
 
-const { clientError } = require('../controllers');
+const { clientError, signup } = require('../controllers');
 
 const router = express.Router();
 
-router.use(clientError);
+router.get('/signup', signup);
+router.use('*', clientError);
 
 module.exports = router;
