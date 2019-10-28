@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-unused-vars
 const questions = [
   {
     id: 0,
+    content: 'What do you plan to achieve from therapy',
     title: 'First',
-    text: 'What do you plan to achieve from therapy',
     options: [
       {
         id: 0,
@@ -25,7 +24,26 @@ const questions = [
   {
     id: 1,
     title: 'second',
-    text: 'What do you look for in a therapist?',
+    content: 'What do you look for in a therapist?',
+    options: [
+      {
+        id: 0,
+        content:
+          'A professional who can give me good, impartial advice on my problems',
+      },
+      { id: 1, content: 'Someone who understands me truly ' },
+      { id: 2, content: 'A reliable person who I can trust and confide in ' },
+      {
+        id: 3,
+        content:
+          'Someone who can challenge me to resolve my interpersonal problems by showing me by blind spots',
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: 'Third',
+    content: 'What do you look for in a therapist22222?',
     options: [
       {
         id: 0,
@@ -42,3 +60,4 @@ const questions = [
     ],
   },
 ];
+export default questions;
