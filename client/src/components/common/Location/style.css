@@ -17,5 +17,8 @@
 
 .location_img_map {
   display: block;
-  
+  width: 344px;
+  height: 126px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }

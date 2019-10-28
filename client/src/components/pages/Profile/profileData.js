@@ -1,7 +1,8 @@
 export default {
   isRemote: true,
   cardInfo: {
-    imgUrl: 'img',
+    imgUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/d/d7/صورة_خاصة_للويكيبيديا.jpg',
     therapyApproach: 'sello',
     therapyType: 'tcb',
     fees: 20,
@@ -23,6 +24,7 @@ export default {
   locationInfo: {
     address: 'sheley_watson_200@gmail.com',
     postalCode: '+02 532-115-9914',
-    map: '../../../../assets/map1.png',
+    map:
+      'https://cdn.pixabay.com/photo/2016/03/17/23/00/world-1264062_960_720.jpg',
   },
 };
