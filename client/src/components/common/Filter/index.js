@@ -86,9 +86,7 @@ class Filter extends Component {
         </Form.Item>
         <div className="asd">
           <Form.Item label="isRemote" className="label__swich-btn">
-            {getFieldDecorator('isRomete')(
-              <Switch defaultChecked className="" />
-            )}
+            {getFieldDecorator('isRomete')(<Switch defaultChecked />)}
           </Form.Item>
         </div>
 
