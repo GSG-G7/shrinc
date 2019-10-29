@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse } from 'antd';
+import propTypes from 'prop-types';
 
 import './style.css';
 import CardContent from './cardContent';
@@ -10,7 +11,7 @@ const genExtra = price => (
   <span className="card__price">{price} $/Session</span>
 );
 
-const Card = data => {
+const Card = ({ data }) => {
   return (
     <Collapse accordion>
       {data.map(({ avatar, fullName, approach, types, priceRange }) => (
@@ -31,5 +32,7 @@ const Card = data => {
     </Collapse>
   );
 };
-
+Card.propTypes = {
+  data: propTypes.isRequired,
+};
 export default Card;
