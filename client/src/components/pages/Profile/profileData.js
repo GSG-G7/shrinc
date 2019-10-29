@@ -1,10 +1,11 @@
 export default {
   isRemote: true,
   cardInfo: {
+    username: 'Ahmed Salah',
     imgUrl:
       'https://upload.wikimedia.org/wikipedia/commons/d/d7/صورة_خاصة_للويكيبيديا.jpg',
-    therapyApproach: 'sello',
-    therapyType: 'tcb',
+    therapyApproach: 'Seillo or heliot',
+    therapyType: 'TCB and BBC TTD',
     priceRange: 20,
   },
   available: [

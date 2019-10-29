@@ -10,7 +10,7 @@ import './style.css';
 const Profile = ({
   profileData: {
     isRemote,
-    cardInfo: { imgUrl, therapyApproach, therapyType, priceRange },
+    cardInfo: { username, imgUrl, therapyApproach, therapyType, priceRange },
     available,
     contactinfo: { email, phone, skype },
     locationInfo,
@@ -23,11 +23,18 @@ const Profile = ({
       */}
       <section className="profile_card_container">
         <section className="profile_card">
-          <Avatar shape="circle" src={imgUrl} size={100} icon="user" />
+          <Avatar
+            shape="circle"
+            src={imgUrl}
+            className="profile_avatar"
+            size={120}
+            icon="user"
+          />
 
           <section className="profile_card_b">
-            <h4>Approach: {therapyApproach}</h4>
-            <h4>Type: {therapyType}</h4>
+            <h1 className="profile_username">{username}</h1>
+            <h4 className="profile_user_info">{therapyApproach}</h4>
+            <h4 className="profile_user_info">{therapyType}</h4>
           </section>
         </section>
         <section className="profile_card_fees">
@@ -46,9 +53,9 @@ const Profile = ({
       -- is remote
        */}
       <section className="profile_contact_container">
-        <h2>
+        <h1>
           <Icon type="wifi" /> Is remotly
-        </h2>
+        </h1>
         <section className="profile_contact_info">
           <p>{isRemote ? 'Yes' : 'No'}</p>
         </section>

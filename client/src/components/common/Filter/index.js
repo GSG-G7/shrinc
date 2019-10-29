@@ -15,6 +15,7 @@ class Filter extends Component {
     } = this.props;
     validateFieldsAndScroll((err, values) => {
       if (!err) {
+        // eslint-disable-next-line no-console
         console.log('Received values of form: ', values);
       }
     });
