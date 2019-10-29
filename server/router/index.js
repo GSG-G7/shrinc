@@ -1,10 +1,15 @@
 const express = require('express');
 
-const { clientError, signup } = require('../controllers');
+const {
+  clientError, intialResult, filter, profile, signup,
+} = require('../controllers');
 
 const router = express.Router();
 
 router.post('/signup', signup);
-router.use('*', clientError);
+router.get('/intial', intialResult);
+router.get('/filter', filter);
+router.get('/profile/:id', profile);
+router.use(clientError);
 
 module.exports = router;
