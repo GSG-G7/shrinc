@@ -14,14 +14,19 @@ const genExtra = price => (
 const Card = () => {
   return (
     <Collapse accordion>
-      {data.map(therpy => (
+      {data.map(({ avatar, name, approach, type, priceRange }) => (
         <Panel
-          header={therpy.name}
-          key={therpy.name}
-          extra={genExtra(therpy.priceRange)}
+          header={name}
+          key={name}
+          extra={genExtra(priceRange)}
           className="card__header"
         >
-          <CardContent data={therpy} />
+          <CardContent
+            avatar={avatar}
+            name={name}
+            approach={approach}
+            type={type}
+          />
         </Panel>
       ))}
     </Collapse>

@@ -3,10 +3,10 @@ import propTypes from 'prop-types';
 
 import './style.css';
 
-const CardContent = ({ data: { avatar, name, approach, type } }) => (
+const CardContent = ({ avatar, name, approach, type }) => (
   <div className="card__content">
     <img src={avatar} alt={name} className="card__photo" />
-    <div className="card__text-content">
+    <div>
       <h2 className="card__approach">{approach} </h2>
       <h3 className="card__type">{type}</h3>
     </div>
@@ -14,11 +14,9 @@ const CardContent = ({ data: { avatar, name, approach, type } }) => (
 );
 
 CardContent.propTypes = {
-  data: propTypes.shape({
-    avatar: propTypes.string.isRequired,
-    approach: propTypes.string.isRequired,
-    name: propTypes.string.isRequired,
-    type: propTypes.string.isRequired,
-  }).isRequired,
+  avatar: propTypes.string.isRequired,
+  approach: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
 };
 export default CardContent;
