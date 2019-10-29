@@ -5,7 +5,7 @@ export default {
       'https://upload.wikimedia.org/wikipedia/commons/d/d7/صورة_خاصة_للويكيبيديا.jpg',
     therapyApproach: 'sello',
     therapyType: 'tcb',
-    fees: 20,
+    priceRange: 20,
   },
   available: [
     { key: 1, day: 'Mon', from: '12:00 am', to: '1:00 pm' },

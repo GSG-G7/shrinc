@@ -1,25 +1,78 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Icon, Avatar } from 'antd';
 
-import Card from '../../common/CardProfile';
 import AvailableityTime from '../../common/AvailabilityTime';
-
-import Isremote from '../../common/IsRemote';
-import Contact from '../../common/Contact';
 import Location from '../../common/Location';
 
 import './style.css';
 
 const Profile = ({
-  profileData: { isRemote, cardInfo, available, contactinfo, locationInfo },
+  profileData: {
+    isRemote,
+    cardInfo: { imgUrl, therapyApproach, therapyType, priceRange },
+    available,
+    contactinfo: { email, phone, skype },
+    locationInfo,
+  },
 }) => {
   return (
     <section className="font">
-      <Card cardInfo={cardInfo} />
-      <AvailableityTime availableityTime={available} /> {/** done */}
-      <Isremote isRemote={isRemote} /> {/** done */}
-      <Contact contactinfo={contactinfo} /> {/** done */}
-      <Location locationInfo={locationInfo} /> {/** done* */}
+      {/* 
+      -- card 
+      */}
+      <section className="profile_card_container">
+        <section className="profile_card">
+          <Avatar shape="circle" src={imgUrl} size={100} icon="user" />
+
+          <section className="profile_card_b">
+            <h4>Approach: {therapyApproach}</h4>
+            <h4>Type: {therapyType}</h4>
+          </section>
+        </section>
+        <section className="profile_card_fees">
+          <h3>
+            <Icon type="dollar" />
+            &nbsp; &nbsp;
+            <span>Fees {priceRange}$ Session</span>
+          </h3>
+        </section>
+      </section>
+      {/* 
+      -- Available time 
+      */}
+      <AvailableityTime availableityTime={available} />
+      {/* 
+      -- is remote
+       */}
+      <section className="profile_contact_container">
+        <h2>
+          <Icon type="wifi" /> Is remotly
+        </h2>
+        <section className="profile_contact_info">
+          <p>{isRemote ? 'Yes' : 'No'}</p>
+        </section>
+      </section>
+      {/** 
+      -- contact
+       */}
+      <section className="profile_contact_container">
+        <h2>
+          <Icon type="phone" /> Contact Info
+        </h2>
+        <section className="profile_contact_info">
+          <h4>Email</h4>
+          <p>{email}</p>
+          <h4>Phone</h4>
+          <p>{phone}</p>
+          <h4>Skype</h4>
+          <p>{skype}</p>
+        </section>
+      </section>
+      {/** 
+      -- location
+       */}
+      <Location locationInfo={locationInfo} />
     </section>
   );
 };
