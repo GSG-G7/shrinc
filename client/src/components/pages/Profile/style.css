@@ -2,7 +2,6 @@
   font-family: Roboto, sans-serif;
 }
 
-/* profile card */
 .profile_card_container {
   background: #E0E0E0;
   width: 375px;
@@ -55,7 +54,6 @@
   line-height: .2rem;
 }
 
-/* contact */
 .profile_contact_container {
   margin:1rem 0 0 2rem;
 }
