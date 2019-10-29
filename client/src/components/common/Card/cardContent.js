@@ -1,11 +1,18 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Avatar } from 'antd';
 
 import './style.css';
 
-const CardContent = ({ avatar, name, approach, type }) => (
+const CardContent = ({ avatar, approach, type }) => (
   <div className="card__content">
-    <img src={avatar} alt={name} className="card__photo" />
+    <Avatar
+      shape="circle"
+      src={avatar}
+      size={100}
+      icon="user"
+      className="card__photo"
+    />
     <div>
       <h2 className="card__approach">{approach} </h2>
       <h3 className="card__type">{type}</h3>
@@ -16,7 +23,6 @@ const CardContent = ({ avatar, name, approach, type }) => (
 CardContent.propTypes = {
   avatar: propTypes.string.isRequired,
   approach: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
 };
 export default CardContent;

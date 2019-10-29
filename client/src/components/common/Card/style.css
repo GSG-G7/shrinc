@@ -1,6 +1,6 @@
 .card__photo {
     border: 1px solid gray;
-    border-radius: 100%;
+    /* border-radius: 100%; */
     background-color:#82D9C9; 
     width:100px;
 }
@@ -31,7 +31,8 @@
     justify-content: space-around;
 }
 
-.card__approach, .card__type {
+.card__approach, 
+.card__type {
     font-family: Sansation;
     font-style: normal;
     font-weight: normal;
