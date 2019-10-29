@@ -1,0 +1,1 @@
+exports.intialResult = require('./intialResult');
