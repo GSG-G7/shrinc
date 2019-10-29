@@ -10,6 +10,7 @@ import {
   Button,
   Checkbox,
 } from 'antd';
+import axios from 'axios';
 
 import Avalibility from '../../common/availabilityTable';
 import './style.css';
@@ -35,14 +36,20 @@ class SignupForm extends Component {
       form: { validateFieldsAndScroll },
     } = this.props;
     const { remote, available } = this.state;
-    validateFieldsAndScroll((err, values) => {
+    validateFieldsAndScroll(async (err, values) => {
       if (!err) {
         const formData = new FormData();
         const data = { ...values };
-        data[remote] = remote;
-        formData.append('data', data);
-        formData.append('avalibility', available);
-        formData.append('image', this.image);
+        data.remote = remote;
+        formData.append('data', JSON.stringify(data));
+        formData.append('avalibility', JSON.stringify(available));
+        const files = this.image.state.fileList[0].originFileObj;
+        formData.append('image', files);
+        await axios.post('/api/v1/signup', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
       }
     });
   };
@@ -71,8 +78,8 @@ class SignupForm extends Component {
     callback();
   };
 
-  uploadInput = file => {
-    this.image = file;
+  uploadInput = info => {
+    this.image = info;
   };
 
   handleRemote = checked => {
