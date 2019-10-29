@@ -23,6 +23,11 @@
     line-height: 30px;
     align-items: center;
     color: #242424;
+    background: '#f7f7f7';
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 0;
+    overflow: 'hidden';
 }
 
 .card__content {
