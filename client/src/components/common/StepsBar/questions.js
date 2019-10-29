@@ -41,8 +41,46 @@ const questions = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     title: 'Third',
+    content: 'What do you look for in a therapist22222?',
+    options: [
+      {
+        id: 0,
+        content:
+          'A professional who can give me good, impartial advice on my problems',
+      },
+      { id: 1, content: 'Someone who understands me truly ' },
+      { id: 2, content: 'A reliable person who I can trust and confide in ' },
+      {
+        id: 3,
+        content:
+          'Someone who can challenge me to resolve my interpersonal problems by showing me by blind spots',
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Fourth',
+    content: 'What do you look for in a therapist22222?',
+    options: [
+      {
+        id: 0,
+        content:
+          'A professional who can give me good, impartial advice on my problems',
+      },
+      { id: 1, content: 'Someone who understands me truly ' },
+      { id: 2, content: 'A reliable person who I can trust and confide in ' },
+      {
+        id: 3,
+        content:
+          'Someone who can challenge me to resolve my interpersonal problems by showing me by blind spots',
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: 'Fifth',
     content: 'What do you look for in a therapist22222?',
     options: [
       {
