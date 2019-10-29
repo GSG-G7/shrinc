@@ -1,5 +1,5 @@
 export default table => {
   return table.filter(item => {
-    return item.day.length >= 3 && item.from.length > 3 && item.to.length > 3;
+    return item.from && item.to > 3;
   });
 };
