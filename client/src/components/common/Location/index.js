@@ -7,21 +7,21 @@ import './style.css';
 const Location = ({ locationInfo: { address, postalCode, map } }) => {
   return (
     <section>
-      <section className="location_contact_container">
+      <div className="location_contact_container">
         <h2>
           <Icon type="global" /> Location
         </h2>
-        <section className="location_contact_info">
-          <section className="location_info">
+        <div className="location_contact_info">
+          <div className="location_info">
             <h5 className="location_titles">Address</h5>
             <p>{address}</p>
-          </section>
-          <section className="location_info">
+          </div>
+          <div className="location_info">
             <h5 className="location_titles">Postal Code</h5>
             <p>{postalCode}</p>
-          </section>
-        </section>
-      </section>
+          </div>
+        </div>
+      </div>
       <img src={map} alt="therapist location" className="location_img_map" />
     </section>
   );
