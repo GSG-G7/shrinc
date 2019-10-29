@@ -26,7 +26,7 @@
     color: #242424;
 }
 
-.Card__content {
+.card__content {
     display: flex;
     justify-content: space-around;
 }

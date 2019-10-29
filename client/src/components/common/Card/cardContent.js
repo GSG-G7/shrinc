@@ -4,10 +4,10 @@ import propTypes from 'prop-types';
 import './style.css';
 
 const CardContent = ({ data: { avatar, name, approach, type } }) => (
-  <div className="Card__content">
+  <div className="card__content">
     <img src={avatar} alt={name} className="card__photo" />
 
-    <div className="card__content">
+    <div className="card__text-content">
       <h2 className="card__approach">{approach} </h2>
       <h3 className="card__type">{type}</h3>
     </div>
