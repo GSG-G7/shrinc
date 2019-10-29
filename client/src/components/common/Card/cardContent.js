@@ -25,4 +25,5 @@ CardContent.propTypes = {
   approach: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
 };
+
 export default CardContent;
