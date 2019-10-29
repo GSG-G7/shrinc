@@ -12,6 +12,7 @@ const genExtra = price => (
 const Card = data => {
   return (
     <Collapse accordion>
+      {console.log(data)}
       {data.map(({ avatar, name, approach, type, priceRange }) => (
         <Panel
           header={name}
