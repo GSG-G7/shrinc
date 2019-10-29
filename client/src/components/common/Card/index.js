@@ -1,6 +1,8 @@
 import React from 'react';
 import { Collapse } from 'antd';
+
 import './style.css';
+
 import CardContent from './cardContent';
 import data from './staticDataTesting';
 
