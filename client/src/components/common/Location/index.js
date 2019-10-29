@@ -1,6 +1,5 @@
 import React from 'react';
 import propTypes from 'prop-types';
-
 import { Icon } from 'antd';
 
 import './style.css';

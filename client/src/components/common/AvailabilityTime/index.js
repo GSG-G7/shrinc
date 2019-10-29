@@ -1,12 +1,13 @@
 import React from 'react';
 import { Icon, Table } from 'antd';
 import propTypes from 'prop-types';
-import func from './filterAvailableTime';
 
 import './style.css';
 
+const filterTime = table => table.filter(item => item.from && item.to);
+
 const Available = ({ availableityTime }) => {
-  const tableData = func(availableityTime);
+  const tableData = filterTime(availableityTime);
   const columns = [
     {
       title: 'Day',
@@ -39,7 +40,6 @@ const Available = ({ availableityTime }) => {
   );
 };
 
-export default Available;
 Available.propTypes = {
   availableityTime: propTypes.arrayOf(
     propTypes.shape({
@@ -49,3 +49,5 @@ Available.propTypes = {
     })
   ).isRequired,
 };
+
+export default Available;
