@@ -1,12 +1,29 @@
 .Results{
-
+    margin: 40px 15px 15px 10px;
 }
 .Results__TherapyType{
-
+    margin-bottom: 10px;
 }
 .Results__TherapyType__title{
-
+    margin-top: 15px;
+    color: #242424;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Sansation, sans-serif;
+}
+.Results__TherapyType__name{
+    color:#32A48F;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Sansation, sans-serif;
 }
 .Results__TherapistsNames{
-    
+    margin-top: 30px;
+}
+.Results__TherapistsNames_suggest{
+    color:#242424;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Sansation, sans-serif;
+    padding-bottom: 10px;
 }
