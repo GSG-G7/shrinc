@@ -3,7 +3,6 @@ import { Collapse } from 'antd';
 
 import './style.css';
 import CardContent from './cardContent';
-import data from './staticDataTesting';
 
 const { Panel } = Collapse;
 
@@ -11,21 +10,21 @@ const genExtra = price => (
   <span className="card__price">{price} $/Session</span>
 );
 
-const Card = () => {
+const Card = data => {
   return (
     <Collapse accordion>
-      {data.map(({ avatar, name, approach, type, priceRange }) => (
+      {data.map(({ avatar, fullName, approach, types, priceRange }) => (
         <Panel
-          header={name}
-          key={name}
+          header={fullName}
+          key={fullName}
           extra={genExtra(priceRange)}
           className="card__header"
         >
           <CardContent
             avatar={avatar}
-            name={name}
+            name={fullName}
             approach={approach}
-            type={type}
+            type={types}
           />
         </Panel>
       ))}
