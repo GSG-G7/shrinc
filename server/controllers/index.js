@@ -1,7 +1,8 @@
 const { clientError } = require('./errors/clientError');
-const { intialResult } = require('./routes');
+const { intialResult, filter } = require('./routes');
 
 module.exports = {
   clientError,
   intialResult,
+  filter,
 };
