@@ -2,29 +2,11 @@ import React from 'react';
 import { Icon, Table } from 'antd';
 import propTypes from 'prop-types';
 
+import columns from './colomn';
 import './style.css';
 
-const filterTime = table => table.filter(item => item.from && item.to);
-
 const Available = ({ availableityTime }) => {
-  const tableData = filterTime(availableityTime);
-  const columns = [
-    {
-      title: 'Day',
-      dataIndex: 'day',
-      key: 'day',
-    },
-    {
-      title: 'From',
-      dataIndex: 'from',
-      key: 'from',
-    },
-    {
-      title: 'To',
-      dataIndex: 'to',
-      key: 'to',
-    },
-  ];
+  const tableData = availableityTime.filter(item => item.from && item.to);
   return (
     <section className="Available_contailner">
       <h2>
