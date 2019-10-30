@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+import { notification } from 'antd';
+
 import Cards from '../../common/Card';
 import Filter from '../../common/Filter';
-import usersData from '../../common/Card/staticDataTesting';
 import './style.css';
 
 class FilterPage extends Component {
@@ -11,16 +12,26 @@ class FilterPage extends Component {
     data: [],
   };
 
-  componentDidMount = () => {
-    this.setState({ data: usersData });
+  componentDidMount = async () => {
+    const { data } = this.state;
+    const result = await axios.post('/api/v1/filter', { data: { ...data } });
+    this.setState(prevState => ({ ...prevState, data: result.data.data }));
+  };
+
+  openNotificationWithIcon = e => {
+    notification.error({
+      message: 'somthing wrong !!',
+      description: e.message,
+      duration: 3,
+    });
   };
 
   handleSubmit = async data => {
     try {
       const result = await axios.post('/api/v1/filter', { data: { ...data } });
-      console.log(result);
+      this.setState(prevState => ({ ...prevState, data: result.data.data }));
     } catch (e) {
-      console.log(e);
+      this.openNotificationWithIcon(e);
     }
   };
 
@@ -28,7 +39,10 @@ class FilterPage extends Component {
     const { data } = this.state;
     return (
       <div className="Filter-page__container">
+        <h1 className="filter__title">Find approprate therapy: </h1>
         <Filter handleSubmit={this.handleSubmit} />
+        <hr className="filter__brack-line" />
+        <h2 className="card__title">Therapists:</h2>
         <Cards data={data} />
       </div>
     );
