@@ -11,11 +11,13 @@ class Filter extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const {
+      handleSubmit,
       form: { validateFieldsAndScroll },
     } = this.props;
-    validateFieldsAndScroll((err, values) => {
+
+    validateFieldsAndScroll((err, data) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        handleSubmit(data);
       }
     });
   };
@@ -87,5 +89,6 @@ Filter.propTypes = {
     validateFieldsAndScroll: PropTypes.func.isRequired,
     getFieldDecorator: PropTypes.func.isRequired,
   }).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 export default WrappedRegistrationForm;

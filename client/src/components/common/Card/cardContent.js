@@ -20,10 +20,16 @@ const CardContent = ({ avatar, approach, type }) => (
   </div>
 );
 
+CardContent.defaultProps = {
+  avatar: 'sad',
+  approach: 'ads',
+  type: 'propTypes.string',
+};
+
 CardContent.propTypes = {
-  avatar: propTypes.string.isRequired,
-  approach: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
+  avatar: propTypes.string,
+  approach: propTypes.string,
+  type: propTypes.string,
 };
 
 export default CardContent;
