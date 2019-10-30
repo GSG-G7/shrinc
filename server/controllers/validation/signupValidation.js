@@ -11,5 +11,8 @@ module.exports = yup.object({
   postCode: yup.number().min(3).required(),
   remote: yup.boolean().required(),
   skype: yup.string(),
+  language: yup.string().required(),
+  insurance: yup.string().required(),
+  approch: yup.string().max(200).required(),
   avalibility: yup.array().required(),
 });
