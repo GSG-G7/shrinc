@@ -41,5 +41,7 @@ Card.propTypes = {
     }).isRequired
   ).isRequired,
 };
-
+Card.propTypes = {
+  data: PropTypes.isRequired,
+};
 export default Card;
