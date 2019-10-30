@@ -41,10 +41,10 @@ class SignupForm extends Component {
         const formData = new FormData();
         const data = { ...values };
         data.remote = remote;
+        const file = this.image.state.fileList[0].originFileObj;
         formData.append('data', JSON.stringify(data));
         formData.append('avalibility', JSON.stringify(available));
-        const files = this.image.state.fileList[0].originFileObj;
-        formData.append('image', files);
+        formData.append('image', file);
         await axios.post('/api/v1/signup', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',

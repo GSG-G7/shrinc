@@ -1,4 +1,5 @@
-const { hashPassowrd } = require('../utils/hashingPassword');
+const bcrypt = require('bcrypt');
+
 const { signupSchema, imageSchema } = require('../validation');
 const base = require('../../database/config/airtableConnection');
 const cloudinary = require('../../database/config/cloudinaryConnection');
@@ -16,7 +17,7 @@ module.exports = async (req, res, next) => {
       imageUrl = uploadedImage.url;
     }
     await signupSchema.validate({ ...therapist, avalibility });
-    const hashedPassword = await hashPassowrd(therapist.password);
+    const hashedPassword = await bcrypt.hash(therapist.password, 10);
     delete therapistInfo.confirm;
     delete therapistInfo.terms;
     therapistInfo.password = hashedPassword;
