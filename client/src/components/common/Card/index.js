@@ -10,23 +10,34 @@ const { Panel } = Collapse;
 const genExtra = price => (
   <span className="card__price">{price} $/Session</span>
 );
+
 const Card = ({ data }) => (
   <Collapse accordion>
-    {data.map(({ avatar, name, approach, type, priceRange }) => (
-      <Panel
-        header={name}
-        key={name}
-        extra={genExtra(priceRange)}
-        className="card__header"
-      >
-        <CardContent
-          avatar={avatar}
-          name={name}
-          approach={approach}
-          type={type}
-        />
-      </Panel>
-    ))}
+    {data.map(
+      ({
+        fields: {
+          image: avatar,
+          fullName: name,
+          fullName: approach,
+          types: type,
+          priceRange,
+        },
+      }) => (
+        <Panel
+          header={name}
+          key={name}
+          extra={genExtra(priceRange)}
+          className="card__header"
+        >
+          <CardContent
+            avatar={avatar}
+            name={name}
+            approach={approach}
+            type={type}
+          />
+        </Panel>
+      )
+    )}
   </Collapse>
 );
 
