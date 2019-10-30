@@ -1,0 +1,9 @@
+.Filter-page__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter__form {
+    width: 90%;
+}

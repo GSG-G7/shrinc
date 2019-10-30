@@ -50,3 +50,7 @@
 .card__type {
     font-size: 14px;
 }
+
+.ant-collapse {
+    width: 90%;
+}

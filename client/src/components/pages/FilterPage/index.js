@@ -15,18 +15,19 @@ class FilterPage extends Component {
     this.setState({ data: usersData });
   };
 
-  handleSubmit = data => {
-    console.log('hello from filter page', data);
-    axios
-      .post('url', data)
-      .then(console.log)
-      .catch(console.log);
+  handleSubmit = async data => {
+    try {
+      const result = await axios.post('/api/v1/filter', { data: { ...data } });
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   render() {
     const { data } = this.state;
     return (
-      <div>
+      <div className="Filter-page__container">
         <Filter handleSubmit={this.handleSubmit} />
         <Cards data={data} />
       </div>

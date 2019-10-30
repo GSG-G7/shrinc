@@ -28,9 +28,9 @@ class Filter extends Component {
     } = this.props;
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="filter__form">
         <Form.Item label="Type of therapy">
-          {getFieldDecorator('TypeOfTherapy')(
+          {getFieldDecorator('types')(
             <Select>
               {types.map(type => (
                 <Option value={type} key={type}>
@@ -42,7 +42,7 @@ class Filter extends Component {
         </Form.Item>
 
         <Form.Item label="Location">
-          {getFieldDecorator('location')(
+          {getFieldDecorator('city')(
             <Select>
               {cities.map(type => (
                 <Option value={type} key={type}>
@@ -54,7 +54,7 @@ class Filter extends Component {
         </Form.Item>
 
         <Form.Item label="Price">
-          {getFieldDecorator('range')(
+          {getFieldDecorator('priceRange')(
             <Select>
               {ranges.map(type => (
                 <Option value={type} key={type}>
@@ -65,7 +65,7 @@ class Filter extends Component {
           )}
         </Form.Item>
         <Form.Item label="isRemote" className="label__swich-btn">
-          {getFieldDecorator('isRomete')(<Switch defaultChecked />)}
+          {getFieldDecorator('remote')(<Switch defaultChecked />)}
         </Form.Item>
 
         <Form.Item>
