@@ -53,4 +53,16 @@
 
 .ant-collapse {
     width: 90%;
+    border: none;
+}
+
+.ant-collapse > .ant-collapse-item >.ant-collapse-header{
+    border:1px solid #32A48F;
+}
+
+.ant-collapse .ant-collapse-header{
+    border-radius: 4px;
+    border:none;
+    border: 0;
+    overflow: hidden;
 }
