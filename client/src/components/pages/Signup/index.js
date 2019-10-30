@@ -228,6 +228,49 @@ class SignupForm extends Component {
               ],
             })(<Input placeholder="Enter post code" />)}
           </Form.Item>
+          <Form.Item label="Language spoken:">
+            {getFieldDecorator('language', {
+              rules: [
+                {
+                  message: 'The language is not valid!',
+                },
+                {
+                  required: true,
+                  message: 'Please input your language!',
+                },
+              ],
+            })(<Input placeholder="Enter your language" />)}
+          </Form.Item>
+          <Form.Item label="Health insurance:">
+            {getFieldDecorator('insurance', {
+              rules: [
+                {
+                  message: 'The value is not valid!',
+                },
+                {
+                  required: true,
+                  message: 'Please fill this field',
+                },
+              ],
+            })(<Input placeholder="Health insurance" />)}
+          </Form.Item>
+          <Form.Item label="Approch:">
+            {getFieldDecorator('approch', {
+              rules: [
+                {
+                  message: 'The approch is not valid!',
+                },
+                {
+                  required: true,
+                  message: 'Please input your approch!',
+                },
+                {
+                  max: 200,
+                  message: 'should be 200 words as a max',
+                },
+              ],
+            })(<Input.TextArea placeholder="Enter your approch" />)}
+          </Form.Item>
           <Form.Item>
             <Avalibility onChange={this.onChange} />
           </Form.Item>
