@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import Card from '../../common/Card';
 
 import './style.css';
@@ -7,31 +7,32 @@ import './style.css';
 export default class ResultsPage extends React.Component {
   state = {
     therapist: [],
+    type: '',
   };
 
-  componentDidMount() {
-    fetch(
-      `https://api.airtable.com/v0/appTFjZlkbQpQHWD2/therapist/recw2hWu4CS86pd73?api_key=${process.env.Airtable_KEY}`
-    )
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({ therapist: data.records });
-      })
-      .catch(err => {
-        // Error :(
-        console.log(err);
+  async componentDidMount(types = 'PD') {
+    try {
+      const result = await axios.post('/api/v1/filter', {
+        data: { types },
       });
+      const therapist = result.data.data;
+      this.setState({ therapist });
+      this.setState({ type: types });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
   }
 
   render() {
     // eslint-disable-next-line react/destructuring-assignment
-    const { therapist } = this.state.therapist;
+    const { therapist, type } = this.state;
     return (
       <>
         <div className="Results">
           <div className="Results__TherapyType">
             <h3 className="Results__TherapyType__title">Therapy Type</h3>
-            <h4 className="Results__TherapyType__name">hhh</h4>
+            <h4 className="Results__TherapyType__name">{type}</h4>
           </div>
           <div className="Results__TherapistsNames">
             <h3 className="Results__TherapistsNames__suggest">
@@ -39,9 +40,7 @@ export default class ResultsPage extends React.Component {
               therapists specializing in:
             </h3>
             <div className="Results__TherapistsNames__Cards">
-              {therapist.map(Data => (
-                <Card {...Data.fields} />
-              ))}
+              <Card data={therapist} />
             </div>
           </div>
         </div>

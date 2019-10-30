@@ -4,7 +4,7 @@ import { Avatar } from 'antd';
 
 import './style.css';
 
-const CardContent = ({ avatar, approach, type }) => (
+const CardContent = ({ avatar, approach, type, city }) => (
   <div className="card__content">
     <Avatar
       shape="circle"
@@ -14,8 +14,9 @@ const CardContent = ({ avatar, approach, type }) => (
       className="card__photo"
     />
     <div>
-      <h2 className="card__approach">{approach} </h2>
       <h3 className="card__type">{type}</h3>
+      <h3 className="card__type">{city}</h3>
+      <h2 className="card__approach">{approach} </h2>
     </div>
   </div>
 );
@@ -24,6 +25,7 @@ CardContent.propTypes = {
   avatar: propTypes.string.isRequired,
   approach: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
+  city: propTypes.string.isRequired,
 };
 
 export default CardContent;

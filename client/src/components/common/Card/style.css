@@ -33,6 +33,7 @@
 .card__content {
     display: flex;
     justify-content: space-around;
+    background-color: #E0E0E0;
 }
 
 .card__approach, 
@@ -49,4 +50,15 @@
 
 .card__type {
     font-size: 14px;
+}
+.ant-collapse-item ,
+.ant-collapse-item-active,
+ .card__header{
+    background-color:#C4C4C4 !important;
+
+}
+.ant-collapse-header,
+.ant-collapse-content,
+.ant-collapse-content-active{
+    background-color: #E0E0E0 !important;
 }
