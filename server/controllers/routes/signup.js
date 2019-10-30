@@ -15,6 +15,8 @@ module.exports = async (req, res, next) => {
       await imageSchema.validate({ image });
       const uploadedImage = await cloudinary.uploader.upload(image.path);
       imageUrl = uploadedImage.url;
+    } else {
+      res.status(400).send({ statusCode: 400, message: 'There is no image' });
     }
     await signupSchema.validate({ ...therapist, avalibility });
     const hashedPassword = await bcrypt.hash(therapist.password, 10);
@@ -28,6 +30,10 @@ module.exports = async (req, res, next) => {
     }]);
     res.send({ statusCode: 200, massege: 'successfull signup' });
   } catch (e) {
-    next(e);
+    if (e.name === 'ValidationError') {
+      res.status(400).send({ statusCode: 400, message: 'Validation Error' });
+    } else {
+      next(e);
+    }
   }
 };
