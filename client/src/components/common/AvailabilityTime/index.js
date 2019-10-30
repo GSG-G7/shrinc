@@ -32,7 +32,7 @@ const Available = ({ availableityTime }) => {
 };
 
 Available.propTypes = {
-  availableityTime: propTypes.arrayOf.isRequired,
+  availableityTime: propTypes.string.isRequired,
 };
 
 export default Available;
