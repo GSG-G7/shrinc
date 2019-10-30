@@ -6,7 +6,16 @@ import columns from './colomn';
 import './style.css';
 
 const Available = ({ availableityTime }) => {
-  const tableData = availableityTime.filter(item => item.from && item.to);
+  const time = JSON.parse(availableityTime);
+
+  const tableData = time
+    .filter(item => item.from && item.to)
+    .map((elem, index) => ({
+      day: elem.day,
+      from: elem.from,
+      to: elem.to,
+      key: index,
+    }));
   return (
     <section className="Available_contailner">
       <h2>
@@ -23,13 +32,7 @@ const Available = ({ availableityTime }) => {
 };
 
 Available.propTypes = {
-  availableityTime: propTypes.arrayOf(
-    propTypes.shape({
-      day: propTypes.string.isRequired,
-      from: propTypes.string.isRequired,
-      to: propTypes.string.isRequired,
-    })
-  ).isRequired,
+  availableityTime: propTypes.arrayOf.isRequired,
 };
 
 export default Available;
