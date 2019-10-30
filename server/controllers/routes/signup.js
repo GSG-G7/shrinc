@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
     await base('therapist').create([{
       fields: { ...therapistInfo },
     }]);
-    res.send({ statusCode: 200, massege: 'successfull signup' });
+    res.send({ statusCode: 200, message: 'successfull signup' });
   } catch (e) {
     if (e.name === 'ValidationError') {
       res.status(400).send({ statusCode: 400, message: 'Validation Error' });
