@@ -1,12 +1,12 @@
 .glossary_title {
   color: #32a48f;
   font-weight: 900;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   padding: 0.5rem 0.5rem 0 0.5rem;
 }
 
 .glossary_description {
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   padding: 0 1.5rem 0.5rem 0.5rem;
 }
 
