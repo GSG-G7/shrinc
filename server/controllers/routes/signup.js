@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
     const isEmailExist = await base('therapist').select({
       filterByFormula: `(email = '${therapist.email}')`,
     }).all();
-    if (isEmailExist.length) res.status(400).send({ statusCode: 400, message: 'The email is exist' });
+    if (isEmailExist.length) res.status(400).send({ statusCode: 400, message: 'The email is already exist' });
     else if (req.files) {
       const { image } = req.files;
       await imageSchema.validate({ image });
@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
       await base('therapist').create([{
         fields: { ...therapistInfo },
       }]);
-      res.send({ statusCode: 200, message: 'signup successfuly' });
+      res.send({ statusCode: 200, message: 'Signup Successfuly' });
     } else {
       res.status(400).send({ statusCode: 400, message: 'There is no image' });
     }
