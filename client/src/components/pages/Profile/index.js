@@ -27,7 +27,6 @@ class Profile extends Component {
           data: { fields },
         },
       } = profileData;
-
       this.setState({ profileData: fields });
     } catch (err) {
       const error500 = err.message.includes('500');
@@ -144,7 +143,6 @@ Profile.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-
   match: PropTypes.shape({
     params: PropTypes.objectOf(PropTypes.string),
   }).isRequired,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Table } from 'antd';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import columns from './colomn';
 import './style.css';
@@ -32,7 +32,7 @@ const Available = ({ availableityTime }) => {
 };
 
 Available.propTypes = {
-  availableityTime: propTypes.string.isRequired,
+  availableityTime: PropTypes.string.isRequired,
 };
 
 export default Available;

@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Icon } from 'antd';
 
 import './style.css';
@@ -32,9 +32,9 @@ const Location = ({ address, postCode, imageURL }) => {
 };
 
 Location.propTypes = {
-  address: propTypes.string.isRequired,
-  postCode: propTypes.string.isRequired,
-  imageURL: propTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  postCode: PropTypes.string.isRequired,
+  imageURL: PropTypes.string.isRequired,
 };
 
 export default Location;
