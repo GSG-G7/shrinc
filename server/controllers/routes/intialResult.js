@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
     const data = (await base('therapist').select({
       filterByFormula: 'is_valid',
       sort: [{ field: 'fullName', direction: 'asc' }],
-      fields: ['fullName', 'email', 'city', 'types', 'remote', 'priceRange', 'avalibility', 'skype', 'image', 'is_valid', 'postCode'],
+      fields: ['fullName', 'email', 'city', 'type', 'remote', 'priceRange', 'avalibility', 'skype', 'image', 'is_valid', 'postCode'],
       maxRecords: 5,
     }).all());
     res.send({ statusCode: 200, data });
