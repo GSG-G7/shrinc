@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
     const validData = await base('therapist').select({
       filterByFormula: 'is_valid',
       sort: [{ field: 'fullName', direction: 'asc' }],
-      fields: ['fullName', 'type', 'priceRange', 'image', 'approch'],
+      fields: ['fullName', 'type', 'priceRange', 'image', 'approch', 'city'],
     }).all();
     const data = await getFilteredTherapist(req.body.data, validData);
     res.send({ statusCode: 200, data });
