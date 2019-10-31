@@ -1,16 +1,16 @@
-.ErrorPage-img {
+.errorPage-img {
     width: 300px;
     height: 200px;
     margin-top: 50px;
 }
 
-.ErrorPage-heading{
+.errorPage-heading {
     color: #32A48F;
     font-size: 24px;
     font-weight: bold;
 }
 
-.ErrorPage-btn {
+.errorPage-btn {
     margin-bottom: 10px;
     text-align: center;
     text-decoration: none;

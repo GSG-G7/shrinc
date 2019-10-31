@@ -7,14 +7,12 @@ import './style.css';
 
 export default () => {
   return (
-    <div className="ErrorPage">
+    <div className="errorPage">
       <center>
-        <img className="ErrorPage-img" src={NotFound} alt="Not Found" />
-        <h2 className="ErrorPage-heading">Page Not Found </h2>
+        <img className="errorPage-img" src={NotFound} alt="Not Found" />
+        <h2 className="errorPage-heading">Page Not Found </h2>
         <Link to="/">
-          <Button value="Return to Home Page" className="ErrorPage-btn">
-            Return to Home Page
-          </Button>
+          <Button className="errorPage-btn">Return to Home Page</Button>
         </Link>
       </center>
     </div>

@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import TherapyType from '../pages/TherapyType';
-import NotFound from '../pages/NotFound';
-import Glossary from '../pages/Glossary';
-import Profile from '../pages/Profile';
-import Header from '../common/Header';
-import Signup from '../pages/Signup';
-import About from '../pages/About';
-import Home from '../pages/Home';
+import {
+  TherapyType,
+  NotFound,
+  Glossary,
+  Profile,
+  Header,
+  Signup,
+  About,
+  Home,
+} from '../pages';
 import 'antd/dist/antd.css';
 import './style.css';
 
