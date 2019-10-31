@@ -10,12 +10,12 @@ import {
 const menuData = [
   {
     label: 'Home',
-    url: 'home',
+    url: '/',
     icon: <HomeIcone />,
   },
   {
     label: 'Types of therapist',
-    url: 'types-of-therapist',
+    url: 'types',
     icon: <TypesTherapist />,
   },
   {
@@ -30,7 +30,7 @@ const menuData = [
   },
   {
     label: 'Search',
-    url: 'search',
+    url: 'filter',
     icon: <Search />,
   },
   {

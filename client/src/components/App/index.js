@@ -18,29 +18,12 @@ function App() {
       <Header />
       <main className="container">
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-
-          <Route exact path="/About">
-            <About />
-          </Route>
-
-          <Route exact path="/glossary">
-            <Glossary />
-          </Route>
-
-          <Route exact path="/profile/:id">
-            <Profile />
-          </Route>
-
-          <Route exact path="/types">
-            <TherapyType />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/About" component={About} />
+          <Route exact path="/glossary" component={Glossary} />
+          <Route exact path="/profile/:id" component={Profile} />
+          <Route exact path="/types" component={TherapyType} />
         </Switch>
       </main>
     </BrowserRouter>
