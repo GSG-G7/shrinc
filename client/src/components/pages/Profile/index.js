@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Icon, Avatar } from 'antd';
+import propTypes from 'prop-types';
+
 import axios from 'axios';
 
 import AvailableityTime from '../../common/AvailabilityTime';
@@ -14,7 +16,7 @@ class Profile extends Component {
 
   async componentDidMount() {
     try {
-      const profileData = await axios.get('/api/v1/profile/recZoOgsH458Jl04m');
+      const profileData = await axios.get('/api/v1/profile/recdtkQcpFYqHFYzZ');
       const {
         data: {
           data: { fields },
@@ -22,7 +24,15 @@ class Profile extends Component {
       } = profileData;
       this.setState({ profileData: fields });
     } catch (err) {
-      // console.log(err.statusCode); // need to handle
+      const { history } = this.props;
+      const error500 = err.message.includes('500');
+      const error404 = err.message.includes('404');
+
+      if (error500) {
+        history.push('/500');
+      } else if (error404) {
+        history.push('/404');
+      }
     }
   }
 
@@ -36,14 +46,17 @@ class Profile extends Component {
           email,
           fullName,
           image,
-          // is_valid: isValid,
           postCode,
           priceRange,
           remote,
           skype,
-          types,
+          insurance,
+          language,
+          approch,
+          type,
         },
       } = this.state;
+
       return (
         <section className="font">
           <section className="profile_card_container">
@@ -57,8 +70,8 @@ class Profile extends Component {
               />
               <div className="profile_card_b">
                 <h1 className="profile_username">{fullName}</h1>
-                <h4 className="profile_user_info">therapy Approach</h4>
-                <h4 className="profile_user_info">{types}</h4>
+                <h4 className="profile_user_info">{approch}</h4>
+                <h4 className="profile_user_info">{type}</h4>
               </div>
             </div>
             <div className="profile_card_fees">
@@ -80,15 +93,33 @@ class Profile extends Component {
           </section>
           <section className="profile_contact_container">
             <h2>
+              <Icon type="safety-certificate" /> Insurance
+            </h2>
+            <div className="profile_contact_info">
+              <p>{insurance}</p>
+            </div>
+            <h2>
+              <Icon type="read" /> Languages
+            </h2>
+            <div className="profile_contact_info">
+              <p>{JSON.parse(language).map(item => `${item}, `)}</p>
+            </div>
+          </section>
+          <section className="profile_contact_container">
+            <h2>
               <Icon type="phone" /> Contact Info
             </h2>
             <div className="profile_contact_info">
               <h4>Email</h4>
               <p>{email}</p>
-              <h4>Phone</h4>
-              <p>059797000</p>
-              <h4>Skype</h4>
-              <p>{skype}</p>
+              {skype ? (
+                <>
+                  <h4>Skype</h4>
+                  <p>{skype}</p>
+                </>
+              ) : (
+                ''
+              )}
             </div>
           </section>
           <Location
@@ -106,5 +137,7 @@ class Profile extends Component {
     return <div>{this.renderCode()}</div>;
   }
 }
-
+Profile.propTypes = {
+  history: propTypes.objectOf(propTypes.object).isRequired,
+};
 export default Profile;
