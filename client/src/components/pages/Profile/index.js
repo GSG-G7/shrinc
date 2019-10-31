@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Icon, Avatar } from 'antd';
-import propTypes from 'prop-types';
-
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import AvailableityTime from '../../common/AvailabilityTime';
 import Location from '../../common/Location';
-
 import './style.css';
 
 class Profile extends Component {
@@ -15,22 +13,27 @@ class Profile extends Component {
   };
 
   async componentDidMount() {
+    const { history } = this.props;
     try {
-      const profileData = await axios.get('/api/v1/profile/recdtkQcpFYqHFYzZ');
+      const {
+        match: {
+          params: { id },
+        },
+      } = this.props;
+
+      const profileData = await axios.get(`/api/v1/profile/${id}`);
       const {
         data: {
           data: { fields },
         },
       } = profileData;
+
       this.setState({ profileData: fields });
     } catch (err) {
-      const { history } = this.props;
       const error500 = err.message.includes('500');
-      const error404 = err.message.includes('404');
-
       if (error500) {
         history.push('/500');
-      } else if (error404) {
+      } else {
         history.push('/404');
       }
     }
@@ -138,6 +141,12 @@ class Profile extends Component {
   }
 }
 Profile.propTypes = {
-  history: propTypes.objectOf(propTypes.object).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+
+  match: PropTypes.shape({
+    params: PropTypes.objectOf(PropTypes.string),
+  }).isRequired,
 };
 export default Profile;

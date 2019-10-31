@@ -10,10 +10,10 @@ const Available = ({ availableityTime }) => {
 
   const tableData = time
     .filter(item => item.from && item.to)
-    .map((elem, index) => ({
-      day: elem.day,
-      from: elem.from,
-      to: elem.to,
+    .map((element, index) => ({
+      day: element.day,
+      from: element.from,
+      to: element.to,
       key: index,
     }));
   return (
