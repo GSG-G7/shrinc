@@ -13,6 +13,7 @@ import {
 import axios from 'axios';
 
 import Avalibility from '../../common/availabilityTable';
+import staticData from './staticData';
 import './style.css';
 
 class SignupForm extends Component {
@@ -100,16 +101,7 @@ class SignupForm extends Component {
     const {
       form: { getFieldDecorator },
     } = this.props;
-    const languages = ['arabic', 'english', 'spanish', 'french'];
-    const prices = [
-      '£40-60',
-      '£60-80',
-      '£80-100',
-      '£100-130',
-      '£130-160',
-      '£160+',
-    ];
-
+    const { languages, prices } = staticData;
     return (
       <div className="signup-page">
         <h2 className="signup-page__title">Therapist Signup</h2>
@@ -187,6 +179,10 @@ class SignupForm extends Component {
                   required: true,
                   message: 'Please input your city!',
                 },
+                {
+                  min: 3,
+                  message: 'at least 3 character',
+                },
               ],
             })(<Input placeholder="Enter your city" />)}
           </Form.Item>
@@ -218,7 +214,9 @@ class SignupForm extends Component {
             })(
               <Select placeholder="Select a range" onChange={this.handlePrice}>
                 {prices.map(price => (
-                  <Option value={price}>{price}</Option>
+                  <Option value={price} key={price}>
+                    {price}
+                  </Option>
                 ))}
               </Select>
             )}
@@ -241,18 +239,18 @@ class SignupForm extends Component {
               rules: [
                 {
                   required: true,
-                  message: 'Please input your language!',
+                  message: 'Please select your languages!',
                 },
               ],
             })(
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="select one country"
+                placeholder="select your country"
                 optionLabelProp="label"
               >
                 {languages.map(language => (
-                  <Option value={language} label={language}>
+                  <Option value={language} label={language} key={language}>
                     {language}
                   </Option>
                 ))}
@@ -284,7 +282,7 @@ class SignupForm extends Component {
                 },
                 {
                   max: 200,
-                  message: 'should be 200 words as a max',
+                  message: 'Maximum 200 characters',
                 },
               ],
             })(<Input.TextArea placeholder="Enter your approch" />)}
