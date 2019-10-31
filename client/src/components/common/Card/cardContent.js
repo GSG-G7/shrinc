@@ -16,7 +16,7 @@ const CardContent = ({ avatar, approach, type, city }) => (
     <div>
       <h3 className="card__type">{type}</h3>
       <h3 className="card__type">{city}</h3>
-      <h2 className="card__approach">{approach} </h2>
+      <h3 className="card__approach">{approach} </h3>
     </div>
   </div>
 );
