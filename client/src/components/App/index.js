@@ -17,8 +17,8 @@ import './style.css';
 export default () => {
   return (
     <BrowserRouter>
+      <Header />
       <main className="container">
-        <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
