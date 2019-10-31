@@ -78,8 +78,8 @@ class SignupForm extends Component {
     callback();
   };
 
-  uploadInput = info => {
-    this.image = info;
+  uploadInput = file => {
+    this.image = file;
   };
 
   handleRemote = checked => {
@@ -100,6 +100,15 @@ class SignupForm extends Component {
     const {
       form: { getFieldDecorator },
     } = this.props;
+    const languages = ['arabic', 'english', 'spanish', 'french'];
+    const prices = [
+      '£40-60',
+      '£60-80',
+      '£80-100',
+      '£100-130',
+      '£130-160',
+      '£160+',
+    ];
 
     return (
       <div className="signup-page">
@@ -182,7 +191,7 @@ class SignupForm extends Component {
             })(<Input placeholder="Enter your city" />)}
           </Form.Item>
           <Form.Item label="Type Of Therapy:">
-            {getFieldDecorator('types', {
+            {getFieldDecorator('type', {
               rules: [
                 {
                   required: true,
@@ -208,10 +217,9 @@ class SignupForm extends Component {
               ],
             })(
               <Select placeholder="Select a range" onChange={this.handlePrice}>
-                <Option value="20-30">20-30</Option>
-                <Option value="30-40">30-40</Option>
-                <Option value="40-50">40-50</Option>
-                <Option value="50-60">50-60</Option>
+                {prices.map(price => (
+                  <Option value={price}>{price}</Option>
+                ))}
               </Select>
             )}
           </Form.Item>
@@ -228,18 +236,28 @@ class SignupForm extends Component {
               ],
             })(<Input placeholder="Enter post code" />)}
           </Form.Item>
-          <Form.Item label="Language spoken:">
+          <Form.Item label="Languages spoken:">
             {getFieldDecorator('language', {
               rules: [
-                {
-                  message: 'The language is not valid!',
-                },
                 {
                   required: true,
                   message: 'Please input your language!',
                 },
               ],
-            })(<Input placeholder="Enter your language" />)}
+            })(
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="select one country"
+                optionLabelProp="label"
+              >
+                {languages.map(language => (
+                  <Option value={language} label={language}>
+                    {language}
+                  </Option>
+                ))}
+              </Select>
+            )}
           </Form.Item>
           <Form.Item label="Health insurance:">
             {getFieldDecorator('insurance', {
