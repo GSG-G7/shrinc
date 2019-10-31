@@ -35,7 +35,7 @@ function App() {
           </Route>
 
           <Route exact path="/profile/:id">
-            {props => <Profile {...props} />}
+            <Profile />
           </Route>
 
           <Route exact path="/types">
