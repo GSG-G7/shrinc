@@ -18,8 +18,8 @@ const Card = therapist => {
           fullName,
           priceRange,
           image,
-          approach = 'approach',
-          types,
+          approach,
+          type,
           city,
         } = therapy.fields;
         return (
@@ -32,7 +32,7 @@ const Card = therapist => {
             <CardContent
               avatar={image[0].url}
               name={fullName}
-              type={types}
+              type={type}
               city={city}
               approach={approach}
             />

@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Avatar } from 'antd';
 
 import './style.css';
@@ -22,10 +22,10 @@ const CardContent = ({ avatar, approach, type, city }) => (
 );
 
 CardContent.propTypes = {
-  avatar: propTypes.string.isRequired,
-  approach: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
-  city: propTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  approach: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
 };
 
 export default CardContent;
