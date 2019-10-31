@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { notification } from 'antd';
+
 import Card from '../../common/Card';
 
 import './style.css';
@@ -18,11 +20,18 @@ export default class ResultsPage extends React.Component {
       const therapist = result.data.data;
       this.setState({ therapist });
       this.setState({ type: types });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
+    } catch (e) {
+      this.openNotificationWithIcon(e);
     }
   }
+
+  openNotificationWithIcon = e => {
+    notification.error({
+      message: 'something wrong !!',
+      description: e.message,
+      duration: 2,
+    });
+  };
 
   render() {
     // eslint-disable-next-line react/destructuring-assignment
