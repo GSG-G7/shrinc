@@ -65,16 +65,15 @@ class BarBrogress extends React.Component {
     return (
       <Form
         onSubmit={this.handleSubmit}
-        className="signup-page__form"
+        className="Questionary__form"
         {...this.props}
       >
-        <Steps current={current} {...this.props}>
+        <Steps current={current}>
           {steps.map(item => {
             return (
               <Step
                 key={item.title}
                 title={item.title}
-                {...this.props}
                 description={item.description}
                 subTitle={item.subTitle}
               />
