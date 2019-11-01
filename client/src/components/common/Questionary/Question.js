@@ -11,9 +11,9 @@ const Question = props => {
       {options[id].question && <h1>{options[id].question}</h1>}
 
       <Radio.Group key={keyValue} onChange={onChange} value={value}>
-        {options[id].answers.map((e, index) => (
-          <Radio value={`${index}`} id={id} key={`${e}`}>
-            {e}
+        {options[id].answers.map((answer, index) => (
+          <Radio value={index} id={id} key={answer}>
+            {answer}
           </Radio>
         ))}
       </Radio.Group>
