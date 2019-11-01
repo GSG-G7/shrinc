@@ -4,6 +4,7 @@ import './style.css';
 import { Form, Steps, Button, message } from 'antd';
 import renderSteps from './renderSteps';
 import options from './qustionsStatic';
+import rateHighestTypeTherapy from '../../../utils';
 
 const { Step } = Steps;
 
@@ -20,6 +21,7 @@ class BarBrogress extends React.Component {
       Q7: '0',
       Q8: '0',
     },
+    messageForUser: '',
   };
 
   onChange = e => {
@@ -31,7 +33,14 @@ class BarBrogress extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    const { value: answers } = this.state;
+    const suitableThirapy = rateHighestTypeTherapy(answers);
+    const messageAfterQuestionnaire = `the suitable type of thirapies for you is 
+    ${suitableThirapy.join(' ')}`;
+    this.setState(prevState => ({
+      ...prevState,
+      messageForUser: messageAfterQuestionnaire,
+    }));
   };
 
   next() {
@@ -52,7 +61,7 @@ class BarBrogress extends React.Component {
       state: this.state,
       options,
     });
-    const { current } = this.state;
+    const { current, messageForUser } = this.state;
     return (
       <Form
         onSubmit={this.handleSubmit}
@@ -82,7 +91,7 @@ class BarBrogress extends React.Component {
           {current === steps.length - 1 && (
             <Button
               htmlType="submit"
-              onClick={() => message.success('Processing complete!')}
+              onClick={() => message.success(messageForUser)}
             >
               Done
             </Button>
