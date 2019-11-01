@@ -27,7 +27,7 @@
         transform:rotate(90deg);
     }
 
-    .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+.ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
         top: -10px;
         left: 0;
     }
