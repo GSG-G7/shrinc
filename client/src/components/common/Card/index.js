@@ -18,10 +18,11 @@ const Card = therapist => {
           fullName,
           priceRange,
           image,
-          approach,
-          type,
+          approach = 'approach',
+          types,
           city,
         } = therapy.fields;
+        const TherapistId = therapy.id;
         return (
           <Panel
             header={fullName}
@@ -32,9 +33,11 @@ const Card = therapist => {
             <CardContent
               avatar={image[0].url}
               name={fullName}
-              type={type}
+              type={types}
               city={city}
               approach={approach}
+              props={therapist.props}
+              id={TherapistId}
             />
           </Panel>
         );

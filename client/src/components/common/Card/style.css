@@ -51,11 +51,13 @@
 .card__type {
     font-size: 14px;
 }
+
 .ant-collapse-item ,
 .ant-collapse-item-active,
  .card__header {
     background-color: #C4C4C4 !important;
 }
+
 .ant-collapse-header,
 .ant-collapse-content,
 .ant-collapse-content-active {

@@ -49,7 +49,7 @@ export default class ResultsPage extends React.Component {
               therapists specializing in:
             </h3>
             <div className="Results__TherapistsNames__Cards">
-              <Card data={therapist} />
+              <Card data={therapist} props={this.props} />
             </div>
           </div>
         </div>
