@@ -21,9 +21,10 @@ const CardContent = ({ avatar, approach, type }) => (
 );
 
 CardContent.defaultProps = {
-  avatar: 'sad',
-  approach: 'ads',
-  type: 'propTypes.string',
+  avatar:
+    'https://cdn.pixabay.com/photo/2016/11/08/15/21/user-1808597_960_720.png',
+  approach: 'Therapy Approach',
+  type: 'CBT therapy',
 };
 
 CardContent.propTypes = {
