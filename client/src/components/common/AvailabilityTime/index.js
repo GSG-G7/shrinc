@@ -1,12 +1,25 @@
 import React from 'react';
 import { Icon, Table } from 'antd';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import columns from './colomn';
 import './style.css';
 
 const Available = ({ availableityTime }) => {
-  const tableData = availableityTime.filter(item => item.from && item.to);
+  const time = JSON.parse(availableityTime);
+  const filteredTimes = (accumulator, item) => {
+    if (item.from && item.to) {
+      accumulator.push({
+        day: item.day,
+        from: item.from,
+        to: item.to,
+        key: item.day,
+      });
+    }
+    return accumulator;
+  };
+  const newAvailableTime = time.reduce(filteredTimes, []);
+
   return (
     <section className="Available_contailner">
       <h2>
@@ -14,7 +27,7 @@ const Available = ({ availableityTime }) => {
       </h2>
       <Table
         key="table"
-        dataSource={tableData}
+        dataSource={newAvailableTime}
         columns={columns}
         className="Availabile_table"
       />
@@ -23,13 +36,7 @@ const Available = ({ availableityTime }) => {
 };
 
 Available.propTypes = {
-  availableityTime: propTypes.arrayOf(
-    propTypes.shape({
-      day: propTypes.string.isRequired,
-      from: propTypes.string.isRequired,
-      to: propTypes.string.isRequired,
-    })
-  ).isRequired,
+  availableityTime: PropTypes.string.isRequired,
 };
 
 export default Available;

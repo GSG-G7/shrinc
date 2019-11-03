@@ -8,7 +8,8 @@
     "lint": "eslint server",
     "lint:react": "cd client/ && npm run lint",
     "start": "NODE_ENV=production node ./server",
-    "dev": "NODE_ENV=development nodemon ./server"
+    "dev": "NODE_ENV=development nodemon ./server",
+    "heroku-postbuild": "cd client && npm i && npm run build"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "express-form-data": "^2.0.10",
     "jsonwebtoken": "^8.5.1",
     "typescript": "^3.6.4",
     "yup": "^0.27.0"
