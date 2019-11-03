@@ -11,6 +11,7 @@ const genExtra = price => (
 );
 
 const Card = therapist => {
+  if (!therapist.data.length) return <h1>Loading</h1>;
   return (
     <Collapse accordion>
       {therapist.data.map(therapy => {
