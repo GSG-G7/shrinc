@@ -13,6 +13,7 @@ const genExtra = price => (
 
 const Card = ({ data }) => (
   <Collapse accordion>
+    {console.log(data)}
     {data.map(
       ({
         fields: { image: avatar, fullName: name, approach, type, priceRange },

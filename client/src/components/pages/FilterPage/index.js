@@ -14,7 +14,10 @@ class FilterPage extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/intial');
-    this.setState(prevState => ({ ...prevState, data: result.data.data }));
+    this.setState(
+      prevState => ({ ...prevState, data: result.data.data }),
+      () => console.log(this.state)
+    );
   };
 
   openNotificationWithIcon = error => {
@@ -36,6 +39,7 @@ class FilterPage extends Component {
 
   render() {
     const { data } = this.state;
+    if (!data.length) return <h3>Loding...</h3>;
     return (
       <div className="Filter-page__container">
         <h1 className="filter__title">Find approprate therapy: </h1>

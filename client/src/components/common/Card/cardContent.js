@@ -20,17 +20,10 @@ const CardContent = ({ avatar, approach, type }) => (
   </div>
 );
 
-CardContent.defaultProps = {
-  avatar:
-    'https://cdn.pixabay.com/photo/2016/11/08/15/21/user-1808597_960_720.png',
-  approach: 'Therapy Approach',
-  type: 'CBT therapy',
-};
-
 CardContent.propTypes = {
-  avatar: propTypes.string,
-  approach: propTypes.string,
-  type: propTypes.string,
+  avatar: propTypes.string.isRequired,
+  approach: propTypes.string.isRequired,
+  type: propTypes.string.isRequired,
 };
 
 export default CardContent;
