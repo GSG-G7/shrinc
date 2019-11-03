@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/signup', signup);
 router.get('/intial', intialResult);
-router.get('/filter', filter);
+router.post('/filter', filter);
 router.get('/profile/:id', profile);
 router.use(clientError);
 

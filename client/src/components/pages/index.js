@@ -6,6 +6,7 @@ import Header from '../common/Header';
 import Signup from './Signup';
 import About from './About';
 import Home from './Home';
+import Results from './Results';
 
 export {
   TherapyType,
@@ -16,4 +17,5 @@ export {
   Signup,
   About,
   Home,
+  Results,
 };
