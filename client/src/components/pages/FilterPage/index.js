@@ -13,15 +13,14 @@ class FilterPage extends Component {
   };
 
   componentDidMount = async () => {
-    const { data } = this.state;
-    const result = await axios.post('/api/v1/filter', { data: { ...data } });
+    const result = await axios.get('/api/v1/intial');
     this.setState(prevState => ({ ...prevState, data: result.data.data }));
   };
 
-  openNotificationWithIcon = e => {
+  openNotificationWithIcon = error => {
     notification.error({
       message: 'somthing wrong !!',
-      description: e.message,
+      description: error.message,
       duration: 3,
     });
   };
@@ -30,8 +29,8 @@ class FilterPage extends Component {
     try {
       const result = await axios.post('/api/v1/filter', { data: { ...data } });
       this.setState(prevState => ({ ...prevState, data: result.data.data }));
-    } catch (e) {
-      this.openNotificationWithIcon(e);
+    } catch (error) {
+      this.openNotificationWithIcon(error);
     }
   };
 
