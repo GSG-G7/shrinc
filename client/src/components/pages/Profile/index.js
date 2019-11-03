@@ -9,7 +9,7 @@ import './style.css';
 
 class Profile extends Component {
   state = {
-    profileData: {},
+    profileData: '',
   };
 
   async componentDidMount() {
