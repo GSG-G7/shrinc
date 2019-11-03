@@ -7,15 +7,16 @@ import './style.css';
 
 const Available = ({ availableityTime }) => {
   const time = JSON.parse(availableityTime);
+  const addKeyForEveryOpject = element => ({
+    day: element.day,
+    from: element.from,
+    to: element.to,
+    key: element.day,
+  });
+  const removeEmptyDays = item => item.from && item.to;
 
-  const tableData = time
-    .filter(item => item.from && item.to)
-    .map((element, index) => ({
-      day: element.day,
-      from: element.from,
-      to: element.to,
-      key: index,
-    }));
+  const tableData = time.filter(removeEmptyDays).map(addKeyForEveryOpject);
+
   return (
     <section className="Available_contailner">
       <h2>
