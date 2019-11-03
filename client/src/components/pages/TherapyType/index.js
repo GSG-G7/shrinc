@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse, Icon } from 'antd';
+import { Helmet } from 'react-helmet';
 
 import typesData from './staticData';
 import './style.css';
@@ -16,6 +17,9 @@ const TherapyType = () => {
   };
   return (
     <section className="types-page">
+      <Helmet>
+        <title>Therapy Types</title>
+      </Helmet>
       <h2 className="types-page__title">Types of Therapy</h2>
       <Collapse
         accordion

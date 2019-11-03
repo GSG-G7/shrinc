@@ -1,10 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import './style.css';
 
 const About = () => {
   return (
     <section className="about-page">
+      <Helmet>
+        <title>About</title>
+      </Helmet>
       <h2 className="about-page__title">About us</h2>
       <ul>
         <li className="about-page__point">

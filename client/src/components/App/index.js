@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import {
   TherapyType,
@@ -22,6 +23,9 @@ export default () => {
       <Header />
 
       <main className="container">
+        <Helmet>
+          <title>Shrinc</title>
+        </Helmet>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/result" component={Results} />
