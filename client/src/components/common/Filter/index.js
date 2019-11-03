@@ -30,7 +30,7 @@ class Filter extends Component {
     return (
       <Form onSubmit={this.handleSubmit} className="filter__form">
         <Form.Item label="Type of therapy">
-          {getFieldDecorator('types')(
+          {getFieldDecorator('type')(
             <Select>
               {types.map(type => (
                 <Option value={type} key={type}>
