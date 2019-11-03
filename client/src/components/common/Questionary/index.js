@@ -75,14 +75,8 @@ class BarBrogress extends React.Component {
       >
         <Steps current={current}>
           {steps.map(item => {
-            return (
-              <Step
-                key={item.title}
-                title={item.title}
-                description={item.description}
-                subTitle={item.subTitle}
-              />
-            );
+            console.log(item.content.props.id);
+            return <Step key={item.content.props.id} />;
           })}
         </Steps>
         <div className="steps-content">{steps[current].content}</div>

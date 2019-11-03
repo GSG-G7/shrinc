@@ -5,15 +5,13 @@ const renderSteps = ({ onChange, state, options }) => [
   {
     title: '',
     content: (
-      <>
-        <Q
-          keyValue="q1"
-          onChange={onChange}
-          value={state.value.Q1}
-          options={options}
-          id="Q1"
-        />
-      </>
+      <Q
+        keyValue="q1"
+        onChange={onChange}
+        value={state.value.Q1}
+        options={options}
+        id="Q1"
+      />
     ),
   },
   {
