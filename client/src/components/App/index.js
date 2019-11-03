@@ -10,6 +10,7 @@ import {
   Signup,
   About,
   Home,
+  Results,
 } from '../pages';
 import 'antd/dist/antd.css';
 import './style.css';
@@ -18,9 +19,11 @@ export default () => {
   return (
     <BrowserRouter>
       <Header />
+
       <main className="container">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/result" component={Results} />
           <Route path="/signup" component={Signup} />
           <Route path="/About" component={About} />
           <Route path="/glossary" component={Glossary} />

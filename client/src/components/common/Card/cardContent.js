@@ -1,29 +1,48 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Avatar } from 'antd';
 
 import './style.css';
 
-const CardContent = ({ avatar, approach, type }) => (
-  <div className="card__content">
-    <Avatar
-      shape="circle"
-      src={avatar}
-      size={100}
-      icon="user"
-      className="card__photo"
-    />
-    <div>
-      <h2 className="card__approach">{approach} </h2>
-      <h3 className="card__type">{type}</h3>
-    </div>
-  </div>
-);
+export default class CardContent extends React.Component {
+  handleClick = id => {
+    const {
+      props: { history },
+    } = this.props;
+    history.push(`/profile/${id}`);
+  };
+
+  render() {
+    const { image, approach, type, city, id } = this.props;
+    return (
+      <div
+        role="button"
+        tabIndex={0}
+        className="card__content"
+        onClick={() => this.handleClick(id)}
+      >
+        <Avatar
+          shape="circle"
+          src={image}
+          size={100}
+          icon="user"
+          className="card__photo"
+        />
+        <div>
+          <h3 className="card__type">{type}</h3>
+          <h3 className="card__type">{city}</h3>
+          <h3 className="card__approach">{approach} </h3>
+        </div>
+      </div>
+    );
+  }
+}
 
 CardContent.propTypes = {
-  avatar: propTypes.string.isRequired,
-  approach: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  approach: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  props: PropTypes.objectOf(PropTypes.object).isRequired,
+  id: PropTypes.string.isRequired,
 };
-
-export default CardContent;
