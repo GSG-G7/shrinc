@@ -6,16 +6,16 @@ import { Avatar } from 'antd';
 import './style.css';
 
 export default class CardContent extends React.Component {
-  handleClick = (props, id) => {
-    setTimeout(() => {
-      props.history.push(`/profile/${id}`);
-    }, 1000);
+  handleClick = () => {
+    const { id } = this.props;
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.props.history.push(`/profile/${id}`);
   };
 
   render() {
-    const { image, approach, type, city, props, id } = this.props;
+    const { image, approach, type, city } = this.props;
     return (
-      <div className="card__content" onClick={this.handleClick(props, id)}>
+      <div className="card__content" onClick={this.handleClick}>
         <Avatar
           shape="circle"
           src={image}
