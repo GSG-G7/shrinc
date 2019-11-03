@@ -18,7 +18,7 @@ const Card = therapist => {
           fullName,
           priceRange,
           image,
-          approach = 'approach',
+          approach,
           types,
           city,
         } = therapy.fields;
@@ -30,15 +30,17 @@ const Card = therapist => {
             extra={genExtra(priceRange)}
             className="card__header"
           >
-            <CardContent
-              avatar={image[0].url}
-              name={fullName}
-              type={types}
-              city={city}
-              approach={approach}
-              props={therapist.props}
-              id={TherapistId}
-            />
+            {therapist && (
+              <CardContent
+                avatar={image[0].url}
+                name={fullName}
+                type={types}
+                city={city}
+                approach={approach}
+                props={therapist.props}
+                id={TherapistId}
+              />
+            )}
           </Panel>
         );
       })}

@@ -6,16 +6,15 @@ import { Avatar } from 'antd';
 import './style.css';
 
 export default class CardContent extends React.Component {
-  handleClick = () => {
-    const { id } = this.props;
+  handleClick = id => {
     // eslint-disable-next-line react/destructuring-assignment
     this.props.props.history.push(`/profile/${id}`);
   };
 
   render() {
-    const { image, approach, type, city } = this.props;
+    const { image, approach, type, city, id } = this.props;
     return (
-      <div className="card__content" onClick={this.handleClick}>
+      <div className="card__content" onClick={() => this.handleClick(id)}>
         <Avatar
           shape="circle"
           src={image}
@@ -38,6 +37,6 @@ CardContent.propTypes = {
   approach: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  props: PropTypes.isRequired,
-  id: PropTypes.isRequired,
+  props: PropTypes.objectOf(PropTypes.object).isRequired,
+  id: PropTypes.string.isRequired,
 };

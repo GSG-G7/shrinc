@@ -8,7 +8,7 @@ import './style.css';
 
 export default class ResultsPage extends React.Component {
   state = {
-    therapist: [],
+    therapist: null,
     type: '',
   };
 
@@ -18,8 +18,7 @@ export default class ResultsPage extends React.Component {
         data: { types },
       });
       const therapist = result.data.data;
-      this.setState({ therapist });
-      this.setState({ type: types });
+      this.setState({ therapist, type: types });
     } catch (e) {
       this.openNotificationWithIcon(e);
     }
@@ -49,7 +48,7 @@ export default class ResultsPage extends React.Component {
               therapists specializing in:
             </h3>
             <div className="Results__TherapistsNames__Cards">
-              <Card data={therapist} props={this.props} />
+              {therapist && <Card data={therapist} props={this.props} />}
             </div>
           </div>
         </div>
