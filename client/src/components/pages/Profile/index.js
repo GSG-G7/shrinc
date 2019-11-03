@@ -114,13 +114,11 @@ class Profile extends Component {
           <div className="profile_contact_info">
             <h4>Email</h4>
             <p>{email}</p>
-            {skype ? (
-              <>
+            {skype && (
+              <React.Fragment>
                 <h4>Skype</h4>
                 <p>{skype}</p>
-              </>
-            ) : (
-              ''
+              </React.Fragment>
             )}
           </div>
         </section>
