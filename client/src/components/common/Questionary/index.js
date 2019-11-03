@@ -75,7 +75,6 @@ class BarBrogress extends React.Component {
       >
         <Steps current={current}>
           {steps.map(item => {
-            console.log(item.content.props.id);
             return <Step key={item.content.props.id} />;
           })}
         </Steps>
