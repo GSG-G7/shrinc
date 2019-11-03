@@ -74,6 +74,16 @@ const options = {
       'A source of unconditional support',
     ],
   },
+  Q9: {
+    question:
+      '9.My difficulties are mostly related to one or more traumatic events in my life, that is/are still very much alive in my thoughts',
+    answers: ['Yes', 'No'],
+  },
+  Q10: {
+    question:
+      '10.I know already that main main problem is a phobia (strong anxiety about a thing or situation that causes me to avoid it) and I would like to focus on treating this symptom in a short time',
+    answers: ['Yes', 'No'],
+  },
 };
 
 export default options;

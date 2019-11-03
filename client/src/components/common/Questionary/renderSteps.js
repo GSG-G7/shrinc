@@ -100,6 +100,30 @@ const renderSteps = ({ onChange, state, options }) => [
       />
     ),
   },
+  {
+    title: '',
+    content: (
+      <Q
+        keyValue="q9"
+        onChange={onChange}
+        value={state.value.Q10}
+        options={options}
+        id="Q9"
+      />
+    ),
+  },
+  {
+    title: '',
+    content: (
+      <Q
+        keyValue="q10"
+        onChange={onChange}
+        value={state.value.Q10}
+        options={options}
+        id="Q10"
+      />
+    ),
+  },
 ];
 
 export default renderSteps;

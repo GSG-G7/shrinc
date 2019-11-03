@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Radio } from 'antd';
 
@@ -7,7 +7,7 @@ import './style.css';
 const Question = props => {
   const { onChange, options, id, value, keyValue } = props;
   return (
-    <>
+    <Fragment>
       {options[id].question && <h1>{options[id].question}</h1>}
 
       <Radio.Group key={keyValue} onChange={onChange} value={value}>
@@ -17,7 +17,7 @@ const Question = props => {
           </Radio>
         ))}
       </Radio.Group>
-    </>
+    </Fragment>
   );
 };
 

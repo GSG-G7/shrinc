@@ -22,6 +22,8 @@ class BarBrogress extends React.Component {
       Q6: '0',
       Q7: '0',
       Q8: '0',
+      Q9: '0',
+      Q10: '0',
     },
     messageForUser: 'Done',
   };

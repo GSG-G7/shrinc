@@ -54,6 +54,14 @@ const ratesForAllQusetions = [
     { CBT: 0, PD: 0, Hu: 0, In: 0, C: 0, STPD: 0 },
     { CBT: 0, PD: 0, Hu: 0, In: 0, C: 0, STPD: 0 },
   ],
+  [
+    { CBT: 5, PD: 5, Hu: 3, In: 4, C: 3, STPD: 0 },
+    { CBT: 4, PD: 4, Hu: 4, In: 4, C: 4, STPD: 4 },
+  ],
+  [
+    { CBT: 10, PD: 2, Hu: 2, In: 3, C: 2, STPD: 0 },
+    { CBT: 4, PD: 4, Hu: 4, In: 4, C: 4, STPD: 4 },
+  ],
 ];
 
 export default ratesForAllQusetions;
