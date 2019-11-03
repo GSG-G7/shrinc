@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './style.css';
 import { Form, Steps, Button, message } from 'antd';
@@ -32,15 +34,22 @@ class BarBrogress extends React.Component {
   };
 
   handleSubmit = e => {
+    const {
+      history: { push },
+    } = this.props;
     e.preventDefault();
     const { value: answers } = this.state;
-    const suitableThirapy = rateHighestTypeTherapy(answers);
-    const messageAfterQuestionnaire = `the suitable type of thirapies for you is 
-    ${suitableThirapy.join(' ')}`;
+    const resultPoints = rateHighestTypeTherapy(answers);
+    const messageAfterQuestionnaire = `the suitable type of thirapies for you is `;
+    // ${suitableThirapy.join(' ')}`;
     this.setState(prevState => ({
       ...prevState,
       messageForUser: messageAfterQuestionnaire,
     }));
+    push({
+      pathname: '/signup',
+      state: { resultPoints },
+    });
   };
 
   next() {
@@ -106,4 +115,8 @@ class BarBrogress extends React.Component {
   }
 }
 
-export default BarBrogress;
+BarBrogress.propTypes = {
+  history: PropTypes.objectOf().isRequired,
+};
+
+export default withRouter(BarBrogress);
