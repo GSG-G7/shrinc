@@ -41,7 +41,7 @@ class BarBrogress extends React.Component {
     const { value: answers } = this.state;
     const resultPoints = rateHighestTypeTherapy(answers);
     push({
-      pathname: '/signup',
+      pathname: '/result',
       state: { resultPoints },
     });
   };
