@@ -42,7 +42,7 @@ Card.propTypes = {
       name: PropTypes.string.isRequired,
       approach: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
-      priceRange: PropTypes.number.isRequired,
+      priceRange: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };
