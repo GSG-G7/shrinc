@@ -14,10 +14,7 @@ class FilterPage extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/intial');
-    this.setState(
-      prevState => ({ ...prevState, data: result.data.data }),
-      () => console.log(this.state)
-    );
+    this.setState(prevState => ({ ...prevState, data: result.data.data }));
   };
 
   openNotificationWithIcon = error => {
