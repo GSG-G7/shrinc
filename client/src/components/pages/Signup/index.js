@@ -11,7 +11,7 @@ import {
   Checkbox,
 } from 'antd';
 import axios from 'axios';
-import { Helmet } from 'react-helmet';
+import Helmet from 'react-helmet';
 
 import Avalibility from '../../common/availabilityTable';
 import staticData from './staticData';
