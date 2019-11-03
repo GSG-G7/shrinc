@@ -15,13 +15,7 @@ const Card = ({ data }) => (
   <Collapse accordion>
     {data.map(
       ({
-        fields: {
-          image: avatar,
-          fullName: name,
-          fullName: approach,
-          types: type,
-          priceRange,
-        },
+        fields: { image: avatar, fullName: name, approach, type, priceRange },
       }) => (
         <Panel
           header={name}
