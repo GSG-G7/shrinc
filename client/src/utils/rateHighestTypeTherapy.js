@@ -15,18 +15,7 @@ const rate = answers => {
     }
   });
 
-  const finalResult = [
-    { rate: result.CBT, text: 'CBT' },
-    { rate: result.PD, text: 'PD' },
-    { rate: result.Hu, text: 'Hu' },
-    { rate: result.In, text: 'In' },
-  ];
-
-  const maxValue = Math.max(...finalResult.map(o => o.rate), 0);
-
-  return finalResult
-    .filter(element => element.rate === maxValue)
-    .map(element => element.text);
+  return result;
 };
 
 export default rate;
