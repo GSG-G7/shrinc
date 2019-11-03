@@ -23,7 +23,7 @@ class BarBrogress extends React.Component {
       Q7: '0',
       Q8: '0',
     },
-    messageForUser: '',
+    messageForUser: 'Done',
   };
 
   onChange = e => {
@@ -40,12 +40,6 @@ class BarBrogress extends React.Component {
     e.preventDefault();
     const { value: answers } = this.state;
     const resultPoints = rateHighestTypeTherapy(answers);
-    const messageAfterQuestionnaire = `the suitable type of thirapies for you is `;
-    // ${suitableThirapy.join(' ')}`;
-    this.setState(prevState => ({
-      ...prevState,
-      messageForUser: messageAfterQuestionnaire,
-    }));
     push({
       pathname: '/signup',
       state: { resultPoints },
