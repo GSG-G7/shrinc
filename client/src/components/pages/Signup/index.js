@@ -10,8 +10,10 @@ import {
   Button,
   Checkbox,
 } from 'antd';
+import axios from 'axios';
 
 import Avalibility from '../../common/availabilityTable';
+import staticData from './staticData';
 import './style.css';
 
 class SignupForm extends Component {
@@ -35,14 +37,20 @@ class SignupForm extends Component {
       form: { validateFieldsAndScroll },
     } = this.props;
     const { remote, available } = this.state;
-    validateFieldsAndScroll((err, values) => {
+    validateFieldsAndScroll(async (err, values) => {
       if (!err) {
         const formData = new FormData();
         const data = { ...values };
-        data[remote] = remote;
-        formData.append('data', data);
-        formData.append('avalibility', available);
-        formData.append('image', this.image);
+        data.remote = remote;
+        const file = this.image.state.fileList[0].originFileObj;
+        formData.append('data', JSON.stringify(data));
+        formData.append('avalibility', JSON.stringify(available));
+        formData.append('image', file);
+        await axios.post('/api/v1/signup', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
       }
     });
   };
@@ -93,7 +101,7 @@ class SignupForm extends Component {
     const {
       form: { getFieldDecorator },
     } = this.props;
-
+    const { languages, prices } = staticData;
     return (
       <div className="signup-page">
         <h2 className="signup-page__title">Therapist Signup</h2>
@@ -171,11 +179,15 @@ class SignupForm extends Component {
                   required: true,
                   message: 'Please input your city!',
                 },
+                {
+                  min: 3,
+                  message: 'at least 3 character',
+                },
               ],
             })(<Input placeholder="Enter your city" />)}
           </Form.Item>
           <Form.Item label="Type Of Therapy:">
-            {getFieldDecorator('types', {
+            {getFieldDecorator('type', {
               rules: [
                 {
                   required: true,
@@ -201,10 +213,11 @@ class SignupForm extends Component {
               ],
             })(
               <Select placeholder="Select a range" onChange={this.handlePrice}>
-                <Option value="20-30">20-30</Option>
-                <Option value="30-40">30-40</Option>
-                <Option value="40-50">40-50</Option>
-                <Option value="50-60">50-60</Option>
+                {prices.map(price => (
+                  <Option value={price} key={price}>
+                    {price}
+                  </Option>
+                ))}
               </Select>
             )}
           </Form.Item>
@@ -220,6 +233,59 @@ class SignupForm extends Component {
                 },
               ],
             })(<Input placeholder="Enter post code" />)}
+          </Form.Item>
+          <Form.Item label="Languages spoken:">
+            {getFieldDecorator('language', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please select your languages!',
+                },
+              ],
+            })(
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="select your country"
+                optionLabelProp="label"
+              >
+                {languages.map(language => (
+                  <Option value={language} label={language} key={language}>
+                    {language}
+                  </Option>
+                ))}
+              </Select>
+            )}
+          </Form.Item>
+          <Form.Item label="Health insurance:">
+            {getFieldDecorator('insurance', {
+              rules: [
+                {
+                  message: 'The value is not valid!',
+                },
+                {
+                  required: true,
+                  message: 'Please fill this field',
+                },
+              ],
+            })(<Input placeholder="Health insurance" />)}
+          </Form.Item>
+          <Form.Item label="Approch:">
+            {getFieldDecorator('approch', {
+              rules: [
+                {
+                  message: 'The approch is not valid!',
+                },
+                {
+                  required: true,
+                  message: 'Please input your approch!',
+                },
+                {
+                  max: 200,
+                  message: 'Maximum 200 characters',
+                },
+              ],
+            })(<Input.TextArea placeholder="Enter your approch" />)}
           </Form.Item>
           <Form.Item>
             <Avalibility onChange={this.onChange} />
