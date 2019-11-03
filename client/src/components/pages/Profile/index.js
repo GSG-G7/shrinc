@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icon, Avatar } from 'antd';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 import AvailableityTime from '../../common/AvailabilityTime';
 import Location from '../../common/Location';
@@ -61,6 +62,9 @@ class Profile extends Component {
 
     return (
       <section className="font">
+        <Helmet>
+          <title>Profile</title>
+        </Helmet>
         <section className="profile_card_container">
           <div className="profile_card">
             <Avatar

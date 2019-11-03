@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
+import { Helmet } from 'react-helmet';
 
 import Card from '../../common/Card';
 
@@ -41,6 +42,9 @@ export default class ResultsPage extends React.Component {
     return (
       <>
         <div className="Results">
+          <Helmet>
+            <title>Results</title>
+          </Helmet>
           <div className="Results__TherapyType">
             <h3 className="Results__TherapyType__title">Therapy Type</h3>
             <h4 className="Results__TherapyType__name">{type}</h4>
