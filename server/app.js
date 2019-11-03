@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const { join } = require('path');
 
 const express = require('express');
@@ -23,9 +22,8 @@ app.get('*', (req, res) => {
   res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  console.log('Path', req.path);
-  console.log('Error from 500', err);
   res.status(500).send({ message: 'Internal Server Error', statusCode: 500 });
 });
 
