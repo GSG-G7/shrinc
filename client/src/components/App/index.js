@@ -13,6 +13,7 @@ import {
 } from '../pages';
 import 'antd/dist/antd.css';
 import './style.css';
+import Qustionnarie from '../pages/QuestionaryPage';
 
 export default () => {
   return (
@@ -26,6 +27,7 @@ export default () => {
           <Route path="/glossary" component={Glossary} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route path="/types" component={TherapyType} />
+          <Route path="/qustionnarie" component={Qustionnarie} />
           <Route path="*" component={NotFound} />
         </Switch>
       </main>
