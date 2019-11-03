@@ -50,6 +50,8 @@ class ResultsPage extends React.Component {
       { rate: resultPoints.PD, text: 'PD' },
       { rate: resultPoints.Hu, text: 'Hu' },
       { rate: resultPoints.In, text: 'In' },
+      { rate: resultPoints.In, text: 'C' },
+      { rate: resultPoints.In, text: 'STPD' },
     ];
     const maxValue = Math.max(...finalResult.map(o => o.rate), 0);
     const type = finalResult
