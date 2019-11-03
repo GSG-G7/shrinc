@@ -17,7 +17,10 @@ export default class ResultsPage extends React.Component {
       const result = await axios.post('/api/v1/filter', {
         data: { types },
       });
-      const therapist = result.data.data;
+      // const therapist = result.data.data;
+      const {
+        data: { data: therapist },
+      } = result;
       this.setState({ therapist, type: types });
     } catch (e) {
       this.openNotificationWithIcon(e);
@@ -48,7 +51,11 @@ export default class ResultsPage extends React.Component {
               therapists specializing in:
             </h3>
             <div className="Results__TherapistsNames__Cards">
-              {therapist && <Card data={therapist} props={this.props} />}
+              {!therapist ? (
+                <h1>Loading</h1>
+              ) : (
+                <Card data={therapist} props={this.props} />
+              )}
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar } from 'antd';
@@ -7,14 +6,21 @@ import './style.css';
 
 export default class CardContent extends React.Component {
   handleClick = id => {
-    // eslint-disable-next-line react/destructuring-assignment
-    this.props.props.history.push(`/profile/${id}`);
+    const {
+      props: { history },
+    } = this.props;
+    history.push(`/profile/${id}`);
   };
 
   render() {
     const { image, approach, type, city, id } = this.props;
     return (
-      <div className="card__content" onClick={() => this.handleClick(id)}>
+      <div
+        role="button"
+        tabIndex={0}
+        className="card__content"
+        onClick={() => this.handleClick(id)}
+      >
         <Avatar
           shape="circle"
           src={image}

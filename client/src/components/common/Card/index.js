@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Collapse } from 'antd';
 
 import CardContent from './cardContent';
@@ -10,20 +11,19 @@ const genExtra = price => (
   <span className="card__price">{price} $/Session</span>
 );
 
-const Card = therapist => {
-  if (!therapist.data.length) return <h1>Loading</h1>;
+const Card = ({ data, props }) => {
   return (
     <Collapse accordion>
-      {therapist.data.map(therapy => {
+      {data.map(therapy => {
         const {
           fullName,
           priceRange,
           image,
-          approach,
-          types,
+          approch,
+          type,
           city,
         } = therapy.fields;
-        const TherapistId = therapy.id;
+        const { id } = therapy;
         return (
           <Panel
             header={fullName}
@@ -31,21 +31,23 @@ const Card = therapist => {
             extra={genExtra(priceRange)}
             className="card__header"
           >
-            {therapist && (
-              <CardContent
-                avatar={image[0].url}
-                name={fullName}
-                type={types}
-                city={city}
-                approach={approach}
-                props={therapist.props}
-                id={TherapistId}
-              />
-            )}
+            <CardContent
+              image={image[0].url}
+              name={fullName}
+              type={type}
+              city={city}
+              approach={approch}
+              props={props}
+              id={id}
+            />
           </Panel>
         );
       })}
     </Collapse>
   );
+};
+Card.propTypes = {
+  props: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 export default Card;
