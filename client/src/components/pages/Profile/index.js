@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 
 import AvailableityTime from '../../common/AvailabilityTime';
 import Location from '../../common/Location';
+import Loader from '../../common/Loader';
 import './style.css';
 
 class Profile extends Component {
@@ -41,7 +42,7 @@ class Profile extends Component {
 
   renderCode = () => {
     const { profileData } = this.state;
-    if (!profileData) return 'loading';
+    if (!profileData) return <Loader />;
     const {
       profileData: {
         avalibility,
