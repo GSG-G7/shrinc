@@ -47,7 +47,9 @@ class FilterResult extends Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <ul>{Object.keys(resultPoints).map(this.showPoint)}</ul>
+          <ul className="result__list">
+            {Object.keys(resultPoints).map(this.showPoint)}
+          </ul>
         </Modal>
       </div>
     );
