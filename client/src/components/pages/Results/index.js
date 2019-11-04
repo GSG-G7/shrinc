@@ -4,9 +4,7 @@ import { notification } from 'antd';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
-import Card from '../../common/Card';
-import Loader from '../../common/Loader';
-import FilterResult from '../../common/FilterResult';
+import { FilterResult, Card, Loader } from '../../common';
 
 import './style.css';
 
