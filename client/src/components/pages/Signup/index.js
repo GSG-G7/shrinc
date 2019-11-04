@@ -274,15 +274,15 @@ class SignupForm extends Component {
               ],
             })(<Input placeholder="Health insurance" />)}
           </Form.Item>
-          <Form.Item label="Approch:">
+          <Form.Item label="Approach:">
             {getFieldDecorator('approch', {
               rules: [
                 {
-                  message: 'The approch is not valid!',
+                  message: 'The approach is not valid!',
                 },
                 {
                   required: true,
-                  message: 'Please input your approch!',
+                  message: 'Please input your approach!',
                 },
                 {
                   max: 200,
