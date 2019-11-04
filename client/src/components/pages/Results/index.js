@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
 import { Helmet } from 'react-helmet';
@@ -81,31 +81,29 @@ class ResultsPage extends React.Component {
       },
     } = this.props;
     return (
-      <Fragment>
-        <div className="Results">
-          <FilterResult resultPoints={resultPoints} />
-          <Helmet>
-            <title>Results</title>
-          </Helmet>
-          <div className="Results__TherapyType">
-            <h3 className="Results__TherapyType__title">Therapy Type</h3>
-            <h4 className="Results__TherapyType__name">{type.join(' and ')}</h4>
-          </div>
-          <div className="Results__TherapistsNames">
-            <h3 className="Results__TherapistsNames__suggest">
-              According to your answers, we would suggest that you search for
-              therapists specializing in:
-            </h3>
-            <div className="Results__TherapistsNames__Cards">
-              {!therapist.length ? (
-                <h1>Loading</h1>
-              ) : (
-                <Card data={therapist} props={this.props} />
-              )}
-            </div>
+      <div className="Results">
+        <FilterResult resultPoints={resultPoints} />
+        <Helmet>
+          <title>Results</title>
+        </Helmet>
+        <div className="Results__TherapyType">
+          <h3 className="Results__TherapyType__title">Therapy Type</h3>
+          <h4 className="Results__TherapyType__name">{type.join(' and ')}</h4>
+        </div>
+        <div className="Results__TherapistsNames">
+          <h3 className="Results__TherapistsNames__suggest">
+            According to your answers, we would suggest that you search for
+            therapists specializing in:
+          </h3>
+          <div className="Results__TherapistsNames__Cards">
+            {!therapist.length ? (
+              <h1>Loading</h1>
+            ) : (
+              <Card data={therapist} props={this.props} />
+            )}
           </div>
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
