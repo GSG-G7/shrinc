@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import Card from '../../common/Card';
 import FilterResult from '../../common/FilterResult';
+import Loader from '../../common/Loader';
 
 import './style.css';
 
@@ -13,6 +14,7 @@ class ResultsPage extends React.Component {
   state = {
     therapist: [],
     type: [],
+    noResult: '',
   };
 
   async componentDidMount() {
@@ -30,10 +32,14 @@ class ResultsPage extends React.Component {
         const {
           data: { data: therapist },
         } = result;
-        this.setState(prevState => ({
-          ...prevState,
-          therapist: [...prevState.therapist, ...therapist],
-        }));
+        this.setState(prevState =>
+          therapist.length
+            ? {
+                ...prevState,
+                therapist: [...prevState.therapist, ...therapist],
+              }
+            : { noResult: 'Unfortunately there are no results' }
+        );
       } catch (e) {
         this.openNotificationWithIcon(e);
       }
@@ -95,7 +101,7 @@ class ResultsPage extends React.Component {
   };
 
   render() {
-    const { therapist, type } = this.state;
+    const { therapist, type, noResult } = this.state;
     const {
       location: {
         state: { resultPoints },
@@ -116,7 +122,7 @@ class ResultsPage extends React.Component {
           </h3>
           <div className="Results__TherapistsNames__Cards">
             {!therapist.length ? (
-              <h1>Loading</h1>
+              noResult || <Loader />
             ) : (
               <Card data={therapist} props={this.props} />
             )}
