@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Select, Form, Button, Switch } from 'antd';
-import { cities, types, ranges } from './staticData';
+import { types, ranges } from './staticData';
 import './style.css';
 
 const { Option } = Select;
 
 class Filter extends Component {
+  state = {
+    cities: ['gaza'],
+  };
+
+  componentDidMount() {}
+
   handleSubmit = e => {
     e.preventDefault();
     const {
@@ -23,6 +29,8 @@ class Filter extends Component {
   };
 
   render() {
+    const { cities } = this.state;
+    console.log(cities);
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -46,7 +54,7 @@ class Filter extends Component {
             <Select>
               {cities.map(type => (
                 <Option value={type} key={type}>
-                  {type} Therapy
+                  {type}
                 </Option>
               ))}
             </Select>
@@ -58,7 +66,7 @@ class Filter extends Component {
             <Select>
               {ranges.map(type => (
                 <Option value={type} key={type}>
-                  {type} Therapy
+                  {type}
                 </Option>
               ))}
             </Select>
