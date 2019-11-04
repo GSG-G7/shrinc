@@ -27,12 +27,15 @@ const FilterResult = props => {
   );
 };
 
-FilterResult.defaultProps = {
-  resultPoints: PropTypes.shape(PropTypes.objectOf({})),
-};
-
 FilterResult.propTypes = {
-  resultPoints: PropTypes.shape(),
+  resultPoints: PropTypes.shape({
+    C: PropTypes.number,
+    CBT: PropTypes.number,
+    Hu: PropTypes.number,
+    In: PropTypes.number,
+    PD: PropTypes.number,
+    STPD: PropTypes.number,
+  }).isRequired,
 };
 
 export default FilterResult;
