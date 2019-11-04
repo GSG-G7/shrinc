@@ -11,6 +11,7 @@ import {
   Checkbox,
 } from 'antd';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 import Avalibility from '../../common/availabilityTable';
 import staticData from './staticData';
@@ -104,6 +105,9 @@ class SignupForm extends Component {
     const { languages, prices } = staticData;
     return (
       <div className="signup-page">
+        <Helmet>
+          <title>Sign Up</title>
+        </Helmet>
         <h2 className="signup-page__title">Therapist Signup</h2>
         <Form onSubmit={this.handleSubmit} className="signup-page__form">
           <Form.Item label="Full Name:">

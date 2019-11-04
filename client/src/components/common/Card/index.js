@@ -1,9 +1,9 @@
 import React from 'react';
-import { Collapse } from 'antd';
 import PropTypes from 'prop-types';
+import { Collapse } from 'antd';
 
-import './style.css';
 import CardContent from './cardContent';
+import './style.css';
 
 const { Panel } = Collapse;
 
@@ -11,40 +11,44 @@ const genExtra = price => (
   <span className="card__price">{price} $/Session</span>
 );
 
-const Card = ({ data }) => (
-  <Collapse accordion>
-    {data.map(
-      ({
-        fields: { image: avatar, fullName: name, approach, type, priceRange },
-      }) => (
-        <Panel
-          header={name}
-          key={name}
-          extra={genExtra(priceRange)}
-          className="card__header"
-        >
-          <CardContent
-            avatar={avatar}
-            name={name}
-            approach={approach}
-            type={type}
-          />
-        </Panel>
-      )
-    )}
-  </Collapse>
-);
-
+const Card = ({ data, props }) => {
+  return (
+    <Collapse accordion>
+      {data.map(therapy => {
+        const {
+          fullName,
+          priceRange,
+          image,
+          approch,
+          type,
+          city,
+        } = therapy.fields;
+        const { id } = therapy;
+        return (
+          <Panel
+            header={fullName}
+            key={fullName}
+            extra={genExtra(priceRange)}
+            className="card__header"
+          >
+            <CardContent
+              image={image[0].url}
+              name={fullName}
+              type={type}
+              city={city}
+              approach={approch}
+              props={props}
+              id={id}
+            />
+          </Panel>
+        );
+      })}
+    </Collapse>
+  );
+};
 Card.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      approach: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      priceRange: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  props: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Card;
