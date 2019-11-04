@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import { Select, Form, Button, Switch } from 'antd';
+import Loader from '../Loader';
 import { types, ranges } from './staticData';
 import './style.css';
 
@@ -9,10 +12,16 @@ const { Option } = Select;
 
 class Filter extends Component {
   state = {
-    cities: ['gaza'],
+    cities: [],
   };
 
-  componentDidMount() {}
+  componentDidMount = async () => {
+    const result = await axios.get('/api/v1/cities');
+    this.setState(prevState => ({
+      ...prevState,
+      cities: [...result],
+    }));
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -30,7 +39,6 @@ class Filter extends Component {
 
   render() {
     const { cities } = this.state;
-    console.log(cities);
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -42,7 +50,7 @@ class Filter extends Component {
             <Select>
               {types.map(type => (
                 <Option value={type} key={type}>
-                  {type} Therapy
+                  {type}
                 </Option>
               ))}
             </Select>
@@ -52,11 +60,17 @@ class Filter extends Component {
         <Form.Item label="Location">
           {getFieldDecorator('city')(
             <Select>
-              {cities.map(type => (
-                <Option value={type} key={type}>
-                  {type}
+              {cities.length ? (
+                cities.map(type => (
+                  <Option value={type} key={type}>
+                    {type}
+                  </Option>
+                ))
+              ) : (
+                <Option key="no-result" value="no-result">
+                  <Loader />
                 </Option>
-              ))}
+              )}
             </Select>
           )}
         </Form.Item>
