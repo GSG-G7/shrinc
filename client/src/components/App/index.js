@@ -34,7 +34,7 @@ export default () => {
           <Route path="/glossary" component={Glossary} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route path="/types" component={TherapyType} />
-          <Route path="/qustionnarie" component={Qustionnarie} />
+          <Route path="/questionnaire" component={Qustionnarie} />
           <Route path="*" component={NotFound} />
         </Switch>
       </main>
