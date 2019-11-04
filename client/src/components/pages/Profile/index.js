@@ -132,7 +132,6 @@ class Profile extends Component {
             <Icon type="bank" /> Insurance Companies
           </h2>
           <div className="profile_contact_info">
-            {' '}
             {handleInsuranceCompanies(insurance)}
           </div>
         </section>
