@@ -104,7 +104,7 @@ const renderSteps = ({ onChange, state, options }) => [
       <Q
         keyValue="q9"
         onChange={onChange}
-        value={state.value.Q10}
+        value={state.value.Q9}
         options={options}
         id="Q9"
       />
