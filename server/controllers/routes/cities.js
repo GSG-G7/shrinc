@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
     const allCities = [];
     cities.map((city) => allCities.push(city.fields.city));
     const uniqueCities = allCities.filter((item, index) => allCities.indexOf(item) === index);
-    res.send({ statusCode: 200, uniqueCities });
+    res.send({ statusCode: 200, data: uniqueCities });
   } catch (err) {
     next(err);
   }
