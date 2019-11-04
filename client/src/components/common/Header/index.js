@@ -57,7 +57,7 @@ class Header extends Component {
               {menuData.map(({ label, url, icon }) => (
                 <li key={label} className="menu__item">
                   {icon || ''}
-                  <Link to={url} className="menu__link">
+                  <Link to={url} className="menu__link" onClick={this.onclick}>
                     {label}
                   </Link>
                 </li>
