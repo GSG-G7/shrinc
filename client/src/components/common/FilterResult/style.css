@@ -2,13 +2,3 @@
     list-style: none;
     padding-left: 20px; 
 }
-
-.ant-btn-primary {
-    background: #32A48F !important;
-    border: none !important;
-    outline: none !important;
-}
-
-.ant-modal-footer > div > .ant-btn:first-child {
-    display: none !important;
-}
