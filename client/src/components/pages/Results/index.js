@@ -73,6 +73,27 @@ class ResultsPage extends React.Component {
     });
   };
 
+  showPoint = type => {
+    const {
+      location: {
+        state: { resultPoints },
+      },
+    } = this.props;
+
+    const fullTypeName = {
+      CBT: 'Cognitive Behavioural Therapy',
+      PD: 'Psychodynamic Therapy',
+      Hu: 'Humanistic psychotherapy',
+      In: 'ntegrative psychotherapy',
+      C: 'Counselling',
+      STPD: 'Short Term Psychodynamic Psychotherapy',
+    };
+
+    return (
+      <li>{`${fullTypeName[type]}( ${type} ) : ${resultPoints[type]}`}</li>
+    );
+  };
+
   render() {
     const { therapist, type } = this.state;
     const {
@@ -86,14 +107,12 @@ class ResultsPage extends React.Component {
         <Helmet>
           <title>Results</title>
         </Helmet>
-        <div className="Results__TherapyType">
-          <h3 className="Results__TherapyType__title">Therapy Type</h3>
-          <h4 className="Results__TherapyType__name">{type.join(' and ')}</h4>
-        </div>
+
         <div className="Results__TherapistsNames">
           <h3 className="Results__TherapistsNames__suggest">
             According to your answers, we would suggest that you search for
             therapists specializing in:
+            <p className="Results__TherapyType__name">{type.join(' and ')}</p>
           </h3>
           <div className="Results__TherapistsNames__Cards">
             {!therapist.length ? (
@@ -108,8 +127,16 @@ class ResultsPage extends React.Component {
   }
 }
 
+ResultsPage.defaultProps = {
+  location: PropTypes.shape({
+    state: PropTypes.objectOf(PropTypes.object),
+  }),
+};
+
 ResultsPage.propTypes = {
-  location: PropTypes.objectOf().isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.objectOf(PropTypes.object),
+  }),
 };
 
 export default ResultsPage;
