@@ -74,9 +74,9 @@ class BarBrogress extends React.Component {
         {...this.props}
       >
         <Steps current={current}>
-          {steps.map(item => {
-            return <Step key={item.content.props.id} />;
-          })}
+          {steps.map(item => (
+            <Step key={item.content.props.id} />
+          ))}
         </Steps>
         <div className="steps-content">{steps[current].content}</div>
         <div className="steps-action">
