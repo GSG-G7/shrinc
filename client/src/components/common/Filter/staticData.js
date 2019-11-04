@@ -9,12 +9,14 @@ const cities = [
 ];
 
 const types = [
-  'Interpersonal',
-  'Family-focused',
-  'Dialectical-behavior',
-  'Cognitive-behavioral',
+  'Behavioural Therapy',
+  'Psychodynamic Therapy',
+  'Humanistic Psychotherapy',
+  'Integrative Psychotherapy',
+  'Counselling',
+  'Short Term Psychodynamic Psychotherapy',
 ];
 
-const ranges = ['1000-2000', '2000-3000', '3000-4000', '4000<'];
+const ranges = ['£40-60', '£60-80', '£80-100', '£100-130', '£130-160', '£160+'];
 
 export { cities, types, ranges };
