@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import L from 'leaflet';
 import * as geocoding from 'esri-leaflet-geocoder';
 
@@ -6,8 +7,6 @@ import './style.css';
 
 class Map extends React.Component {
   state = {
-    // eslint-disable-next-line react/no-unused-state
-    city: '',
     theMarker: {},
   };
 
@@ -29,6 +28,7 @@ class Map extends React.Component {
 
   onMapClick = ({ latlng }) => {
     const { theMarker } = this.state;
+    const { handleCity } = this.props;
     this.map.removeLayer(theMarker);
     this.setState({
       theMarker: L.marker([latlng.lat, latlng.lng]).addTo(this.map),
@@ -38,8 +38,7 @@ class Map extends React.Component {
       .reverse()
       .latlng(latlng)
       .run((error, result) => {
-        // eslint-disable-next-line react/no-unused-state
-        if (!error) this.setState({ city: result.address.City });
+        if (!error) handleCity(result.address.City);
       });
   };
 
@@ -47,5 +46,9 @@ class Map extends React.Component {
     return <div id="map"></div>;
   }
 }
+
+Map.propTypes = {
+  handleCity: PropTypes.func.isRequired,
+};
 
 export default Map;
