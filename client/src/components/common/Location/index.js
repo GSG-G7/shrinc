@@ -7,10 +7,6 @@ import * as geocoding from 'esri-leaflet-geocoder';
 import './style.css';
 
 class Map extends React.Component {
-  state = {
-    theMarker: {},
-  };
-
   componentDidMount() {
     this.map = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer(
@@ -25,15 +21,13 @@ class Map extends React.Component {
       }
     ).addTo(this.map);
     this.map.on('click', this.onMapClick);
+    this.theMarker = '';
   }
 
   onMapClick = ({ latlng }) => {
-    const { theMarker } = this.state;
     const { handleCity } = this.props;
-    this.map.removeLayer(theMarker);
-    this.setState({
-      theMarker: L.marker([latlng.lat, latlng.lng]).addTo(this.map),
-    });
+    if (this.theMarker) this.map.removeLayer(this.theMarker);
+    this.theMarker = L.marker([latlng.lat, latlng.lng]).addTo(this.map);
     const geo = geocoding.geocodeService();
     geo
       .reverse()
