@@ -16,8 +16,7 @@ class Filter extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/cities');
-    this.setState(prevState => ({
-      ...prevState,
+    this.setState(() => ({
       cities: [...result],
     }));
   };
