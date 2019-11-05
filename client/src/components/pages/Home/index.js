@@ -44,7 +44,7 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="home__signup">
-          <p className="home__signup__question">Are you therapist?</p>
+          <span className="home__signup__question">Are you therapist?</span>
           <span>
             <Link to="/signup" className="home__signup-link">
               Sign Up
