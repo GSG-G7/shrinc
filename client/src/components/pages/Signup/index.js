@@ -302,15 +302,15 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Approch:">
+          <Form.Item label="Approach:">
             {getFieldDecorator('approch', {
               rules: [
                 {
-                  message: 'The approch is not valid!',
+                  message: 'The Approach is not valid!',
                 },
                 {
                   required: true,
-                  message: 'Please input your approch!',
+                  message: 'Please input your Approach!',
                 },
                 {
                   max: 200,
