@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 
 import AvailableityTime from '../../common/AvailabilityTime';
 import Location from '../../common/Location';
+import Loader from '../../common/Loader';
 import './style.css';
 
 class Profile extends Component {
@@ -41,7 +42,7 @@ class Profile extends Component {
 
   renderCode = () => {
     const { profileData } = this.state;
-    if (!profileData) return 'loading';
+    if (!profileData) return <Loader />;
     const {
       profileData: {
         avalibility,
@@ -59,6 +60,11 @@ class Profile extends Component {
         type,
       },
     } = this.state;
+
+    const handleInsuranceCompanies = data => {
+      const companyList = JSON.parse(data);
+      return companyList.map(item => <p key={item}>{item}</p>);
+    };
 
     return (
       <section className="font">
@@ -99,12 +105,6 @@ class Profile extends Component {
         </section>
         <section className="profile_contact_container">
           <h2>
-            <Icon type="safety-certificate" /> Insurance
-          </h2>
-          <div className="profile_contact_info">
-            <p>{insurance}</p>
-          </div>
-          <h2>
             <Icon type="read" /> Languages
           </h2>
           <div className="profile_contact_info">
@@ -124,6 +124,14 @@ class Profile extends Component {
                 <p>{skype}</p>
               </React.Fragment>
             )}
+          </div>
+        </section>
+        <section className="profile_contact_container">
+          <h2>
+            <Icon type="bank" /> Insurance Companies
+          </h2>
+          <div className="profile_contact_info">
+            {handleInsuranceCompanies(insurance)}
           </div>
         </section>
         <Location

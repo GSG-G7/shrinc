@@ -25,7 +25,7 @@ const menuData = [
   },
   {
     label: 'Questionarie',
-    url: 'questionarie',
+    url: 'questionnaire',
     icon: <Questionnaire />,
   },
   {
