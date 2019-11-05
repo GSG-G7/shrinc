@@ -18,7 +18,7 @@ class FilterPage extends Component {
 
   openNotificationWithIcon = error => {
     notification.error({
-      message: 'somthing wrong !!',
+      message: "we can't make filter process right now ",
       description: error.message,
       duration: 3,
     });
