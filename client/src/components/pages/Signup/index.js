@@ -281,7 +281,7 @@ class SignupForm extends Component {
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="select more than one"
+                placeholder="Select multi insurance"
                 optionLabelProp="label"
               >
                 {insurance.map(item => (
