@@ -1,39 +1,63 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Select, Form, Button, Switch, notification } from 'antd';
 
-import { Select, Form, Button, Switch } from 'antd';
-import { cities, types, ranges } from './staticData';
+import Loader from '../Loader';
+import { types, ranges } from './staticData';
 import './style.css';
 
 const { Option } = Select;
 
 class Filter extends Component {
+  state = {
+    cities: [],
+  };
+
+  componentDidMount = async () => {
+    const result = await axios.get('/api/v1/cities');
+    const availableCities = result.data.data;
+    this.setState({ cities: availableCities });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const {
+      handleSubmit,
       form: { validateFieldsAndScroll },
     } = this.props;
-    validateFieldsAndScroll((err, values) => {
+
+    validateFieldsAndScroll((err, data) => {
       if (!err) {
-        // eslint-disable-next-line no-console
-        console.log('Received values of form: ', values);
+        handleSubmit(data);
+      } else {
+        this.openNotificationWithIcon(err);
       }
     });
   };
 
+  openNotificationWithIcon = e => {
+    notification.error({
+      message: "can't make filter new try agian later",
+      description: e.message,
+      duration: 2,
+    });
+  };
+
   render() {
+    const { cities } = this.state;
     const {
       form: { getFieldDecorator },
     } = this.props;
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="filter__form">
         <Form.Item label="Type of therapy">
-          {getFieldDecorator('TypeOfTherapy')(
+          {getFieldDecorator('type')(
             <Select>
               {types.map(type => (
                 <Option value={type} key={type}>
-                  {type} Therapy
+                  {type}
                 </Option>
               ))}
             </Select>
@@ -41,30 +65,36 @@ class Filter extends Component {
         </Form.Item>
 
         <Form.Item label="Location">
-          {getFieldDecorator('location')(
+          {getFieldDecorator('city')(
             <Select>
-              {cities.map(type => (
-                <Option value={type} key={type}>
-                  {type} Therapy
+              {cities.length ? (
+                cities.map(type => (
+                  <Option value={type} key={type}>
+                    {type}
+                  </Option>
+                ))
+              ) : (
+                <Option key="no-result" value="no-result">
+                  <Loader />
                 </Option>
-              ))}
+              )}
             </Select>
           )}
         </Form.Item>
 
         <Form.Item label="Price">
-          {getFieldDecorator('range')(
+          {getFieldDecorator('priceRange')(
             <Select>
               {ranges.map(type => (
                 <Option value={type} key={type}>
-                  {type} Therapy
+                  {type}
                 </Option>
               ))}
             </Select>
           )}
         </Form.Item>
         <Form.Item label="isRemote" className="label__swich-btn">
-          {getFieldDecorator('isRomete')(<Switch defaultChecked />)}
+          {getFieldDecorator('remote')(<Switch defaultChecked />)}
         </Form.Item>
 
         <Form.Item>
@@ -88,5 +118,6 @@ Filter.propTypes = {
     validateFieldsAndScroll: PropTypes.func.isRequired,
     getFieldDecorator: PropTypes.func.isRequired,
   }).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 export default WrappedRegistrationForm;
