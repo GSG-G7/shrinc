@@ -3,7 +3,7 @@
 }
 
 .profile_card_container {
-  background: #E0E0E0;
+  background: #e0e0e0;
   width: 375px;
   height: 265px;
   padding: 1rem 1rem 0 1rem;
@@ -19,7 +19,7 @@
 }
 
 .profile_avatar {
-  border: .3rem solid #32A48F;
+  border: 0.3rem solid #32a48f;
 }
 
 .profile_card {
@@ -44,22 +44,22 @@
 }
 
 .profile_card_fees {
-  background: #C4C4C4;
-  color: #33000E;
+  background: #c4c4c4;
+  color: #33000e;
   width: 345px;
   height: 3rem;
   display: block;
   margin: 1.5rem auto;
   padding: 1.1rem;
   text-align: center;
-  line-height: .2rem;
+  line-height: 0.2rem;
 }
 
 .profile_contact_container {
-  margin:1rem 0 0 2rem;
+  margin: 1rem 0 0 2rem;
 }
 
 .profile_contact_info {
-  color: #32A48F;
+  color: #32a48f;
   margin-left: 2rem;
 }

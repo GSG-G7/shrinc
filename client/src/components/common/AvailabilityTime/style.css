@@ -4,10 +4,11 @@
 
 .Availabile_table {
   width: max-content;
-  border-radius: 1rem; 
+  border-radius: 1rem;
 }
 
-.ant-table td, .ant-table th{
+.ant-table td,
+.ant-table th {
   width: 6.7rem;
-  color: #32A48F
+  color: #32a48f;
 }

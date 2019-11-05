@@ -1,11 +1,11 @@
 .ant-spin-lg .ant-spin-dot i {
-    background-color: #32A48F;
+  background-color: #32a48f;
 }
 
 .ant-spin-spinning {
-    position: static;
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: static;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

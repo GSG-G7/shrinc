@@ -1,83 +1,83 @@
 .home {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .home__header {
-    margin: 50px 20px 5px 20px;
-    display: inline-flex;
-    width: 90%;
+  margin: 50px 20px 5px 20px;
+  display: inline-flex;
+  width: 90%;
 }
 
 .home__box {
-    margin-top: 52px;
+  margin-top: 52px;
 }
 
 .home__title {
-    font-size: 36px;
-    font-weight: bold;
-    font-family: Roboto, sans-serif;
-    color: #32A48F;
-    line-height: 2px;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #32a48f;
+  line-height: 2px;
 }
 
 .home__subTitle {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: Roboto, sans-serif;
-    color: #32A48F;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #32a48f;
 }
 
 .home__description {
-    font-size: 16px;
-    font-family: Roboto, sans-serif;
-    color: #1C7867;
-    margin: 0px 30px 30px 30px;
-    text-align: center;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  color: #1c7867;
+  margin: 0px 30px 30px 30px;
+  text-align: center;
 }
 
 .home_buttons {
-    margin-top: 130px;
-    margin-left: 5px ;
-    margin-right: 5px; 
+  margin-top: 130px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .home__buttons__types-btn,
-.home__buttons__filter-btn{
-    margin-bottom: 10px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    background-color: #32A48F;
-    border-radius: 3px;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-    font-size: 18px;
-    font-family: Roboto, sans-serif;
-    cursor: pointer;
-    width: 100%;
-    height: 46px;
-    color: #fff;
+.home__buttons__filter-btn {
+  margin-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: #32a48f;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  cursor: pointer;
+  width: 100%;
+  height: 46px;
+  color: #fff;
 }
 
 .home__buttons__types-icon {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .home__signup {
-    display: inline-flex;
-    margin-left: 95px;
+  display: inline-flex;
+  margin-left: 95px;
 }
 
 .home__signup__question {
-    text-align: center;
-    font-size: 18px;
-    font-family: Roboto, sans-serif;
-    margin-right: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  margin-right: 10px;
 }
 
 .home__signup-link {
-    color: #45CBB2;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: Roboto, sans-serif;
+  color: #45cbb2;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
 }

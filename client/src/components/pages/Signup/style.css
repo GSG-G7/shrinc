@@ -1,9 +1,9 @@
 .signup-page {
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .signup-page__title {
-  color: #32A48F;
+  color: #32a48f;
   font-size: 30px;
   font-weight: bold;
 }
@@ -15,7 +15,7 @@
 .signup-page__button {
   display: block;
   margin: 0 auto;
-  background-color: #32A48F;
+  background-color: #32a48f;
   width: 19rem;
   border-radius: 3px;
   letter-spacing: 1.5px;
@@ -43,12 +43,14 @@
   right: 6px;
 }
 
-.ant-table-row, tr {
+.ant-table-row,
+tr {
   width: 94%;
 }
 
-@media only screen and (min-width: 768px) { 
-tr > td, tr > th {
-  width:200px !important;
-}
+@media only screen and (min-width: 768px) {
+  tr > td,
+  tr > th {
+    width: 200px !important;
+  }
 }
