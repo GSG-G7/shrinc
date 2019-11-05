@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-
 import { Select, Form, Button, Switch } from 'antd';
+
 import Loader from '../Loader';
 import { types, ranges } from './staticData';
 import './style.css';
