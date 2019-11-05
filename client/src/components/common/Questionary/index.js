@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 import { Form, Steps, Button, message } from 'antd';
-import renderSteps from './renderSteps';
+// import renderSteps from './renderSteps';
 import Q from './Question';
 import options from './qustionsStatic';
 import rateHighestTypeTherapy from '../../../utils';
@@ -49,6 +49,12 @@ class BarBrogress extends React.Component {
     });
   };
 
+  // getQuestionProps = index => {
+  //   return {
+  //     ...this.state.value[`Q${index + 1}`],
+  //   };
+  // };
+
   next() {
     this.setState(prevState => ({
       current: prevState.current + 1,
@@ -61,20 +67,15 @@ class BarBrogress extends React.Component {
     }));
   }
 
-  // getQuestionProps = index => {
-  //   return {
-  //     ...this.state.value[`Q${index + 1}`],
-  //   };
-  // };
-
   render() {
-    const steps = renderSteps({
-      onChange: this.onChange,
-      state: this.state,
-      options,
-    });
-    const { current, messageForUser } = this.state;
+    // const steps = renderSteps({
+    //   onChange: this.onChange,
+    //   state: this.state,
+    //   options,
+    // });
+    const { current, messageForUser, value } = this.state;
     const currentStep = current + 1;
+    const values = Object.keys(value);
     return (
       <Form
         onSubmit={this.handleSubmit}
@@ -82,8 +83,8 @@ class BarBrogress extends React.Component {
         {...this.props}
       >
         <Steps current={current}>
-          {steps.map(item => {
-            return <Step key={item.content.props.id} />;
+          {values.map(item => {
+            return <Step key={`${item}key`} />;
           })}
         </Steps>
         <div className="steps-content">
@@ -96,12 +97,12 @@ class BarBrogress extends React.Component {
           />
         </div>
         <div className="steps-action">
-          {current < steps.length - 1 && (
+          {current < values.length - 1 && (
             <Button type="primary" onClick={() => this.next()}>
               Next
             </Button>
           )}
-          {current === steps.length - 1 && (
+          {current === values.length - 1 && (
             <Button
               htmlType="submit"
               onClick={() => message.success(messageForUser)}

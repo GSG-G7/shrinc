@@ -5,6 +5,7 @@ import { Radio } from 'antd';
 import './style.css';
 
 const Question = props => {
+  console.log(props);
   const { onChange, options, id, value, keyValue } = props;
   return (
     <Fragment>
