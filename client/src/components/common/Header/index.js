@@ -27,7 +27,11 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="header__bar">
-          <Button className="menu-icon" onClick={this.onclick}>
+          <Button
+            className="menu-icon"
+            aria-label="menu-icon"
+            onClick={this.onclick}
+          >
             <MenuIcon />
           </Button>
           <Link to="/" className="header-logo">
@@ -39,6 +43,7 @@ class Header extends Component {
           onClick={this.onclickForModel}
           id="model"
           role="button"
+          aria-label="menu-model"
           tabIndex={0}
         >
           <nav className={isClosed ? 'hide' : 'menu__nav'}>
