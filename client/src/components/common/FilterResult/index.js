@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
 import fullTypeName from './staticData';
+import './style.css';
 
 const FilterResult = ({ resultPoints }) => (
   <div className="Results__TherapyType">
