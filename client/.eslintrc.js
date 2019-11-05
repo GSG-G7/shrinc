@@ -32,13 +32,7 @@ module.exports = {
         }
       ],
       // configure the prettier plugin
-      "prettier/prettier": [
-        "error",
-        {
-          trailingComma: "es5",
-          singleQuote: true
-        }
-      ]
+      "prettier/prettier": ["error"]
     },
     plugins: ["prettier"]
   };
