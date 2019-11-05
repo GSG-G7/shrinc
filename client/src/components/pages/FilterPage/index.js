@@ -4,7 +4,6 @@ import axios from 'axios';
 import { notification } from 'antd';
 
 import { Card, Filter } from '../../common';
-// import Filter from '../../common/Filter';
 import './style.css';
 
 class FilterPage extends Component {
