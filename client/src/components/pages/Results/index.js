@@ -14,11 +14,11 @@ class ResultsPage extends React.Component {
     noResult: '',
   };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     await this.getTheHighestTherapyType();
     const { type } = this.state;
     await this.getTherapiestData(type);
-  }
+  };
 
   getTherapiestData = types => {
     types.forEach(async type => {
