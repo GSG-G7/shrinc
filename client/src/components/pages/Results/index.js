@@ -58,9 +58,10 @@ class ResultsPage extends React.Component {
       { rate: resultPoints.STPD, text: 'STPD' },
     ];
     const maxValue = Math.max(...finalResult.map(result => result.rate), 0);
-    const type = finalResult
-      .filter(element => element.rate === maxValue)
-      .map(element => element.text);
+    const type = finalResult.reduce((accumulator, { rate, text }) => {
+      if (rate === maxValue) accumulator.push(text);
+      return accumulator;
+    }, []);
 
     this.setState({ type });
   }
