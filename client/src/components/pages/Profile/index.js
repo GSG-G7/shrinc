@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
 import AvailableityTime from '../../common/AvailabilityTime';
-import Location from '../../common/Location';
 import Loader from '../../common/Loader';
 import './style.css';
 
@@ -50,7 +49,6 @@ class Profile extends Component {
         email,
         fullName,
         image,
-        postCode,
         priceRange,
         remote,
         skype,
@@ -124,6 +122,8 @@ class Profile extends Component {
                 <p>{skype}</p>
               </React.Fragment>
             )}
+            <h4>City</h4>
+            <p>{city}</p>
           </div>
         </section>
         <section className="profile_contact_container">
@@ -134,11 +134,6 @@ class Profile extends Component {
             {handleInsuranceCompanies(insurance)}
           </div>
         </section>
-        <Location
-          address={city}
-          postCode={postCode}
-          imageURL="https://cdn.pixabay.com/photo/2017/06/14/08/20/map-of-the-world-2401458_960_720.jpg"
-        />
       </section>
     );
   };
