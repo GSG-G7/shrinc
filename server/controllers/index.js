@@ -1,6 +1,6 @@
 const { clientError } = require('./errors/clientError');
 const {
-  intialResult, filter, profile, signup,
+  intialResult, filter, profile, signup, cities,
 } = require('./routes');
 
 module.exports = {
@@ -9,4 +9,5 @@ module.exports = {
   filter,
   profile,
   signup,
+  cities,
 };
