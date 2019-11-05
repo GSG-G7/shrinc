@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
 
-import { Card, Filter, Loader } from '../../common';
+import { Card, FilterComponent, Loader } from '../../common';
 import './style.css';
 
-class FilterPage extends Component {
+class Filter extends Component {
   state = {
     data: [],
   };
@@ -39,7 +39,7 @@ class FilterPage extends Component {
     return (
       <div className="Filter-page__container">
         <h1 className="filter__title">Find approprate therapy: </h1>
-        <Filter handleSubmit={this.handleSubmit} />
+        <FilterComponent handleSubmit={this.handleSubmit} />
         <hr className="filter__brack-line" />
         <h2 className="card__title">Therapists:</h2>
         <Card data={data} />
@@ -48,4 +48,4 @@ class FilterPage extends Component {
   }
 }
 
-export default FilterPage;
+export default Filter;

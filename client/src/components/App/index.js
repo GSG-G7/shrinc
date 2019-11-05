@@ -12,7 +12,7 @@ import {
   About,
   Home,
   Results,
-  FilterPage,
+  Filter,
 } from '../pages';
 import 'antd/dist/antd.css';
 import './style.css';
@@ -35,7 +35,7 @@ export default () => {
           <Route path="/glossary" component={Glossary} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route path="/types" component={TherapyType} />
-          <Route path="/filter" component={FilterPage} />
+          <Route path="/filter" component={Filter} />
           <Route path="/questionnaire" component={Qustionnarie} />
           <Route path="*" component={NotFound} />
         </Switch>

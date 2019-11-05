@@ -7,11 +7,11 @@ import Signup from './Signup';
 import About from './About';
 import Home from './Home';
 import Results from './Results';
-import FilterPage from './FilterPage';
+import Filter from './FilterPage';
 
 export {
   TherapyType,
-  FilterPage,
+  Filter,
   NotFound,
   Glossary,
   Profile,
