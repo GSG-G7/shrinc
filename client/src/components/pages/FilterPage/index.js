@@ -13,7 +13,7 @@ class FilterPage extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/intial');
-    this.setState(() => ({ data: result.data.data }));
+    this.setState({ data: result.data.data });
   };
 
   openNotificationWithIcon = error => {
@@ -27,7 +27,7 @@ class FilterPage extends Component {
   handleSubmit = async data => {
     try {
       const result = await axios.post('/api/v1/filter', { data: { ...data } });
-      this.setState(() => ({ data: result.data.data }));
+      this.setState({ data: result.data.data });
     } catch (error) {
       this.openNotificationWithIcon(error);
     }

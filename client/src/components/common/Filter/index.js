@@ -16,9 +16,8 @@ class Filter extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/cities');
-    this.setState(() => ({
-      cities: [...result],
-    }));
+    const comingCities = result.data.data;
+    this.setState({ cities: [...comingCities] });
   };
 
   handleSubmit = e => {
