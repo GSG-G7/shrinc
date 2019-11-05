@@ -1,24 +1,5 @@
-.location_contact_container {
-  margin: 1rem 0 0 2rem;
-}
-
-.location_contact_info {
-  color: #32A48F;
-  margin-left: 2rem;
-}
-
-.location_info {
-  display: flex;
-}
-
-.location_titles {
-  margin-right: 1rem;
-}
-
-.location_img_map {
-  display: block;
-  width: 344px;
-  height: 126px;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
+#map {
+  margin: 0 auto;
+  height: 40vh;
+  width: 20rem; 
 }

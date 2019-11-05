@@ -17,3 +17,8 @@
   margin-top: 0.25rem;
   padding: 0 0.6rem;
 }
+@media only screen and (min-width: 768px) { 
+  .types-page {
+    margin: 2rem;
+  }
+}
