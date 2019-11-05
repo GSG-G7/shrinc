@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 import { FilterResult, Card, Loader } from '../../common';
-
 import './style.css';
 
 class ResultsPage extends React.Component {
@@ -30,11 +29,11 @@ class ResultsPage extends React.Component {
         const {
           data: { data: therapist },
         } = result;
-        this.setState(prevState =>
+        this.setState(state =>
           therapist.length
             ? {
-                ...prevState,
-                therapist: [...prevState.therapist, ...therapist],
+                ...state,
+                therapist: [...state.therapist, ...therapist],
               }
             : { noResult: 'Unfortunately there are no results' }
         );
@@ -58,15 +57,12 @@ class ResultsPage extends React.Component {
       { rate: resultPoints.C, text: 'C' },
       { rate: resultPoints.STPD, text: 'STPD' },
     ];
-    const maxValue = Math.max(...finalResult.map(o => o.rate), 0);
+    const maxValue = Math.max(...finalResult.map(result => result.rate), 0);
     const type = finalResult
       .filter(element => element.rate === maxValue)
       .map(element => element.text);
 
-    this.setState(prevState => ({
-      ...prevState,
-      type: [...prevState.type, ...type],
-    }));
+    this.setState({ type });
   }
 
   openNotificationWithIcon = e => {
@@ -75,27 +71,6 @@ class ResultsPage extends React.Component {
       description: e.message,
       duration: 2,
     });
-  };
-
-  showPoint = type => {
-    const {
-      location: {
-        state: { resultPoints },
-      },
-    } = this.props;
-
-    const fullTypeName = {
-      CBT: 'Cognitive Behavioural Therapy',
-      PD: 'Psychodynamic Therapy',
-      Hu: 'Humanistic psychotherapy',
-      In: 'ntegrative psychotherapy',
-      C: 'Counselling',
-      STPD: 'Short Term Psychodynamic Psychotherapy',
-    };
-
-    return (
-      <li>{`${fullTypeName[type]}( ${type} ) : ${resultPoints[type]}`}</li>
-    );
   };
 
   render() {
@@ -115,8 +90,10 @@ class ResultsPage extends React.Component {
         <div className="Results__TherapistsNames">
           <h3 className="Results__TherapistsNames__suggest">
             According to your answers, we would suggest that you search for
-            therapists specializing in:
-            <p className="Results__TherapyType__name">{type.join(' and ')}</p>
+            therapists specializing in:&nbsp;&nbsp;
+            <small className="Results__TherapyType__name">
+              {type.join(' and ')}
+            </small>
           </h3>
           <div className="Results__TherapistsNames__Cards">
             {!therapist.length ? (
