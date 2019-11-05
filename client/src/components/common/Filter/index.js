@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Select, Form, Button, Switch } from 'antd';
+import { Select, Form, Button, Switch, notification } from 'antd';
 
 import Loader from '../Loader';
 import { types, ranges } from './staticData';
@@ -16,8 +16,8 @@ class Filter extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/cities');
-    const comingCities = result.data.data;
-    this.setState({ cities: [...comingCities] });
+    const availableCities = result.data.data;
+    this.setState({ cities: availableCities });
   };
 
   handleSubmit = e => {
@@ -30,7 +30,17 @@ class Filter extends Component {
     validateFieldsAndScroll((err, data) => {
       if (!err) {
         handleSubmit(data);
+      } else {
+        this.openNotificationWithIcon(err);
       }
+    });
+  };
+
+  openNotificationWithIcon = e => {
+    notification.error({
+      message: "can't make filter new try agian later",
+      description: e.message,
+      duration: 2,
     });
   };
 

@@ -18,7 +18,7 @@
   line-height: 30px;
   width: 100%;
   color: #242424;
-  margin-left:20px; 
+  margin-left: 20px; 
 }
 
 .card__title {
@@ -29,6 +29,6 @@
   background-color: #45CBB2;
   height: 2px;
   border: 1px solid #45CBB2;
-  width:85%;
+  width: 85%;
   margin: 30px;
 }
