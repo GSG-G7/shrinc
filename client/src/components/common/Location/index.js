@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { notification } from 'antd';
 import L from 'leaflet';
 import * as geocoding from 'esri-leaflet-geocoder';
 
@@ -39,7 +40,16 @@ class Map extends React.Component {
       .latlng(latlng)
       .run((error, result) => {
         if (!error) handleCity(result.address.City);
+        else this.openNotificationWithIcon(error);
       });
+  };
+
+  openNotificationWithIcon = e => {
+    notification.error({
+      message: 'something wrong !!',
+      description: e.message,
+      duration: 2,
+    });
   };
 
   render() {
