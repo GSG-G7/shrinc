@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
 import AvailableityTime from '../../common/AvailabilityTime';
-import Location from '../../common/Location';
 import Loader from '../../common/Loader';
 import './style.css';
 
@@ -31,7 +30,7 @@ class Profile extends Component {
       } = profileData;
       this.setState({ profileData: fields });
     } catch (err) {
-      const error500 = err.response.status === 500;
+      const error500 = err.message.includes('500');
       if (error500) {
         history.push('/500');
       } else {
@@ -43,6 +42,7 @@ class Profile extends Component {
   renderCode = () => {
     const { profileData } = this.state;
     if (!profileData) return <Loader />;
+
     const {
       profileData: {
         avalibility,
@@ -116,11 +116,11 @@ class Profile extends Component {
             <Icon type="phone" /> Contact Info
           </h2>
           <div className="profile_contact_info">
-            <h4>Email</h4>
+            <h4>- Email</h4>
             <p>{email}</p>
             {skype && (
               <React.Fragment>
-                <h4>Skype</h4>
+                <h4>- Skype</h4>
                 <p>{skype}</p>
               </React.Fragment>
             )}
@@ -134,11 +134,17 @@ class Profile extends Component {
             {handleInsuranceCompanies(insurance)}
           </div>
         </section>
-        <Location
-          address={city}
-          postCode={postCode}
-          imageURL="https://cdn.pixabay.com/photo/2017/06/14/08/20/map-of-the-world-2401458_960_720.jpg"
-        />
+        <section className="profile_contact_container">
+          <h2>
+            <Icon type="global" /> Location
+          </h2>
+          <div className="profile_contact_info">
+            <h4>- City</h4>
+            <p>{city}</p>
+            <h4>- Postal code</h4>
+            <p>{postCode}</p>
+          </div>
+        </section>
       </section>
     );
   };

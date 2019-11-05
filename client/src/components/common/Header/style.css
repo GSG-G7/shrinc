@@ -6,7 +6,7 @@
     background:#32A48F;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 100vw;
     height: 50px;
 }
 

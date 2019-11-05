@@ -11,3 +11,10 @@
   width: 6.7rem;
   color: #32A48F
 }
+
+@media (min-width: 600px) {
+  .ant-table td, .ant-table th{
+    width: 15.7rem;
+    font-size: 1.4rem;
+  }
+}

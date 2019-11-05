@@ -1,8 +1,10 @@
 .table {
-    position: relative;
+    display: block;
     border-radius:20px; 
     width: fit-content;
     border: 0.5px solid gray;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .table__day {
@@ -25,6 +27,7 @@ tr {
 
 .ant-table table {
     border-spacing: 5px;
+    text-align: center;
 }
 
 .ant-table-thead > tr > th {
