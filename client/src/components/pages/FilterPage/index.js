@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
 
-import { Card, Filter } from '../../common';
+import { Card, Filter, Loader } from '../../common';
 import './style.css';
 
 class FilterPage extends Component {
@@ -13,7 +13,7 @@ class FilterPage extends Component {
 
   componentDidMount = async () => {
     const result = await axios.get('/api/v1/intial');
-    this.setState(prevState => ({ ...prevState, data: result.data.data }));
+    this.setState(() => ({ data: result.data.data }));
   };
 
   openNotificationWithIcon = error => {
@@ -27,7 +27,7 @@ class FilterPage extends Component {
   handleSubmit = async data => {
     try {
       const result = await axios.post('/api/v1/filter', { data: { ...data } });
-      this.setState(prevState => ({ ...prevState, data: result.data.data }));
+      this.setState(() => ({ data: result.data.data }));
     } catch (error) {
       this.openNotificationWithIcon(error);
     }
@@ -35,7 +35,7 @@ class FilterPage extends Component {
 
   render() {
     const { data } = this.state;
-    if (!data.length) return <h3>Loding...</h3>;
+    if (!data.length) return <Loader />;
     return (
       <div className="Filter-page__container">
         <h1 className="filter__title">Find approprate therapy: </h1>
