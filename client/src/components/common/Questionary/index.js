@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 import { Form, Steps, Button, message } from 'antd';
 import renderSteps from './renderSteps';
+import Q from './Question';
 import options from './qustionsStatic';
 import rateHighestTypeTherapy from '../../../utils';
 
@@ -60,6 +61,12 @@ class BarBrogress extends React.Component {
     }));
   }
 
+  // getQuestionProps = index => {
+  //   return {
+  //     ...this.state.value[`Q${index + 1}`],
+  //   };
+  // };
+
   render() {
     const steps = renderSteps({
       onChange: this.onChange,
@@ -67,6 +74,7 @@ class BarBrogress extends React.Component {
       options,
     });
     const { current, messageForUser } = this.state;
+    const currentStep = current + 1;
     return (
       <Form
         onSubmit={this.handleSubmit}
@@ -75,11 +83,18 @@ class BarBrogress extends React.Component {
       >
         <Steps current={current}>
           {steps.map(item => {
-            console.log(item.content.props.id);
             return <Step key={item.content.props.id} />;
           })}
         </Steps>
-        <div className="steps-content">{steps[current].content}</div>
+        <div className="steps-content">
+          <Q
+            keyValue={`q${currentStep}`}
+            onChange={this.onChange}
+            // value={this.state.value[`Q${currentStep}`]}
+            options={options}
+            id={`Q${currentStep}`}
+          />
+        </div>
         <div className="steps-action">
           {current < steps.length - 1 && (
             <Button type="primary" onClick={() => this.next()}>
