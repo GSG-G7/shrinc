@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
 
-import Cards from '../../common/Card';
-import Filter from '../../common/Filter';
+import { Card, Filter } from '../../common';
+// import Filter from '../../common/Filter';
 import './style.css';
 
 class FilterPage extends Component {
@@ -43,7 +43,7 @@ class FilterPage extends Component {
         <Filter handleSubmit={this.handleSubmit} />
         <hr className="filter__brack-line" />
         <h2 className="card__title">Therapists:</h2>
-        <Cards data={data} />
+        <Card data={data} />
       </div>
     );
   }
