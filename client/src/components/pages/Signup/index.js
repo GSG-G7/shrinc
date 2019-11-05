@@ -96,13 +96,21 @@ class SignupForm extends Component {
     });
   };
 
+  insuranceValidation = (rule, value, callback) => {
+    if (value && value.length < 2) {
+      callback('you should select more than one');
+    } else {
+      callback();
+    }
+  };
+
   render() {
     const { Option } = Select;
     const { remote } = this.state;
     const {
       form: { getFieldDecorator },
     } = this.props;
-    const { languages, prices } = staticData;
+    const { languages, prices, insurance } = staticData;
     return (
       <div className="signup-page">
         <Helmet>
@@ -232,9 +240,6 @@ class SignupForm extends Component {
                   required: true,
                   message: 'Please input post code!',
                 },
-                {
-                  validator: this.validateToNextPassword,
-                },
               ],
             })(<Input placeholder="Enter post code" />)}
           </Form.Item>
@@ -265,14 +270,27 @@ class SignupForm extends Component {
             {getFieldDecorator('insurance', {
               rules: [
                 {
-                  message: 'The value is not valid!',
-                },
-                {
                   required: true,
                   message: 'Please fill this field',
                 },
+                {
+                  validator: this.insuranceValidation,
+                },
               ],
-            })(<Input placeholder="Health insurance" />)}
+            })(
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="Select multi insurance"
+                optionLabelProp="label"
+              >
+                {insurance.map(item => (
+                  <Option value={item} label={item} key={item}>
+                    {item}
+                  </Option>
+                ))}
+              </Select>
+            )}
           </Form.Item>
           <Form.Item label="Approch:">
             {getFieldDecorator('approch', {

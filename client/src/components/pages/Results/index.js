@@ -4,6 +4,7 @@ import { notification } from 'antd';
 import { Helmet } from 'react-helmet';
 
 import Card from '../../common/Card';
+import Loader from '../../common/Loader';
 
 import './style.css';
 
@@ -56,7 +57,7 @@ export default class ResultsPage extends React.Component {
             </h3>
             <div className="Results__TherapistsNames__Cards">
               {!therapist ? (
-                <h1>Loading</h1>
+                <Loader />
               ) : (
                 <Card data={therapist} props={this.props} />
               )}
