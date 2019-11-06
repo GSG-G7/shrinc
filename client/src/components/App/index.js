@@ -6,17 +6,17 @@ import { Loader } from '../common';
 import 'antd/dist/antd.css';
 import './style.css';
 
-const Home = lazy(() => import('../pages/Home'));
-const About = lazy(() => import('../pages/About'));
+const Qustionnarie = lazy(() => import('../pages/QuestionaryPage'));
+const TherapyType = lazy(() => import('../pages/TherapyType'));
 const Filter = lazy(() => import('../pages/FilterPage'));
-const Header = lazy(() => import('../common/Header'));
-const Signup = lazy(() => import('../pages/Signup'));
-const Profile = lazy(() => import('../pages/Profile'));
-const Results = lazy(() => import('../pages/Results'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 const Glossary = lazy(() => import('../pages/Glossary'));
-const TherapyType = lazy(() => import('../pages/TherapyType'));
-const Qustionnarie = lazy(() => import('../pages/QuestionaryPage'));
+const Profile = lazy(() => import('../pages/Profile'));
+const Results = lazy(() => import('../pages/Results'));
+const Header = lazy(() => import('../common/Header'));
+const Signup = lazy(() => import('../pages/Signup'));
+const About = lazy(() => import('../pages/About'));
+const Home = lazy(() => import('../pages/Home'));
 
 export default () => {
   return (
