@@ -5,15 +5,23 @@ import { Radio } from 'antd';
 import './style.css';
 
 const Question = props => {
-  console.log(props);
   const { onChange, options, id, value, keyValue } = props;
+  const needClass = id === 'Q9' || id === 'Q10';
   return (
     <Fragment>
-      {options[id].question && <h1>{options[id].question}</h1>}
-
-      <Radio.Group key={keyValue} onChange={onChange} value={value}>
+      {options[id].question && (
+        <h1 className={`qusetion ${needClass ? 'big-Qusetion' : ''}`}>
+          {options[id].question}
+        </h1>
+      )}
+      <Radio.Group
+        key={keyValue}
+        onChange={onChange}
+        value={value * 1}
+        className={`qusetion__group${needClass ? 'big_group' : ''}`}
+      >
         {options[id].answers.map((answer, index) => (
-          <Radio value={index} id={id} key={answer}>
+          <Radio value={index} id={id} key={answer} className="qusetion__span">
             {answer}
           </Radio>
         ))}

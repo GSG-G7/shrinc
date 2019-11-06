@@ -68,11 +68,6 @@ class BarBrogress extends React.Component {
   }
 
   render() {
-    // const steps = renderSteps({
-    //   onChange: this.onChange,
-    //   state: this.state,
-    //   options,
-    // });
     const { current, messageForUser, value } = this.state;
     const currentStep = current + 1;
     const values = Object.keys(value);
@@ -91,12 +86,17 @@ class BarBrogress extends React.Component {
           <Q
             keyValue={`q${currentStep}`}
             onChange={this.onChange}
-            // value={this.state.value[`Q${currentStep}`]}
+            value={value[`Q${currentStep}`]}
             options={options}
             id={`Q${currentStep}`}
           />
         </div>
         <div className="steps-action">
+          {current > 0 && (
+            <Button style={{ marginRight: 10 }} onClick={() => this.prev()}>
+              Previous
+            </Button>
+          )}
           {current < values.length - 1 && (
             <Button type="primary" onClick={() => this.next()}>
               Next
@@ -108,11 +108,6 @@ class BarBrogress extends React.Component {
               onClick={() => message.success(messageForUser)}
             >
               Done
-            </Button>
-          )}
-          {current > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-              Previous
             </Button>
           )}
         </div>
