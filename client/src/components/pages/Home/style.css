@@ -90,31 +90,37 @@
 
 @media (min-width: 600px) {
     .home__description {
-        font-size: 2rem;
+        font-size: 1.3rem;
         margin: 0px 30px 0 30px;
     }
 
     .home__image > svg{
-        width: 200px;
-        height: 300px;
+        width: 150px;
+        height: 250px;
     }
+
     .home__box {
         margin-top: 100px;
         margin-left: 3rem;
     }
+
+    .home_buttons {
+        margin-top: 4rem;
+    }
+
     .home__buttons__types-btn,
     .home__buttons__filter-btn {
         width: 40rem;
-        margin-top: 0;
-        padding: 2rem;
-        height: 5.6rem;
-        font-size: 22px;
+        margin-top: 7px;
+        padding: 1rem;
+        height: 3.6rem;
+        font-size: 18px;
     }
     .home__title {
-        font-size: 5rem;
+        font-size: 4rem;
     }
     .home__header {
-        margin: 6rem auto -2.5rem auto;
+        margin: 1.4rem auto -2.5rem auto;
     }
     .home__signup__question {
         font-size: 22px;

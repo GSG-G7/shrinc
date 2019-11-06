@@ -45,6 +45,7 @@
 
 .menu__head {
     background: #32A48F;
+    height: 50px;
 }
 
 .menu__title {
@@ -109,13 +110,18 @@
 }
 
 @media only screen and (min-width: 768px) { 
-    .menu__item {
-        height: 13vh;
+  .menu__item {
+    height: 13.4vh;
   }
-    .menu__list {
-        width: 35vw;          
+  .menu__list {
+    width: 35vw;          
   }
-    .header__bar {
-        height: 5rem;
+  .header__bar {
+    height: 3.5rem;
+    width: 100%;
+  }
+  .menu__head {
+    background: #32A48F;
+    height: 3.5rem;
   }
 }
