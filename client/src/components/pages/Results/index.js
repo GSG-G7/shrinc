@@ -3,6 +3,7 @@ import axios from 'axios';
 import { notification } from 'antd';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import { FilterResult, Card, Loader } from '../../common';
 import './style.css';
@@ -14,10 +15,17 @@ class ResultsPage extends React.Component {
     noResult: '',
   };
 
-  componentDidMount = async () => {
-    await this.getTheHighestTherapyType();
-    const { type } = this.state;
-    await this.getTherapiestData(type);
+  componentDidMount = () => {
+    const {
+      location: { state },
+    } = this.props;
+    if (state && state.resultPoints) {
+      const { resultPoints } = state;
+      this.setState({ resultPoints });
+      this.getTheHighestTherapyType();
+      const { type } = this.state;
+      this.getTherapiestData(type);
+    }
   };
 
   getTherapiestData = types => {
@@ -66,6 +74,13 @@ class ResultsPage extends React.Component {
     this.setState({ type });
   }
 
+  goToQuestionnaire = () => {
+    const {
+      history: { push },
+    } = this.props;
+    push('/questionnaire');
+  };
+
   openNotificationWithIcon = e => {
     notification.error({
       message: 'something wrong !!',
@@ -75,12 +90,15 @@ class ResultsPage extends React.Component {
   };
 
   render() {
-    const { therapist, type, noResult } = this.state;
     const {
-      location: {
-        state: { resultPoints },
-      },
+      location: { state },
     } = this.props;
+    const resultPoints = state && state.resultPoints;
+
+    const { type, therapist, noResult } = this.state;
+    if (!resultPoints) {
+      return <Loader>{this.goToQuestionnaire(this.props)}</Loader>;
+    }
     return (
       <div className="Results">
         <FilterResult resultPoints={resultPoints} />
@@ -119,6 +137,7 @@ ResultsPage.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.objectOf(PropTypes.object),
   }),
+  history: PropTypes.objectOf().isRequired,
 };
 
-export default ResultsPage;
+export default withRouter(ResultsPage);
