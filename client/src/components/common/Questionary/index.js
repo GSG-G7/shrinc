@@ -49,12 +49,6 @@ class BarBrogress extends React.Component {
     });
   };
 
-  // getQuestionProps = index => {
-  //   return {
-  //     ...this.state.value[`Q${index + 1}`],
-  //   };
-  // };
-
   next() {
     this.setState(prevState => ({
       current: prevState.current + 1,
