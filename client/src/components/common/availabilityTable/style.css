@@ -1,6 +1,6 @@
 .table {
     display: block;
-    border-radius:20px; 
+    border-radius: 20px; 
     width: fit-content;
     border: 0.5px solid gray;
     margin: 0 auto;
@@ -22,7 +22,7 @@ tr {
     display: flex;
     flex-direction: row;
     border-top: none;
-    border-bottom:2px solid #82D9C9; 
+    border-bottom: 2px solid #82D9C9; 
 }
 
 .ant-table table {
@@ -45,16 +45,16 @@ th {
 }
 
 tbody > tr:last-child { 
-    border:none;
+    border: none;
 }
 
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
     padding: 5px;
-    border:none;
+    border: none;
 }
 
 tr > td:first-child {
-    width:80px;
+    width: 80px;
 }
 
 tr > td:last-child, th:last-child, thead > tr > th:last-child  {

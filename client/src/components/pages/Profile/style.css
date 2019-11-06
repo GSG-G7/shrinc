@@ -64,7 +64,7 @@
   margin-left: 2rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
 
   .profile_card_container {
     margin: 0 auto;
@@ -75,7 +75,7 @@
   .profile_card {
     margin: 1.5rem 0;
     padding: 1.2rem;
-}
+  }
 
   .profile_avatar {
     width: 12rem;

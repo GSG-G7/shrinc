@@ -54,7 +54,7 @@
     font-size: 18px;
     font-family: Roboto, sans-serif;
     width: 345px;
-    margin: .4rem auto;
+    margin: 0.4rem auto;
     display: block;
     cursor: pointer;
     height: 46px;
@@ -88,7 +88,7 @@
     font-family: Roboto, sans-serif;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     .home__description {
         font-size: 1.3rem;
         margin: 0px 30px 0 30px;

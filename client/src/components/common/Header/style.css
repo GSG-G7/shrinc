@@ -3,7 +3,7 @@
 }
 
 .header__bar {
-    background:#32A48F;
+    background: #32A48F;
     display: flex;
     justify-content: space-between;
     width: 100vw;
@@ -36,7 +36,7 @@
 }
 
 .menu__nav {
-    top:0;
+    top: 0;
     position: absolute; 
     transform: translateX(0);
     visibility: visible;
@@ -67,7 +67,7 @@
     background: #F3F3F3;
     padding-left: 50px;
     width: 70vw;
-    height: 100vh;
+    height: 93.8vh; 
 }
 
 .menu__item {
@@ -103,7 +103,7 @@
 }
 
 .hide {
-    top:0;
+    top: 0;
     position: absolute; 
     transform: translateX(-100%);
     visibility: hidden;
@@ -115,7 +115,8 @@
     height: 13.4vh;
   }
   .menu__list {
-    width: 35vw;          
+    width: 35vw;
+    height: 91vh;
   }
   .header__bar {
     height: 3.5rem;
