@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 import { Form, Steps, Button, message } from 'antd';
-// import renderSteps from './renderSteps';
 import Q from './Question';
 import options from './qustionsStatic';
 import rateHighestTypeTherapy from '../../../utils';
