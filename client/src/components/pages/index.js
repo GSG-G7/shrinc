@@ -1,23 +1,11 @@
-import TherapyType from './TherapyType';
-import NotFound from './NotFound';
-import Glossary from './Glossary';
-import Profile from './Profile';
-import Header from '../common/Header';
-import Signup from './Signup';
-import About from './About';
-import Home from './Home';
-import Results from './Results';
-import Filter from './FilterPage';
-
-export {
-  TherapyType,
-  Filter,
-  NotFound,
-  Glossary,
-  Profile,
-  Header,
-  Signup,
-  About,
-  Home,
-  Results,
-};
+// export { TherapyType as default }  from './TherapyType';
+// export { NotFound as default }  from './NotFound';
+// export { Glossary as default }  from './Glossary';
+// export { Profile as default }  from './Profile';
+// export { Header as default }  from '../common/Header';
+// export { Signup as default }  from './Signup';
+// export { About as default }  from './About';
+// export { Home as default }  from './Home';
+// export { Results as default }  from './Results';
+// export { Filter as default }  from './FilterPage';
+// export { Qustionnarie as default }  from './QuestionaryPage';
