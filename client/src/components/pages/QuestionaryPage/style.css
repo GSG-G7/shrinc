@@ -20,16 +20,18 @@
 @media (max-width: 480px){
     .ant-steps-label-horizontal{
         display: flex !important;
-        margin: 0;
+        margin:0 auto;  
+        width: 90%;
     }
     .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
         display: none;
-        transform:rotate(90deg);
+        transform:rotate(270deg);
+        padding: 18px 0 0px !important;
     }
 
 .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
-        top: -10px;
-        left: 0;
+        top: -15px;
+        left: 20px;
     }
 }
 
@@ -38,10 +40,11 @@
 }
 
 .ant-steps-item-icon {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
     margin: 0 !important;
+    font-size: 10px;
 }
 
 .ant-radio-group {
@@ -49,7 +52,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 80%;
-    height: 50vh;
+    min-height: 50vh;
     margin: 30px 0; 
 }
 
@@ -68,10 +71,9 @@
 }
 
 .steps-content {
-    width : 80%;
+
     display: flex;  
     flex-direction: column;
-    padding-left:50px; 
 }
 
 .big-Qusetion {
@@ -79,11 +81,24 @@
     font-size: 1rem !important;
 }
 
-.big_group {
-    height: 25vh !important;
-}
 .qusetion {
     margin-top:20px;
-    width: 500px;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    padding: 20px;
+}
+
+.ant-radio {
+    margin-right: 10px;
+}
+
+.ant-form label {
+    width: 100%;
+}
+.qusetion__span {
+    display: flex;  
+    white-space: normal;
+}
+
+.Questionary__form {
+    width: 100%;
 }
