@@ -22,7 +22,6 @@ export default () => {
   return (
     <BrowserRouter>
       <Suspense fallback={<Loader className="loader" />}>
-        {/* <Loader className="loader" /> */}
         <Header />
         <main className="container">
           <Helmet>
