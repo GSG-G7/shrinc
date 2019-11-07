@@ -135,7 +135,9 @@ ResultsPage.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.objectOf(PropTypes.object),
   }),
-  history: PropTypes.objectOf().isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default withRouter(ResultsPage);
