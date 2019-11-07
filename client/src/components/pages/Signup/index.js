@@ -59,9 +59,11 @@ class SignupForm extends Component {
               'Content-Type': 'multipart/form-data',
             },
           });
+          this.setState({ loading: false });
           this.successNotification(res.data.message);
           setTimeout(() => push('/'), 2000);
         } catch (error) {
+          this.setState({ loading: false });
           if (error.response.status === 400)
             this.errorNotification(error.response.data.message);
           else this.errorNotification('Server Error');
