@@ -14,11 +14,16 @@ const Question = props => {
       <Radio.Group
         key={keyValue}
         onChange={onChange}
-        value={value * 1}
+        value={value}
         className="qusetion__group"
       >
         {options[id].answers.map((answer, index) => (
-          <Radio value={index} id={id} key={answer} className="qusetion__span">
+          <Radio
+            value={index.toString()}
+            id={id}
+            key={answer}
+            className="qusetion__span"
+          >
             {answer}
           </Radio>
         ))}

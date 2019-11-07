@@ -66,11 +66,7 @@ class BarBrogress extends React.Component {
     const values = Object.keys(value);
     const questionValue = `Q${currentStep}`;
     return (
-      <Form
-        onSubmit={this.handleSubmit}
-        className="Questionary__form"
-        {...this.props}
-      >
+      <Form onSubmit={this.handleSubmit} className="Questionary__form">
         <Steps current={current}>
           {values.map(item => {
             return <Step key={`${item}key`} />;
@@ -111,7 +107,9 @@ class BarBrogress extends React.Component {
 }
 
 BarBrogress.propTypes = {
-  history: PropTypes.objectOf().isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default withRouter(BarBrogress);
