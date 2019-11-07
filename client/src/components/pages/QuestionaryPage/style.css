@@ -54,7 +54,7 @@
 }
 
 .ant-radio-checked {
-    height: 16px;
+    align-self: flex-start;
 }
 
 .ant-steps-item-process .ant-steps-item-icon {
