@@ -19,12 +19,19 @@ class ResultsPage extends React.Component {
     const {
       location: { state },
     } = this.props;
+
     if (state && state.resultPoints) {
       this.getTheHighestTherapyType();
-      const { type } = this.state;
-      this.getTherapiestData(type);
     }
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { type } = this.state;
+
+    if (!prevState.type.length && type.length) {
+      this.getTherapiestData(type);
+    }
+  }
 
   getTherapiestData = types => {
     types.forEach(async type => {
@@ -35,14 +42,16 @@ class ResultsPage extends React.Component {
         const {
           data: { data: therapist },
         } = result;
-        this.setState(state =>
-          therapist.length
-            ? {
-                ...state,
-                therapist: [...state.therapist, ...therapist],
-              }
-            : { noResult: 'Unfortunately there are no results' }
-        );
+        const withResults = !!therapist.length;
+        if (withResults) {
+          this.setState(prevState => ({
+            therapist: [...prevState.therapist, ...therapist],
+          }));
+        } else {
+          this.setState({
+            noResult: 'Unfortunately there are no results',
+          });
+        }
       } catch (e) {
         this.openNotificationWithIcon(e);
       }
