@@ -25,6 +25,8 @@ module.exports = async (req, res, next) => {
       therapistInfo.language = JSON.stringify(therapistInfo.language);
       therapistInfo.image = [{ url: uploadedImage.url }];
       therapistInfo.avalibility = req.body.avalibility;
+      therapistInfo.insurance = JSON.stringify(therapistInfo.insurance);
+      console.log(therapistInfo);
       await base('therapist').create([{
         fields: { ...therapistInfo },
       }]);

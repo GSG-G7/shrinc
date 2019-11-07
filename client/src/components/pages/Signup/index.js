@@ -9,6 +9,7 @@ import {
   Upload,
   Button,
   Checkbox,
+  notification,
 } from 'antd';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
@@ -37,6 +38,7 @@ class SignupForm extends Component {
     e.preventDefault();
     const {
       form: { validateFieldsAndScroll },
+      history: { push },
     } = this.props;
     const { remote, available } = this.state;
     validateFieldsAndScroll(async (err, values) => {
@@ -48,12 +50,36 @@ class SignupForm extends Component {
         formData.append('data', JSON.stringify(data));
         formData.append('avalibility', JSON.stringify(available));
         formData.append('image', file);
-        await axios.post('/api/v1/signup', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+        try {
+          const res = await axios.post('/api/v1/signup', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          this.successNotification(res.data.message);
+          setTimeout(() => push('/'), 2000);
+        } catch (error) {
+          if (error.response.status === 400)
+            this.errorNotification(error.response.data.message);
+          else this.errorNotification('Server Error');
+        }
       }
+    });
+  };
+
+  errorNotification = message => {
+    notification.error({
+      message: 'Error',
+      description: message,
+      duration: 2,
+    });
+  };
+
+  successNotification = message => {
+    notification.open({
+      message: 'success',
+      description: message,
+      duration: 2,
     });
   };
 
@@ -378,6 +404,9 @@ SignupForm.propTypes = {
   form: PropTypes.objectOf(PropTypes.func).isRequired,
   getFieldDecorator: PropTypes.func.isRequired,
   setFieldsValue: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 const Signup = Form.create({ name: 'Signup' })(SignupForm);
