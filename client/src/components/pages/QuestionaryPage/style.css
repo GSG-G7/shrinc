@@ -17,21 +17,6 @@
     color: #32A48F;
 }
 
-@media (max-width: 480px){
-    .ant-steps-label-horizontal{
-        display: flex !important;
-        margin:0 auto;  
-        width: 90%;
-    }
-    .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
-        display: none;
-        transform:rotate(270deg);
-        padding: 18px 0 0px !important;
-        top: -15px;
-        left: 20px;
-    }
-}
-
 .ant-steps-item-container {
     margin: 0 !important;
 }
@@ -112,4 +97,19 @@
 .steps-action {
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .ant-steps-label-horizontal{
+        display: flex !important;
+        margin: 0 auto;  
+        width: 90%;
+    }
+    .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+        display: none;
+        transform:rotate(270deg);
+        padding: 18px 0 0px !important;
+        top: -15px;
+        left: 20px;
+    }
 }
