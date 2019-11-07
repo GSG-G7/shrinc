@@ -16,6 +16,7 @@ import { Helmet } from 'react-helmet';
 
 import Avalibility from '../../common/availabilityTable';
 import Map from '../../common/Location';
+import Loader from '../../common/Loader';
 import staticData from './staticData';
 import './style.css';
 
@@ -32,6 +33,7 @@ class SignupForm extends Component {
       { day: 'Sat', from: '', to: '' },
       { day: 'Sun', from: '', to: '' },
     ],
+    loading: false,
   };
 
   handleSubmit = e => {
@@ -51,6 +53,7 @@ class SignupForm extends Component {
         formData.append('avalibility', JSON.stringify(available));
         formData.append('image', file);
         try {
+          this.setState({ loading: true });
           const res = await axios.post('/api/v1/signup', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
@@ -142,7 +145,7 @@ class SignupForm extends Component {
 
   render() {
     const { Option } = Select;
-    const { remote } = this.state;
+    const { remote, loading } = this.state;
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -152,6 +155,7 @@ class SignupForm extends Component {
         <Helmet>
           <title>Sign Up</title>
         </Helmet>
+        {loading ? <Loader className="signup_loader" /> : ''}
         <h2 className="signup-page__title">Therapist Signup</h2>
         <Form onSubmit={this.handleSubmit} className="signup-page__form">
           <Form.Item label="Full Name:">
@@ -391,6 +395,7 @@ class SignupForm extends Component {
             type="primary"
             className="signup-page__button"
             htmlType="submit"
+            disabled={loading}
           >
             Signup
           </Button>
