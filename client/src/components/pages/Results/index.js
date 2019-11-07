@@ -3,7 +3,7 @@ import axios from 'axios';
 import { notification } from 'antd';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 import { FilterResult, Card, Loader } from '../../common';
 import './style.css';
@@ -81,13 +81,6 @@ class ResultsPage extends React.Component {
     this.setState({ type });
   }
 
-  goToQuestionnaire = () => {
-    const {
-      history: { push },
-    } = this.props;
-    push('/questionnaire');
-  };
-
   openNotificationWithIcon = e => {
     notification.error({
       message: 'something wrong !!',
@@ -104,7 +97,7 @@ class ResultsPage extends React.Component {
 
     const { type, therapist, noResult } = this.state;
     if (!resultPoints) {
-      return <Loader>{this.goToQuestionnaire(this.props)}</Loader>;
+      return <Redirect to="/questionnaire" />;
     }
     return (
       <div className="Results">
