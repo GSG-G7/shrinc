@@ -64,7 +64,7 @@
 }
 
 @media (min-width: 768px) {
-    .ant-collapse-content > .ant-collapse-content-box {
+    .card__content .ant-collapse-content > .ant-collapse-content-box {
         padding: 4.2rem;
     }
 

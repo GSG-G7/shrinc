@@ -116,11 +116,15 @@ class Profile extends Component {
             <Icon type="phone" /> Contact Info
           </h2>
           <div className="profile_contact_info">
-            <h4>- Email</h4>
+            <h4>
+              <span aria-hidden>-</span> Email
+            </h4>
             <p>{email}</p>
             {skype && (
               <React.Fragment>
-                <h4>- Skype</h4>
+                <h4>
+                  <span aria-hidden>-</span> Skype
+                </h4>
                 <p>{skype}</p>
               </React.Fragment>
             )}
@@ -139,9 +143,13 @@ class Profile extends Component {
             <Icon type="global" /> Location
           </h2>
           <div className="profile_contact_info">
-            <h4>- City</h4>
+            <h4>
+              <span aria-hidden>-</span> City
+            </h4>
             <p>{city}</p>
-            <h4>- Postal code</h4>
+            <h4>
+              <span aria-hidden>-</span> Postal code
+            </h4>
             <p>{postCode}</p>
           </div>
         </section>
