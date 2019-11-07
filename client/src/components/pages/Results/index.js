@@ -127,16 +127,10 @@ class ResultsPage extends React.Component {
   }
 }
 
-ResultsPage.defaultProps = {
-  location: PropTypes.shape({
-    state: PropTypes.objectOf(PropTypes.object),
-  }),
-};
-
 ResultsPage.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.objectOf(PropTypes.object),
-  }),
+  }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
