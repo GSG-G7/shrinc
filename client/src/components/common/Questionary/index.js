@@ -48,17 +48,17 @@ class BarBrogress extends React.Component {
     });
   };
 
-  next() {
+  next = () => {
     this.setState(prevState => ({
       current: prevState.current + 1,
     }));
-  }
+  };
 
-  prev() {
+  prev = () => {
     this.setState(prevState => ({
       current: prevState.current - 1,
     }));
-  }
+  };
 
   render() {
     const { current, messageForUser, value } = this.state;
