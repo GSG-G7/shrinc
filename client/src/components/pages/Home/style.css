@@ -3,9 +3,10 @@
 }
 
 .home__header {
-    margin: 50px 20px 5px 20px;
-    display: inline-flex;
+    margin: 6rem auto 1.5rem auto;
+    display: flex;
     width: 90%;
+    justify-content: center;
 }
 
 .home__box {
@@ -28,7 +29,7 @@
 }
 
 .home__description {
-    font-size: 16px;
+    font-size: 1.5rem;
     font-family: Roboto, sans-serif;
     color: #1C7867;
     margin: 0px 30px 30px 30px;
@@ -42,8 +43,7 @@
 }
 
 .home__buttons__types-btn,
-.home__buttons__filter-btn{
-    margin-bottom: 10px;
+.home__buttons__filter-btn {
     text-align: center;
     text-decoration: none;
     border: none;
@@ -53,10 +53,16 @@
     font-weight: 600;
     font-size: 18px;
     font-family: Roboto, sans-serif;
+    width: 345px;
+    margin: 0.4rem auto;
+    display: block;
     cursor: pointer;
-    width: 100%;
     height: 46px;
     color: #fff;
+}
+
+.home__buttons__types-btn {
+    margin-top: 10rem;
 }
 
 .home__buttons__types-icon {
@@ -64,8 +70,8 @@
 }
 
 .home__signup {
-    display: inline-flex;
-    margin-left: 95px;
+    margin-top: 2rem;
+    text-align: center
 }
 
 .home__signup__question {
@@ -80,4 +86,43 @@
     font-size: 18px;
     font-weight: bold;
     font-family: Roboto, sans-serif;
+}
+
+@media (min-width: 768px) {
+    .home__description {
+        font-size: 1.3rem;
+        margin: 0px 30px 0 30px;
+    }
+
+    .home__image > svg{
+        width: 150px;
+        height: 250px;
+    }
+
+    .home__box {
+        margin-top: 100px;
+        margin-left: 3rem;
+    }
+
+    .home_buttons {
+        margin-top: 4rem;
+    }
+
+    .home__buttons__types-btn,
+    .home__buttons__filter-btn {
+        width: 40rem;
+        margin-top: 7px;
+        padding: 1rem;
+        height: 3.6rem;
+        font-size: 18px;
+    }
+    .home__title {
+        font-size: 4rem;
+    }
+    .home__header {
+        margin: 1.4rem auto -2.5rem auto;
+    }
+    .home__signup__question {
+        font-size: 22px;
+    }
 }

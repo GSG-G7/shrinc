@@ -4,7 +4,7 @@
 
 .profile_card_container {
   background: #E0E0E0;
-  width: 375px;
+  width: 100vw;
   height: 265px;
   padding: 1rem 1rem 0 1rem;
 }
@@ -62,4 +62,43 @@
 .profile_contact_info {
   color: #32A48F;
   margin-left: 2rem;
+}
+
+@media (min-width: 768px) {
+
+  .profile_card_container {
+    margin: 0 auto;
+    width: 52.5rem;
+    height: 25rem;
+  }
+
+  .profile_card {
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+  }
+
+  .profile_avatar {
+    width: 12rem;
+    height: 12rem;
+  }
+  .font {
+    margin: 0 auto;
+    width: 52.5rem;
+  }
+  .profile_card_fees {
+    padding: 1.5rem;
+    margin: 5rem auto 0 auto;
+    height: 4.4rem;
+    width: 46rem;
+    font-size: 1.3rem;
+  }
+  .profile_username {
+    font-size: 34px;
+  }
+  .profile_user_info {
+    font-size: 20px;
+  }
+  .profile_contact_info {
+    font-size: 1.2rem ;
+  }
 }
