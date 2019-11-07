@@ -3,10 +3,10 @@
 }
 
 .header__bar {
-    background:#32A48F;
+    background: #32A48F;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 100vw;
     height: 50px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .menu__nav {
-    top:0;
+    top: 0;
     position: absolute; 
     transform: translateX(0);
     visibility: visible;
@@ -45,6 +45,7 @@
 
 .menu__head {
     background: #32A48F;
+    height: 50px;
 }
 
 .menu__title {
@@ -66,6 +67,7 @@
     background: #F3F3F3;
     padding-left: 50px;
     width: 70vw;
+    height: 93.8vh; 
 }
 
 .menu__item {
@@ -101,7 +103,7 @@
 }
 
 .hide {
-    top:0;
+    top: 0;
     position: absolute; 
     transform: translateX(-100%);
     visibility: hidden;
@@ -109,10 +111,19 @@
 }
 
 @media only screen and (min-width: 768px) { 
-    .menu__item {
-        height: 13vh;
+  .menu__item {
+    height: 13.4vh;
   }
-    .menu__list {
-        width: 35vw;          
+  .menu__list {
+    width: 35vw;
+    height: 91vh;
+  }
+  .header__bar {
+    height: 3.5rem;
+    width: 100%;
+  }
+  .menu__head {
+    background: #32A48F;
+    height: 3.5rem;
   }
 }

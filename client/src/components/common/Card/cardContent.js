@@ -28,7 +28,7 @@ export default class CardContent extends React.Component {
           icon="user"
           className="card__photo"
         />
-        <div>
+        <div className="cardContent_info">
           <h3 className="card__type">{type}</h3>
           <h3 className="card__type">{city}</h3>
           <h3 className="card__approach">{approach} </h3>
