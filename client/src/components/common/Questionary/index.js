@@ -64,6 +64,7 @@ class BarBrogress extends React.Component {
     const { current, messageForUser, value } = this.state;
     const currentStep = current + 1;
     const values = Object.keys(value);
+    const questionValue = `Q${currentStep}`;
     return (
       <Form
         onSubmit={this.handleSubmit}
@@ -79,19 +80,19 @@ class BarBrogress extends React.Component {
           <Q
             keyValue={`q${currentStep}`}
             onChange={this.onChange}
-            value={value[`Q${currentStep}`]}
+            value={value[questionValue]}
             options={options}
-            id={`Q${currentStep}`}
+            id={questionValue}
           />
         </div>
         <div className="steps-action">
           {current > 0 && (
-            <Button style={{ marginRight: 10 }} onClick={() => this.prev()}>
+            <Button style={{ marginRight: 10 }} onClick={this.prev}>
               Previous
             </Button>
           )}
           {current < values.length - 1 && (
-            <Button type="primary" onClick={() => this.next()}>
+            <Button type="primary" onClick={this.next}>
               Next
             </Button>
           )}

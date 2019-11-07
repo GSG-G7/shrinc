@@ -20,8 +20,6 @@ class ResultsPage extends React.Component {
       location: { state },
     } = this.props;
     if (state && state.resultPoints) {
-      const { resultPoints } = state;
-      this.setState({ resultPoints });
       this.getTheHighestTherapyType();
       const { type } = this.state;
       this.getTherapiestData(type);
