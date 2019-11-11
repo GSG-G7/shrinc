@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
+import glossaryData from './glossaryData.json';
 import './style.css';
-import table from '../../../assets/table.svg';
 
 export default () => {
   return (
-    <section>
+    <section className="glossary_container">
       <Helmet>
         <title>Glossary</title>
       </Helmet>
-      <h1 className="glossary_title">Glossary</h1>
-      <p className="glossary_description">
-        You can find Glossary of Therap here to know .
-      </p>
-      <img className="glossary_table" src={table} alt="table for information" />
+      <h1>Glossary Page</h1>
+      {glossaryData.map(item => {
+        return (
+          <Fragment key={Object.keys(item)}>
+            <h3>{Object.keys(item)}</h3>
+            <div>
+              <p className="glossary_content">{Object.values(item)}</p>
+            </div>
+          </Fragment>
+        );
+      })}
     </section>
   );
 };
