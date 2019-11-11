@@ -14,9 +14,8 @@ import {
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-import Avalibility from '../../common/availabilityTable';
-import Map from '../../common/Location';
-import Loader from '../../common/Loader';
+import { Avalibility, Map, Loader } from '../../common';
+
 import staticData from './staticData';
 import './style.css';
 
