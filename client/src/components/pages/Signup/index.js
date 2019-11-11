@@ -12,7 +12,7 @@ import {
   notification,
 } from 'antd';
 import axios from 'axios';
-import { Helmet } from 'react-helmet';
+import Helmet from 'react-helmet';
 
 import { Avalibility, Map, Loader } from '../../common';
 

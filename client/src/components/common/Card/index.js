@@ -11,7 +11,7 @@ const genExtra = price => (
   <span className="card__price">{price} $/Session</span>
 );
 
-const Card = ({ data, props }) => {
+const Card = ({ data }) => {
   return (
     <Collapse accordion>
       {data.map(therapy => {
@@ -37,7 +37,6 @@ const Card = ({ data, props }) => {
               type={type}
               city={city}
               approach={approch}
-              props={props}
               id={id}
             />
           </Panel>
@@ -47,7 +46,6 @@ const Card = ({ data, props }) => {
   );
 };
 Card.propTypes = {
-  props: PropTypes.objectOf(PropTypes.object).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
