@@ -25,7 +25,7 @@ const HomePage = () => {
       </div>
       <div className="home__actions">
         <div className="home_buttons">
-          <Link to="/types" className="home__buttons__types">
+          <Link to="/questionnaire" className="home__buttons__types">
             <Button
               value="Find the Right Therapy for You"
               className="home__buttons__types-btn"
