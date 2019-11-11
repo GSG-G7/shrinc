@@ -19,8 +19,9 @@ const HomePage = () => {
         </div>
       </div>
       <div className="home__description">
-        The key to natures therapy is feeling like a tiny part of it, not a
-        master over it.
+        There is no health without mental health. Shrinc helps you to find the
+        best therapist to take you on a journey or transformation and self
+        improvement.
       </div>
       <div className="home__actions">
         <div className="home_buttons">
