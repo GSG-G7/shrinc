@@ -47,6 +47,13 @@
   width: 94%;
 }
 
+.signup_loader {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  z-index: 2;
+}
+
 @media only screen and (min-width: 768px) { 
 tr > td, tr > th {
   width:200px !important;

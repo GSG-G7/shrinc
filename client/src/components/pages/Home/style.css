@@ -29,7 +29,7 @@
 }
 
 .home__description {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: Roboto, sans-serif;
     color: #1C7867;
     margin: 0px 30px 30px 30px;
@@ -59,10 +59,6 @@
     cursor: pointer;
     height: 46px;
     color: #fff;
-}
-
-.home__buttons__types-btn {
-    margin-top: 10rem;
 }
 
 .home__buttons__types-icon {
