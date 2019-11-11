@@ -57,8 +57,8 @@ class Filter extends Component {
           {getFieldDecorator('type')(
             <Select>
               {types.map(type => (
-                <Option value={type} key={type}>
-                  {type}
+                <Option value={type.key} key={type.full}>
+                  {type.full}
                 </Option>
               ))}
             </Select>
