@@ -17,39 +17,29 @@
     color: #32A48F;
 }
 
-@media (max-width: 480px){
-    .ant-steps-label-horizontal{
-        display: flex !important;
-        margin: 0;
-    }
-    .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
-        display: none;
-        transform:rotate(90deg);
-    }
-
-.ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
-        top: -10px;
-        left: 0;
-    }
-}
-
 .ant-steps-item-container {
     margin: 0 !important;
 }
 
 .ant-steps-item-icon {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
     margin: 0 !important;
+    font-size: 10px;
+    z-index: -1;
 }
 
 .ant-radio-group {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     width: 80%;
-    height: 50vh;
+    min-height: 30vh;
+    margin: 30px 0; 
+}
+
+.ant-radio-checked {
+    align-self: flex-start;
 }
 
 .ant-steps-item-process .ant-steps-item-icon {
@@ -67,8 +57,59 @@
 }
 
 .steps-content {
-    width : 80%;
     display: flex;  
     flex-direction: column;
-    padding-left:50px; 
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.big-Qusetion {
+    padding-top: 20px;
+    font-size: 1rem !important;
+}
+
+.qusetion {
+    width: 100%;
+    min-height: 10vh;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    padding: 0 20px;
+}
+
+.Questionary__form .ant-radio {
+    margin-right: 10px;
+}
+
+.Questionary__form .ant-form label {
+    width: 100%;
+}
+.qusetion__span {
+    display: flex;  
+    white-space: normal;
+}
+
+.Questionary__form {
+    width: 100%;
+}
+
+.steps-action {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .ant-steps-label-horizontal{
+        display: flex !important;
+        margin: 0 auto;  
+        width: 90%;
+    }
+    .ant-steps-horizontal.ant-steps-label-horizontal > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+        display: none;
+        transform:rotate(270deg);
+        padding: 18px 0 0px !important;
+        top: -15px;
+        left: 20px;
+    }
 }

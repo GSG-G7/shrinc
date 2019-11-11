@@ -8,11 +8,22 @@ const Question = props => {
   const { onChange, options, id, value, keyValue } = props;
   return (
     <Fragment>
-      {options[id].question && <h1>{options[id].question}</h1>}
-
-      <Radio.Group key={keyValue} onChange={onChange} value={value}>
+      {options[id].question && (
+        <h1 className="qusetion">{options[id].question}</h1>
+      )}
+      <Radio.Group
+        key={keyValue}
+        onChange={onChange}
+        value={value}
+        className="qusetion__group"
+      >
         {options[id].answers.map((answer, index) => (
-          <Radio value={index} id={id} key={answer}>
+          <Radio
+            value={index.toString()}
+            id={id}
+            key={answer}
+            className="qusetion__span"
+          >
             {answer}
           </Radio>
         ))}

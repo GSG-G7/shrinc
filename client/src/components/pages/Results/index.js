@@ -3,6 +3,7 @@ import axios from 'axios';
 import { notification } from 'antd';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import { withRouter, Redirect } from 'react-router-dom';
 
 import { FilterResult, Card, Loader } from '../../common';
 import './style.css';
@@ -14,11 +15,23 @@ class ResultsPage extends React.Component {
     noResult: '',
   };
 
-  componentDidMount = async () => {
-    await this.getTheHighestTherapyType();
-    const { type } = this.state;
-    await this.getTherapiestData(type);
+  componentDidMount = () => {
+    const {
+      location: { state },
+    } = this.props;
+
+    if (state && state.resultPoints) {
+      this.getTheHighestTherapyType();
+    }
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { type } = this.state;
+
+    if (!prevState.type.length && type.length) {
+      this.getTherapiestData(type);
+    }
+  }
 
   getTherapiestData = types => {
     types.forEach(async type => {
@@ -29,14 +42,16 @@ class ResultsPage extends React.Component {
         const {
           data: { data: therapist },
         } = result;
-        this.setState(state =>
-          therapist.length
-            ? {
-                ...state,
-                therapist: [...state.therapist, ...therapist],
-              }
-            : { noResult: 'Unfortunately there are no results' }
-        );
+        const withResults = !!therapist.length;
+        if (withResults) {
+          this.setState(prevState => ({
+            therapist: [...prevState.therapist, ...therapist],
+          }));
+        } else {
+          this.setState({
+            noResult: 'Unfortunately there are no results',
+          });
+        }
       } catch (e) {
         this.openNotificationWithIcon(e);
       }
@@ -75,12 +90,15 @@ class ResultsPage extends React.Component {
   };
 
   render() {
-    const { therapist, type, noResult } = this.state;
     const {
-      location: {
-        state: { resultPoints },
-      },
+      location: { state },
     } = this.props;
+    const resultPoints = state && state.resultPoints;
+
+    const { type, therapist, noResult } = this.state;
+    if (!resultPoints) {
+      return <Redirect to="/questionnaire" />;
+    }
     return (
       <div className="Results">
         <FilterResult resultPoints={resultPoints} />
@@ -109,16 +127,13 @@ class ResultsPage extends React.Component {
   }
 }
 
-ResultsPage.defaultProps = {
-  location: PropTypes.shape({
-    state: PropTypes.objectOf(PropTypes.object),
-  }),
-};
-
 ResultsPage.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.objectOf(PropTypes.object),
-  }),
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
-export default ResultsPage;
+export default withRouter(ResultsPage);

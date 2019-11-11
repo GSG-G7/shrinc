@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 import { Form, Steps, Button, message } from 'antd';
-import renderSteps from './renderSteps';
+import Q from './Question';
 import options from './qustionsStatic';
 import rateHighestTypeTherapy from '../../../utils';
 
@@ -48,54 +48,56 @@ class BarBrogress extends React.Component {
     });
   };
 
-  next() {
+  next = () => {
     this.setState(prevState => ({
       current: prevState.current + 1,
     }));
-  }
+  };
 
-  prev() {
+  prev = () => {
     this.setState(prevState => ({
       current: prevState.current - 1,
     }));
-  }
+  };
 
   render() {
-    const steps = renderSteps({
-      onChange: this.onChange,
-      state: this.state,
-      options,
-    });
-    const { current, messageForUser } = this.state;
+    const { current, messageForUser, value } = this.state;
+    const currentStep = current + 1;
+    const values = Object.keys(value);
+    const questionValue = `Q${currentStep}`;
     return (
-      <Form
-        onSubmit={this.handleSubmit}
-        className="Questionary__form"
-        {...this.props}
-      >
+      <Form onSubmit={this.handleSubmit} className="Questionary__form">
         <Steps current={current}>
-          {steps.map(({ content: { props: { id } } }) => (
-            <Step key={id} />
-          ))}
+          {values.map(item => {
+            return <Step key={`${item}key`} />;
+          })}
         </Steps>
-        <div className="steps-content">{steps[current].content}</div>
+        <div className="steps-content">
+          <Q
+            keyValue={`q${currentStep}`}
+            onChange={this.onChange}
+            value={value[questionValue]}
+            options={options}
+            id={questionValue}
+          />
+        </div>
         <div className="steps-action">
-          {current < steps.length - 1 && (
-            <Button type="primary" onClick={() => this.next()}>
+          {current > 0 && (
+            <Button style={{ marginRight: 10 }} onClick={this.prev}>
+              Previous
+            </Button>
+          )}
+          {current < values.length - 1 && (
+            <Button type="primary" onClick={this.next}>
               Next
             </Button>
           )}
-          {current === steps.length - 1 && (
+          {current === values.length - 1 && (
             <Button
               htmlType="submit"
               onClick={() => message.success(messageForUser)}
             >
               Done
-            </Button>
-          )}
-          {current > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-              Previous
             </Button>
           )}
         </div>
@@ -105,7 +107,9 @@ class BarBrogress extends React.Component {
 }
 
 BarBrogress.propTypes = {
-  history: PropTypes.objectOf().isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default withRouter(BarBrogress);
