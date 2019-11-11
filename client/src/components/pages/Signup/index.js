@@ -9,12 +9,13 @@ import {
   Upload,
   Button,
   Checkbox,
+  notification,
 } from 'antd';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-import Avalibility from '../../common/availabilityTable';
-import Map from '../../common/Location';
+import { Avalibility, Map, Loader } from '../../common';
+
 import staticData from './staticData';
 import './style.css';
 
@@ -31,12 +32,14 @@ class SignupForm extends Component {
       { day: 'Sat', from: '', to: '' },
       { day: 'Sun', from: '', to: '' },
     ],
+    loading: false,
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const {
       form: { validateFieldsAndScroll },
+      history: { push },
     } = this.props;
     const { remote, available } = this.state;
     validateFieldsAndScroll(async (err, values) => {
@@ -48,12 +51,39 @@ class SignupForm extends Component {
         formData.append('data', JSON.stringify(data));
         formData.append('avalibility', JSON.stringify(available));
         formData.append('image', file);
-        await axios.post('/api/v1/signup', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+        try {
+          this.setState({ loading: true });
+          const res = await axios.post('/api/v1/signup', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          this.setState({ loading: false });
+          this.successNotification(res.data.message);
+          setTimeout(() => push('/'), 2000);
+        } catch (error) {
+          this.setState({ loading: false });
+          if (error.response.status === 400)
+            this.errorNotification(error.response.data.message);
+          else this.errorNotification('Server Error');
+        }
       }
+    });
+  };
+
+  errorNotification = message => {
+    notification.error({
+      message: 'Error',
+      description: message,
+      duration: 2,
+    });
+  };
+
+  successNotification = message => {
+    notification.open({
+      message: 'success',
+      description: message,
+      duration: 2,
     });
   };
 
@@ -116,7 +146,7 @@ class SignupForm extends Component {
 
   render() {
     const { Option } = Select;
-    const { remote } = this.state;
+    const { remote, loading } = this.state;
     const {
       form: { getFieldDecorator },
     } = this.props;
@@ -126,6 +156,7 @@ class SignupForm extends Component {
         <Helmet>
           <title>Sign Up</title>
         </Helmet>
+        {loading ? <Loader className="signup_loader" /> : ''}
         <h2 className="signup-page__title">Therapist Signup</h2>
         <Form onSubmit={this.handleSubmit} className="signup-page__form">
           <Form.Item label="Full Name:">
@@ -365,6 +396,7 @@ class SignupForm extends Component {
             type="primary"
             className="signup-page__button"
             htmlType="submit"
+            disabled={loading}
           >
             Signup
           </Button>
@@ -378,6 +410,9 @@ SignupForm.propTypes = {
   form: PropTypes.objectOf(PropTypes.func).isRequired,
   getFieldDecorator: PropTypes.func.isRequired,
   setFieldsValue: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 const Signup = Form.create({ name: 'Signup' })(SignupForm);

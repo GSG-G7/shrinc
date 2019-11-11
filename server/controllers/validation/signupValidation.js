@@ -12,7 +12,7 @@ module.exports = yup.object({
   remote: yup.boolean().required(),
   skype: yup.string(),
   language: yup.array().required(),
-  insurance: yup.string().required(),
+  insurance: yup.array().required(),
   approch: yup.string().max(200).required(),
   avalibility: yup.array().required(),
 });
