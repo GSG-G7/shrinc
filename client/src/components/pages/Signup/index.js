@@ -14,6 +14,7 @@ import axios from 'axios';
 import Helmet from 'react-helmet';
 
 import Avalibility from '../../common/availabilityTable';
+import Map from '../../common/Location';
 import staticData from './staticData';
 import './style.css';
 
@@ -104,6 +105,15 @@ class SignupForm extends Component {
     }
   };
 
+  handleCity = city => {
+    const {
+      form: { setFieldsValue },
+    } = this.props;
+    setFieldsValue({
+      city,
+    });
+  };
+
   render() {
     const { Option } = Select;
     const { remote } = this.state;
@@ -167,17 +177,21 @@ class SignupForm extends Component {
             })(<Input.Password placeholder="Enter your password" />)}
           </Form.Item>
           <Form.Item label="Confirm Password" hasFeedback>
-            {getFieldDecorator('confirm', {
-              rules: [
-                {
-                  required: true,
-                  message: 'Please confirm your password!',
-                },
-                {
-                  validator: this.compareToFirstPassword,
-                },
-              ],
-            })(
+            {getFieldDecorator(
+              'confirm',
+              { initialValue: '' },
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: 'Please confirm your password!',
+                  },
+                  {
+                    validator: this.compareToFirstPassword,
+                  },
+                ],
+              }
+            )(
               <Input.Password
                 placeholder="Confirm your password"
                 onBlur={this.handleConfirmBlur}
@@ -186,17 +200,13 @@ class SignupForm extends Component {
           </Form.Item>
           <Form.Item label="City:">
             {getFieldDecorator('city', {
+              initialValue: {},
               rules: [
                 {
-                  required: true,
-                  message: 'Please input your city!',
-                },
-                {
-                  min: 3,
-                  message: 'at least 3 character',
+                  message: 'Please mark your location on map',
                 },
               ],
-            })(<Input placeholder="Enter your city" />)}
+            })(<Map handleCity={this.handleCity} />)}
           </Form.Item>
           <Form.Item label="Type Of Therapy:">
             {getFieldDecorator('type', {
@@ -240,6 +250,9 @@ class SignupForm extends Component {
                   required: true,
                   message: 'Please input post code!',
                 },
+                {
+                  validator: this.validateToNextPassword,
+                },
               ],
             })(<Input placeholder="Enter post code" />)}
           </Form.Item>
@@ -270,10 +283,6 @@ class SignupForm extends Component {
             {getFieldDecorator('insurance', {
               rules: [
                 {
-                  required: true,
-                  message: 'Please fill this field',
-                },
-                {
                   validator: this.insuranceValidation,
                 },
               ],
@@ -292,15 +301,15 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Approach:">
+          <Form.Item label="Approch:">
             {getFieldDecorator('approch', {
               rules: [
                 {
-                  message: 'The Approach is not valid!',
+                  message: 'The approch is not valid!',
                 },
                 {
                   required: true,
-                  message: 'Please input your Approach!',
+                  message: 'Please input your approch!',
                 },
                 {
                   max: 200,
@@ -368,6 +377,7 @@ class SignupForm extends Component {
 SignupForm.propTypes = {
   form: PropTypes.objectOf(PropTypes.func).isRequired,
   getFieldDecorator: PropTypes.func.isRequired,
+  setFieldsValue: PropTypes.func.isRequired,
 };
 
 const Signup = Form.create({ name: 'Signup' })(SignupForm);

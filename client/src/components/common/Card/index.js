@@ -50,4 +50,5 @@ Card.propTypes = {
   props: PropTypes.objectOf(PropTypes.object).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
 export default Card;
