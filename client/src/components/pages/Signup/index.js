@@ -128,7 +128,7 @@ class SignupForm extends Component {
   };
 
   insuranceValidation = (rule, value, callback) => {
-    if (value && value.length < 2) {
+    if (value && value.length === 1) {
       callback('you should select more than one');
     } else {
       callback();
@@ -227,9 +227,10 @@ class SignupForm extends Component {
           </Form.Item>
           <Form.Item label="City:">
             {getFieldDecorator('city', {
-              initialValue: {},
+              initialValue: '',
               rules: [
                 {
+                  required: true,
                   message: 'Please mark your location on map',
                 },
               ],
@@ -310,6 +311,9 @@ class SignupForm extends Component {
             {getFieldDecorator('insurance', {
               rules: [
                 {
+                  required: true,
+                },
+                {
                   validator: this.insuranceValidation,
                 },
               ],
@@ -349,17 +353,26 @@ class SignupForm extends Component {
             <Avalibility onChange={this.onChange} />
           </Form.Item>
           <Form.Item label="Add Photo:">
-            <Upload
-              accept="image/*"
-              style={{ width: '100%' }}
-              customRequest={() => {}}
-              listType="picture"
-              ref={this.uploadInput}
-            >
-              <Button size="large">
-                <Icon type="upload" /> Click to upload
-              </Button>
-            </Upload>
+            {getFieldDecorator('image', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please upload your image!',
+                },
+              ],
+            })(
+              <Upload
+                accept="image/*"
+                style={{ width: '100%' }}
+                customRequest={() => {}}
+                listType="picture"
+                ref={this.uploadInput}
+              >
+                <Button size="large">
+                  <Icon type="upload" /> Click to upload
+                </Button>
+              </Upload>
+            )}
           </Form.Item>
           <Form.Item label="Remote Therapy:">
             <Switch name="remote" onChange={this.handleRemote} />
