@@ -48,6 +48,7 @@ class Filter extends Component {
     const { cities } = this.state;
     const {
       form: { getFieldDecorator },
+      disabled,
     } = this.props;
 
     return (
@@ -103,6 +104,7 @@ class Filter extends Component {
             type="primary"
             htmlType="submit"
             className="filter__submit-button"
+            disabled={disabled}
           >
             Filter
           </Button>
@@ -119,6 +121,7 @@ Filter.propTypes = {
     validateFieldsAndScroll: PropTypes.func.isRequired,
     getFieldDecorator: PropTypes.func.isRequired,
   }).isRequired,
+  disabled: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };
 export default WrappedRegistrationForm;
