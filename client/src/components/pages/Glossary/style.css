@@ -1,16 +1,28 @@
-.glossary_title {
-  color: #32a48f;
-  font-weight: 900;
-  font-family: Roboto, sans-serif;
-  padding: 0.5rem 0.5rem 0 0.5rem;
+.glossary_container {
+  background: #E0E0E0;
+  width: 100vw;
+  padding: 1rem 1rem 0 1rem;
 }
 
-.glossary_description {
-  font-family: Roboto, sans-serif;
-  padding: 0 1.5rem 0.5rem 0.5rem;
+.glossary_content {
+  color: #32A48F;
+  margin-left: 0.2rem;
+  margin-bottom: 1rem;
+}
+.glossary_container > h1 {
+  margin-bottom: 3rem;
+  font-size: 1.7rem;
 }
 
-.glossary_table {
-  display: block;
-  margin: 0 auto;
+@media (min-width: 768px) {
+
+  .glossary_container {
+    margin: 0 auto;
+    width: 52.5rem;
+    padding: 3rem;
+  }
+
+  .glossary_content {
+    font-size: 1.2rem ;
+  }
 }
