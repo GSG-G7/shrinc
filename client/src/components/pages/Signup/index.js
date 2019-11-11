@@ -208,21 +208,17 @@ class SignupForm extends Component {
             })(<Input.Password placeholder="Enter your password" />)}
           </Form.Item>
           <Form.Item label="Confirm Password" hasFeedback>
-            {getFieldDecorator(
-              'confirm',
-              { initialValue: '' },
-              {
-                rules: [
-                  {
-                    required: true,
-                    message: 'Please confirm your password!',
-                  },
-                  {
-                    validator: this.compareToFirstPassword,
-                  },
-                ],
-              }
-            )(
+            {getFieldDecorator('confirm', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please confirm your password!',
+                },
+                {
+                  validator: this.compareToFirstPassword,
+                },
+              ],
+            })(
               <Input.Password
                 placeholder="Confirm your password"
                 onBlur={this.handleConfirmBlur}
