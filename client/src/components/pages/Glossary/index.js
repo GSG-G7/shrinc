@@ -13,7 +13,7 @@ export default () => {
       <h1>Glossary Page</h1>
       {glossaryData.map(item => {
         return (
-          <Fragment>
+          <Fragment key={Object.keys(item)}>
             <h3>{Object.keys(item)}</h3>
             <div>
               <p className="glossary_content">{Object.values(item)}</p>
