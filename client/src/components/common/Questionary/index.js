@@ -69,7 +69,7 @@ class BarBrogress extends React.Component {
       <Form onSubmit={this.handleSubmit} className="Questionary__form">
         <Steps current={current}>
           {values.map(item => {
-            return <Step key={`${item}key`} />;
+            return <Step key={item} />;
           })}
         </Steps>
         <div className="steps-content">

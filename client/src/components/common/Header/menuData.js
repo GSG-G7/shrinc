@@ -15,27 +15,27 @@ const menuData = [
   },
   {
     label: 'Types of therapist',
-    url: 'types',
+    url: '/types',
     icon: <TypesTherapist />,
   },
   {
     label: 'Glossary',
-    url: 'glossary',
+    url: '/glossary',
     icon: <TypesTherapist />,
   },
   {
     label: 'Questionarie',
-    url: 'questionnaire',
+    url: '/questionnaire',
     icon: <Questionnaire />,
   },
   {
     label: 'Search',
-    url: 'filter',
+    url: '/filter',
     icon: <Search />,
   },
   {
     label: 'About',
-    url: 'about',
+    url: '/about',
     icon: <About />,
   },
 ];
