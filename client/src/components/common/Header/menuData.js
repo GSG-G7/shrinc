@@ -14,7 +14,7 @@ const menuData = [
     icon: <HomeIcone />,
   },
   {
-    label: 'Types of therapist',
+    label: 'Types of therapy',
     url: '/types',
     icon: <TypesTherapist />,
   },
@@ -24,12 +24,12 @@ const menuData = [
     icon: <TypesTherapist />,
   },
   {
-    label: 'Questionarie',
+    label: 'Explore therapies',
     url: '/questionnaire',
     icon: <Questionnaire />,
   },
   {
-    label: 'Search',
+    label: 'Therapist search',
     url: '/filter',
     icon: <Search />,
   },
