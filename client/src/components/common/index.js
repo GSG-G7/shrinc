@@ -4,5 +4,14 @@ import Card from './Card';
 import FilterComponent from './Filter';
 import Avalibility from './availabilityTable';
 import Map from './Location';
+import Questionnaire from './Questionnaire';
 
-export { Card, FilterComponent, Loader, FilterResult, Avalibility, Map };
+export {
+  Card,
+  FilterComponent,
+  Loader,
+  FilterResult,
+  Avalibility,
+  Map,
+  Questionnaire,
+};
