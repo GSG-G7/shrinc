@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 import { Checkbox } from 'antd';
 
 const MultiQuestion = props => {
-  const { onMultiChange, options, id, defaultValue, keyValue } = props;
+  const {
+    onMultiChange,
+    options: { question, answers },
+    id,
+    defaultValue,
+    keyValue,
+  } = props;
   return (
     <div>
-      {options.question && <h1 className="qusetion">{options.question}</h1>}
+      {question && <h1 className="qusetion">{question}</h1>}
       <Checkbox.Group
         key={keyValue}
         onChange={onMultiChange}
         defaultValue={defaultValue}
         className="qusetion__group"
       >
-        {options.answers.map((answer, index) => (
+        {answers.map((answer, index) => (
           <Checkbox
             value={index.toString()}
             id={id}
