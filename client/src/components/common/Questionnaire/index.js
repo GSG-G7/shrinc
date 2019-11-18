@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -10,7 +10,7 @@ import rateHighestTypeTherapy from '../../../utils';
 
 const { Step } = Steps;
 
-class Questionnaire extends React.Component {
+class Questionnaire extends Component {
   state = {
     current: 0,
     value: {

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio } from 'antd';
 
+const { Group: RadioGroup } = Radio;
 const SingleChoiceQuestion = props => {
   const {
     onChange,
@@ -13,7 +14,7 @@ const SingleChoiceQuestion = props => {
   return (
     <div>
       <h1 className="qusetion">{question}</h1>
-      <Radio.Group
+      <RadioGroup
         key={keyValue}
         onChange={onChange}
         value={value[0]}
@@ -29,7 +30,7 @@ const SingleChoiceQuestion = props => {
             {answer}
           </Radio>
         ))}
-      </Radio.Group>
+      </RadioGroup>
     </div>
   );
 };

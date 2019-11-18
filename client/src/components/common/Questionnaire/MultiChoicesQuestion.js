@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'antd';
 
+const { Group: CheckboxGroup } = Checkbox;
 const MultiQuestion = props => {
   const {
     onMultiChange,
@@ -13,7 +14,7 @@ const MultiQuestion = props => {
   return (
     <div>
       <h1 className="qusetion">{question}</h1>
-      <Checkbox.Group
+      <CheckboxGroup
         key={keyValue}
         onChange={onMultiChange}
         defaultValue={defaultValue}
@@ -29,7 +30,7 @@ const MultiQuestion = props => {
             {answer}
           </Checkbox>
         ))}
-      </Checkbox.Group>
+      </CheckboxGroup>
     </div>
   );
 };
