@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 import { Radio } from 'antd';
 
 const SingleChoiceQuestion = props => {
-  const { onChange, options, id, value, keyValue } = props;
+  const {
+    onChange,
+    options: { question, answers },
+    id,
+    value,
+    keyValue,
+  } = props;
   return (
     <div>
-      {options.question && <h1 className="qusetion">{options.question}</h1>}
+      <h1 className="qusetion">{question}</h1>
       <Radio.Group
         key={keyValue}
         onChange={onChange}
         value={value[0]}
         className="qusetion__group"
       >
-        {options.answers.map((answer, index) => (
+        {answers.map((answer, index) => (
           <Radio
             value={index.toString()}
             id={id}

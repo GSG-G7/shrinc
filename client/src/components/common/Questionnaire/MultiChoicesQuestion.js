@@ -12,7 +12,7 @@ const MultiQuestion = props => {
   } = props;
   return (
     <div>
-      {question && <h1 className="qusetion">{question}</h1>}
+      <h1 className="qusetion">{question}</h1>
       <Checkbox.Group
         key={keyValue}
         onChange={onMultiChange}
