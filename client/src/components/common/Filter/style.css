@@ -1,18 +1,18 @@
 .filter__submit-button {
+    background-color: #32A48F;
+    color: #FFFFFF;
+    font-size: 1.125rem;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
     margin-bottom: 10px;
     text-align: center;
     text-decoration: none;
     border: none;
-    background-color: #32A48F;
     border-radius: 3px;
     letter-spacing: 1.5px;
-    font-weight: 600;
-    font-size: 18px;
-    font-family: Roboto;
     cursor: pointer;
     width: 100%;
     height: 46px;
-    color: #fff;
 }
 
 .ant-form-item-children { 
@@ -32,4 +32,10 @@
 .label__swich-btn {
     display: flex !important;
     justify-content: space-between;
+}
+
+.ant-form-item-label > label {
+    color: rgba(0, 0, 0, 0.85);
+    font-family: Roboto, sans-serif;
+    font-size: 1.125rem;
 }
