@@ -5,22 +5,23 @@
 }
 
 .glossary_content {
-  color: #32A48F;
+  color: #1C7867;
   margin-left: 0.2rem;
   margin-bottom: 1rem;
   font-family: Roboto, sans-serif;
 }
 
 .glossary_container > h1 {
+  color: #32A48F;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   font-family: Roboto, sans-serif;
-  color: #1C7867
 }
 
 .glossary_container > h3 {
+  color: rgba(0, 0, 0, 0.85);
   font-size: 1.125rem;
-  font-family: Roboto, sans-serif
+  font-family: Roboto, sans-serif;
 }
 
 @media (min-width: 768px) {
