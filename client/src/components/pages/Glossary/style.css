@@ -8,11 +8,19 @@
   color: #32A48F;
   margin-left: 0.2rem;
   margin-bottom: 1rem;
+  font-family: Roboto, sans-serif;
 }
 
 .glossary_container > h1 {
-  margin-bottom: 3rem;
-  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-family: Roboto, sans-serif;
+  color: #1C7867
+}
+
+.glossary_container > h3 {
+  font-size: 1.125rem;
+  font-family: Roboto, sans-serif
 }
 
 @media (min-width: 768px) {
@@ -24,6 +32,6 @@
   }
 
   .glossary_content {
-    font-size: 1.2rem ;
+    font-size: 1.2rem;
   }
 }
