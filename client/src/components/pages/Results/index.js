@@ -94,6 +94,7 @@ class ResultsPage extends React.Component {
       location: { state },
     } = this.props;
     const resultPoints = state && state.resultPoints;
+
     const { type, therapist, noResult } = this.state;
     if (!resultPoints) {
       return <Redirect to="/questionnaire" />;
