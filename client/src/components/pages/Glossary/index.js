@@ -10,7 +10,7 @@ export default () => {
       <Helmet>
         <title>Glossary</title>
       </Helmet>
-      <h1>Glossary Page</h1>
+      <h1>Glossary</h1>
       {glossaryData.map(item => {
         return (
           <Fragment key={Object.keys(item)}>
