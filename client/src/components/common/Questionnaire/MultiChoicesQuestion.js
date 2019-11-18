@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'antd';
 
-import './style.css';
-
 const MultiQuestion = props => {
   const { onMultiChange, options, id, defaultValue, keyValue } = props;
   return (

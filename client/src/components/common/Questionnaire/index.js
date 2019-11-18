@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './style.css';
 import { Form, Steps, Button, notification } from 'antd';
 import options from './qustionsStatic';
 import MultiChoicesQuestion from './MultiChoicesQuestion';
