@@ -225,7 +225,7 @@ class SignupForm extends Component {
               />
             )}
           </Form.Item>
-          <Form.Item label="City:">
+          <Form.Item label="City (mark your city on the map not exact address):">
             {getFieldDecorator('city', {
               initialValue: '',
               rules: [
