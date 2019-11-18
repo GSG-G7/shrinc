@@ -225,7 +225,7 @@ class SignupForm extends Component {
               />
             )}
           </Form.Item>
-          <Form.Item label="City (mark your city on the map not exact address):">
+          <Form.Item label="Click on the map to place your location (We only use the city that you are located in):">
             {getFieldDecorator('city', {
               initialValue: '',
               rules: [
@@ -235,6 +235,19 @@ class SignupForm extends Component {
                 },
               ],
             })(<Map handleCity={this.handleCity} />)}
+          </Form.Item>
+          <Form.Item label="Post Code:">
+            {getFieldDecorator('postCode', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please input post code!',
+                },
+                {
+                  validator: this.validateToNextPassword,
+                },
+              ],
+            })(<Input placeholder="Enter post code" />)}
           </Form.Item>
           <Form.Item label="Type Of Therapy:">
             {getFieldDecorator('type', {
@@ -270,19 +283,6 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Post Code:">
-            {getFieldDecorator('postCode', {
-              rules: [
-                {
-                  required: true,
-                  message: 'Please input post code!',
-                },
-                {
-                  validator: this.validateToNextPassword,
-                },
-              ],
-            })(<Input placeholder="Enter post code" />)}
-          </Form.Item>
           <Form.Item label="Languages spoken:">
             {getFieldDecorator('language', {
               rules: [
@@ -295,7 +295,7 @@ class SignupForm extends Component {
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="select languages you speak"
+                placeholder="Select your language(s)"
                 optionLabelProp="label"
               >
                 {languages.map(language => (
@@ -320,7 +320,7 @@ class SignupForm extends Component {
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="Select multi insurance"
+                placeholder="Select insurance(s)"
                 optionLabelProp="label"
               >
                 {insurance.map(item => (
@@ -331,7 +331,7 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Approach:">
+          <Form.Item label="Please describe your approach to therapy:">
             {getFieldDecorator('approch', {
               rules: [
                 {
@@ -348,7 +348,7 @@ class SignupForm extends Component {
               ],
             })(<Input.TextArea placeholder="Enter your approach" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Please define your availability">
             <Avalibility onChange={this.onChange} />
           </Form.Item>
           <Form.Item label="Add Photo:">
@@ -398,7 +398,12 @@ class SignupForm extends Component {
                   message: 'Please accept the terms of services ',
                 },
               ],
-            })(<Checkbox>I Accept the Terms of Services</Checkbox>)}
+            })(
+              <Checkbox>
+                I consent to sharing my information with Shrinc and for it to
+                appear in search results on the app.
+              </Checkbox>
+            )}
           </Form.Item>
           <Button
             type="primary"
