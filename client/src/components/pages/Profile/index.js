@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Icon, Avatar } from 'antd';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-import AvailableityTime from '../../common/AvailabilityTime';
+import { AvailableityTime } from '../../common';
 import Loader from '../../common/Loader';
+import fullTypeName from './staticData';
 import './style.css';
 
 class Profile extends Component {
   state = {
-    profileData: '',
+    fields: {},
   };
 
   async componentDidMount() {
-    const { history } = this.props;
+    const {
+      history: { push },
+    } = this.props;
     try {
       const {
         match: {
@@ -28,23 +31,23 @@ class Profile extends Component {
           data: { fields },
         },
       } = profileData;
-      this.setState({ profileData: fields });
+      this.setState({ fields });
     } catch (err) {
       const error500 = err.message.includes('500');
       if (error500) {
-        history.push('/500');
+        push('/500');
       } else {
-        history.push('/404');
+        push('/404');
       }
     }
   }
 
-  renderCode = () => {
-    const { profileData } = this.state;
-    if (!profileData) return <Loader />;
-
+  render() {
+    const handleInsuranceCompanies = data =>
+      JSON.parse(data).map(item => <p key={item}>{item}</p>);
     const {
-      profileData: {
+      fields,
+      fields: {
         avalibility,
         city,
         email,
@@ -61,12 +64,9 @@ class Profile extends Component {
       },
     } = this.state;
 
-    const handleInsuranceCompanies = data => {
-      const companyList = JSON.parse(data);
-      return companyList.map(item => <p key={item}>{item}</p>);
-    };
-
-    return (
+    return !Object.entries(fields).length ? (
+      <Loader />
+    ) : (
       <section className="font">
         <Helmet>
           <title>Profile</title>
@@ -80,10 +80,10 @@ class Profile extends Component {
               size={120}
               icon="user"
             />
-            <div className="profile_card_b">
+            <div className="profile_card_main_info">
               <h1 className="profile_username">{fullName}</h1>
               <h4 className="profile_user_info">{approch}</h4>
-              <h4 className="profile_user_info">{type}</h4>
+              <h4 className="profile_user_info">{fullTypeName[type]}</h4>
             </div>
           </div>
           <div className="profile_card_fees">
@@ -108,7 +108,7 @@ class Profile extends Component {
             <Icon type="read" /> Languages
           </h2>
           <div className="profile_contact_info">
-            <p>{JSON.parse(language).map(item => `${item}, `)}</p>
+            <p>{JSON.parse(language).join(' , ')}</p>
           </div>
         </section>
         <section className="profile_contact_container">
@@ -121,12 +121,12 @@ class Profile extends Component {
             </h4>
             <p>{email}</p>
             {skype && (
-              <React.Fragment>
+              <Fragment>
                 <h4>
                   <span aria-hidden>-</span> Skype
                 </h4>
                 <p>{skype}</p>
-              </React.Fragment>
+              </Fragment>
             )}
           </div>
         </section>
@@ -155,10 +155,6 @@ class Profile extends Component {
         </section>
       </section>
     );
-  };
-
-  render() {
-    return this.renderCode();
   }
 }
 Profile.propTypes = {
