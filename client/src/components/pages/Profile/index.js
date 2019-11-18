@@ -31,6 +31,7 @@ class Profile extends Component {
           data: { fields },
         },
       } = profileData;
+
       this.setState({ fields });
     } catch (err) {
       const error500 = err.message.includes('500');
@@ -44,7 +45,7 @@ class Profile extends Component {
 
   render() {
     const handleInsuranceCompanies = data =>
-      JSON.parse(data).map(item => <p key={item}>{item}</p>);
+      data.map(item => <p key={item}>{item}</p>);
     const {
       fields,
       fields: {
@@ -108,7 +109,7 @@ class Profile extends Component {
             <Icon type="read" /> Languages
           </h2>
           <div className="profile_contact_info">
-            <p>{JSON.parse(language).join(' , ')}</p>
+            <p>{language.join(' , ')}</p>
           </div>
         </section>
         <section className="profile_contact_container">
