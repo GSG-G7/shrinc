@@ -3,55 +3,85 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './style.css';
-import { Form, Steps, Button, message } from 'antd';
-import Q from './Question';
+import { Form, Steps, Button, notification } from 'antd';
 import options from './qustionsStatic';
+import MultiChoicesQuestion from './MultiChoicesQuestion';
+import SingleChoiceQuestion from './SingleChoiceQuestion';
 import rateHighestTypeTherapy from '../../../utils';
 
 const { Step } = Steps;
 
-class BarBrogress extends React.Component {
+class Questionnaire extends React.Component {
   state = {
     current: 0,
     value: {
-      Q1: '0',
-      Q2: '0',
-      Q3: '0',
-      Q4: '0',
-      Q5: '0',
-      Q6: '0',
-      Q7: '0',
-      Q8: '0',
-      Q9: '0',
-      Q10: '0',
+      Q1: [],
+      Q2: [],
+      Q3: [],
+      Q4: [],
+      Q5: [],
+      Q6: [],
+      Q7: [],
+      Q8: [],
+      Q9: [],
+      Q10: [],
     },
-    messageForUser: 'Done',
   };
 
-  onChange = e => {
+  onMultiChange = e => {
+    const { current } = this.state;
+    const questionValue = `Q${current + 1}`;
     this.setState(prevState => ({
       ...prevState,
-      value: { ...prevState.value, [e.target.id]: e.target.value },
+      value: {
+        ...prevState.value,
+        [questionValue]: [...e],
+      },
     }));
+  };
+
+  onSingleChange = e => {
+    this.setState(prevState => ({
+      ...prevState,
+      value: { ...prevState.value, [e.target.id]: [e.target.value] },
+    }));
+  };
+
+  openNotificationWithIcon = () => {
+    notification.error({
+      message: 'you shuold at least choose an option',
+      duration: 2,
+    });
   };
 
   handleSubmit = e => {
     const {
       history: { push },
     } = this.props;
+    const { value: answers, current } = this.state;
     e.preventDefault();
-    const { value: answers } = this.state;
-    const resultPoints = rateHighestTypeTherapy(answers);
-    push({
-      pathname: '/result',
-      state: { resultPoints },
-    });
+    const questionValue = `Q${current + 1}`;
+    if (!answers[questionValue].length) {
+      this.openNotificationWithIcon();
+    } else {
+      const resultPoints = rateHighestTypeTherapy(answers);
+      push({
+        pathname: '/result',
+        state: { resultPoints },
+      });
+    }
   };
 
   next = () => {
-    this.setState(prevState => ({
-      current: prevState.current + 1,
-    }));
+    const { current, value } = this.state;
+    const questionValue = `Q${current + 1}`;
+    if (!value[questionValue].length) {
+      this.openNotificationWithIcon();
+    } else {
+      this.setState(prevState => ({
+        current: prevState.current + 1,
+      }));
+    }
   };
 
   prev = () => {
@@ -61,10 +91,11 @@ class BarBrogress extends React.Component {
   };
 
   render() {
-    const { current, messageForUser, value } = this.state;
+    const { current, value } = this.state;
     const currentStep = current + 1;
     const values = Object.keys(value);
     const questionValue = `Q${currentStep}`;
+
     return (
       <Form onSubmit={this.handleSubmit} className="Questionary__form">
         <Steps current={current}>
@@ -73,13 +104,23 @@ class BarBrogress extends React.Component {
           })}
         </Steps>
         <div className="steps-content">
-          <Q
-            keyValue={`q${currentStep}`}
-            onChange={this.onChange}
-            value={value[questionValue]}
-            options={options}
-            id={questionValue}
-          />
+          {options[questionValue].type === 'multi' ? (
+            <MultiChoicesQuestion
+              keyValue={`q${currentStep}`}
+              onMultiChange={this.onMultiChange}
+              defaultValue={value[questionValue]}
+              options={options[questionValue]}
+              id={questionValue}
+            />
+          ) : (
+            <SingleChoiceQuestion
+              keyValue={`q${currentStep}`}
+              onChange={this.onSingleChange}
+              value={value[questionValue]}
+              options={options[questionValue]}
+              id={questionValue}
+            />
+          )}
         </div>
         <div className="steps-action">
           {current > 0 && (
@@ -93,12 +134,7 @@ class BarBrogress extends React.Component {
             </Button>
           )}
           {current === values.length - 1 && (
-            <Button
-              htmlType="submit"
-              onClick={() => message.success(messageForUser)}
-            >
-              Done
-            </Button>
+            <Button htmlType="submit">Done</Button>
           )}
         </div>
       </Form>
@@ -106,10 +142,9 @@ class BarBrogress extends React.Component {
   }
 }
 
-BarBrogress.propTypes = {
+Questionnaire.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
 };
-
-export default withRouter(BarBrogress);
+export default withRouter(Questionnaire);

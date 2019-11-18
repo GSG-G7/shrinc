@@ -1,23 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio } from 'antd';
 
-import './style.css';
-
-const Question = props => {
+const SingleChoiceQuestion = props => {
   const { onChange, options, id, value, keyValue } = props;
   return (
-    <Fragment>
-      {options[id].question && (
-        <h1 className="qusetion">{options[id].question}</h1>
-      )}
+    <div>
+      {options.question && <h1 className="qusetion">{options.question}</h1>}
       <Radio.Group
         key={keyValue}
         onChange={onChange}
-        value={value}
+        value={value[0]}
         className="qusetion__group"
       >
-        {options[id].answers.map((answer, index) => (
+        {options.answers.map((answer, index) => (
           <Radio
             value={index.toString()}
             id={id}
@@ -28,15 +24,19 @@ const Question = props => {
           </Radio>
         ))}
       </Radio.Group>
-    </Fragment>
+    </div>
   );
 };
 
-Question.propTypes = {
+SingleChoiceQuestion.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   keyValue: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  options: PropTypes.objectOf(PropTypes.object).isRequired,
+  options: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    question: PropTypes.string.isRequired,
+    answers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
 };
-export default Question;
+export default SingleChoiceQuestion;
