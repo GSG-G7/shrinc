@@ -38,7 +38,7 @@
     margin: 30px 0; 
 }
 
-.ant-radio-checked {
+.ant-radio-checked, .ant-checkbox-checked {
     align-self: flex-start;
 }
 
