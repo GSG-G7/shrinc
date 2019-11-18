@@ -40,7 +40,7 @@ class Map extends React.Component {
 
   openNotificationWithIcon = e => {
     notification.error({
-      message: 'something wrong !!',
+      message: 'Error on map',
       description: e.message,
       duration: 2,
     });

@@ -35,7 +35,7 @@ module.exports = async (req, res, next) => {
     }
   } catch (e) {
     if (e.name === 'ValidationError') {
-      res.status(400).send({ statusCode: 400, message: 'Validation Error' });
+      res.status(400).send({ statusCode: 400, message: e.message });
     } else {
       next(e);
     }
