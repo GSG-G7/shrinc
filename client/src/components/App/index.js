@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import Helmet from 'react-helmet';
 
 import { Loader } from '../common';
 import 'antd/dist/antd.css';
@@ -33,10 +33,10 @@ export default () => {
             <Route path="/signup" component={Signup} />
             <Route path="/About" component={About} />
             <Route path="/glossary" component={Glossary} />
-            <Route exact path="/profile/:id" component={Profile} />
             <Route path="/types" component={TherapyType} />
             <Route path="/filter" component={Filter} />
             <Route path="/questionnaire" component={Qustionnarie} />
+            <Route path="/profile/:id" component={Profile} />
             <Route path="*" component={NotFound} />
           </Switch>
         </main>

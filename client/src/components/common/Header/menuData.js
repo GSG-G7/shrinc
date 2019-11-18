@@ -14,28 +14,28 @@ const menuData = [
     icon: <HomeIcone />,
   },
   {
-    label: 'Types of therapist',
-    url: 'types',
+    label: 'Types of therapy',
+    url: '/types',
     icon: <TypesTherapist />,
   },
   {
     label: 'Glossary',
-    url: 'glossary',
+    url: '/glossary',
     icon: <TypesTherapist />,
   },
   {
-    label: 'Questionarie',
-    url: 'questionnaire',
+    label: 'Explore therapies',
+    url: '/questionnaire',
     icon: <Questionnaire />,
   },
   {
-    label: 'Search',
-    url: 'filter',
+    label: 'Therapist search',
+    url: '/filter',
     icon: <Search />,
   },
   {
     label: 'About',
-    url: 'about',
+    url: '/about',
     icon: <About />,
   },
 ];

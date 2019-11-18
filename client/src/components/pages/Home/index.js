@@ -19,9 +19,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="home__description">
-        There is no health without mental health. Shrinc helps you to find the
-        best therapist to take you on a journey or transformation and self
-        improvement.
+        The new way to access psycotherapy
       </div>
       <div className="home__actions">
         <div className="home_buttons">

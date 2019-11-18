@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 import './style.css';
 
-export default class CardContent extends React.Component {
+class CardContent extends React.Component {
   handleClick = id => {
     const {
-      props: { history },
+      history: { push },
     } = this.props;
-    history.push(`/profile/${id}`);
+    push(`/profile/${id}`);
   };
 
   render() {
@@ -43,6 +44,10 @@ CardContent.propTypes = {
   approach: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  props: PropTypes.objectOf(PropTypes.object).isRequired,
   id: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
+
+export default withRouter(CardContent);

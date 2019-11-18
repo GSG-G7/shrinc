@@ -48,6 +48,7 @@ class Filter extends Component {
     const { cities } = this.state;
     const {
       form: { getFieldDecorator },
+      disabled,
     } = this.props;
 
     return (
@@ -56,8 +57,8 @@ class Filter extends Component {
           {getFieldDecorator('type')(
             <Select>
               {types.map(type => (
-                <Option value={type} key={type}>
-                  {type}
+                <Option value={type.key} key={type.full}>
+                  {type.full}
                 </Option>
               ))}
             </Select>
@@ -94,7 +95,7 @@ class Filter extends Component {
           )}
         </Form.Item>
 
-        <Form.Item label="isRemote" className="label__swich-btn">
+        <Form.Item label="Remote options" className="label__swich-btn">
           {getFieldDecorator('remote')(<Switch defaultChecked />)}
         </Form.Item>
 
@@ -103,6 +104,7 @@ class Filter extends Component {
             type="primary"
             htmlType="submit"
             className="filter__submit-button"
+            disabled={disabled}
           >
             Filter
           </Button>
@@ -119,6 +121,7 @@ Filter.propTypes = {
     validateFieldsAndScroll: PropTypes.func.isRequired,
     getFieldDecorator: PropTypes.func.isRequired,
   }).isRequired,
+  disabled: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };
 export default WrappedRegistrationForm;

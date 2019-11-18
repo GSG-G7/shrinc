@@ -9,6 +9,8 @@ import './style.css';
 class Filter extends Component {
   state = {
     data: [],
+    disabled: false,
+    noResult: '',
   };
 
   componentDidMount = async () => {
@@ -26,23 +28,33 @@ class Filter extends Component {
 
   handleSubmit = async data => {
     try {
+      this.setState({ disabled: true });
       const result = await axios.post('/api/v1/filter', { data: { ...data } });
-      this.setState({ data: result.data.data });
+      this.setState(() => {
+        if (result.data.data.length) {
+          return { data: result.data.data, disabled: false };
+        }
+        return {
+          data: result.data.data,
+          disabled: false,
+          noResult: 'thire is no result',
+        };
+      });
     } catch (error) {
       this.openNotificationWithIcon(error);
     }
   };
 
   render() {
-    const { data } = this.state;
-    if (!data.length) return <Loader />;
+    const { data, disabled, noResult } = this.state;
+
     return (
       <div className="Filter-page__container">
-        <h1 className="filter__title">Find approprate therapy: </h1>
-        <FilterComponent handleSubmit={this.handleSubmit} />
+        <h1 className="filter__title">Search for a therapist: </h1>
+        <FilterComponent handleSubmit={this.handleSubmit} disabled={disabled} />
         <hr className="filter__brack-line" />
         <h2 className="card__title">Therapists:</h2>
-        <Card data={data} />
+        {!data.length ? noResult || <Loader /> : <Card data={data} />}
       </div>
     );
   }
