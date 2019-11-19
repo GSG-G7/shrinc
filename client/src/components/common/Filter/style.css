@@ -1,17 +1,18 @@
-.filter__submit-button {
+.ant-btn.filter__submit-button {
     background-color: #32A48F;
     color: #FFFFFF;
     font-size: 1.125rem;
     font-family: Roboto, sans-serif;
     font-weight: 600;
-    margin-bottom: 10px;
     text-align: center;
     text-decoration: none;
     border: none;
     border-radius: 3px;
     letter-spacing: 1.5px;
+    width: 345px;
+    margin: 0.4rem auto;
+    display: block;
     cursor: pointer;
-    width: 100%;
     height: 46px;
 }
 
@@ -39,3 +40,7 @@
     font-family: Roboto, sans-serif;
     font-size: 1.125rem;
 }
+
+.ant-collapse-content {
+    overflow: visible;
+}    
