@@ -46,9 +46,9 @@ class Profile extends Component {
     }
   }
 
+  renderCompanies = data => data.map(item => <p key={item}>{item}</p>);
+
   render() {
-    const handleInsuranceCompanies = data =>
-      data.map(item => <p key={item}>{item}</p>);
     const {
       fields,
       fields: {
@@ -139,7 +139,7 @@ class Profile extends Component {
             <Icon type="bank" /> Insurance Companies
           </h2>
           <div className="profile_contact_info">
-            {handleInsuranceCompanies(insurance)}
+            {this.renderCompanies(insurance)}
           </div>
         </section>
         <section className="profile_contact_container">
