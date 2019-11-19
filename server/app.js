@@ -27,14 +27,7 @@ app.get('*', (req, res) => {
 app.use((err, req, res, next) => {
   console.log('Path', req.path);
   console.log('Error from 500', err);
-  switch (err.statusCode) {
-    case 404:
-      res.status(404).send(err);
-      break;
-    default:
-      res.status(500).send({ message: 'Internal Server Error', statusCode: 500 });
-      break;
-  }
+  res.status(500).send({ message: 'Internal Server Error', statusCode: 500 });
 });
 
 module.exports = app;
