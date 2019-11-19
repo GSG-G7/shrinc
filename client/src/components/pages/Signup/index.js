@@ -400,7 +400,7 @@ class SignupForm extends Component {
               ],
             })(
               <Checkbox>
-                I consent to sharing my information with Shrinc and for it to
+                I consent to share my information with Shrinc and for it to
                 appear in search results on the app.
               </Checkbox>
             )}
