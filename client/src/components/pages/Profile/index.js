@@ -61,11 +61,6 @@ class Profile extends Component {
       },
     } = this.state;
 
-    const handleInsuranceCompanies = data => {
-      const companyList = JSON.parse(data);
-      return companyList.map(item => <p key={item}>{item}</p>);
-    };
-
     return (
       <section className="font">
         <Helmet>
@@ -108,7 +103,7 @@ class Profile extends Component {
             <Icon type="read" /> Languages
           </h2>
           <div className="profile_contact_info">
-            <p>{JSON.parse(language).map(item => `${item}, `)}</p>
+            <p>{language.map(item => `${item}, `)}</p>
           </div>
         </section>
         <section className="profile_contact_container">
@@ -135,7 +130,9 @@ class Profile extends Component {
             <Icon type="bank" /> Insurance Companies
           </h2>
           <div className="profile_contact_info">
-            {handleInsuranceCompanies(insurance)}
+            {insurance.map(item => (
+              <p key={item}>{item}</p>
+            ))}
           </div>
         </section>
         <section className="profile_contact_container">
