@@ -29,7 +29,7 @@
 }
 
 .home__description {
-    font-size: 1.2rem;
+    font-size: 18px;
     font-family: Roboto, sans-serif;
     color: #1C7867;
     margin: 0px 30px 30px 30px;
@@ -51,7 +51,7 @@
     border-radius: 3px;
     letter-spacing: 1.5px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: Roboto, sans-serif;
     width: 345px;
     margin: 0.4rem auto;
@@ -72,16 +72,18 @@
 
 .home__signup__question {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: Roboto, sans-serif;
     margin-right: 10px;
+    color: rgba(0, 0, 0, 0.85);
 }
 
 .home__signup-link {
     color: #45CBB2;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
     font-family: Roboto, sans-serif;
+    font-family: Sansation;
 }
 
 @media (min-width: 768px) {
@@ -110,7 +112,7 @@
         margin-top: 7px;
         padding: 1rem;
         height: 3.6rem;
-        font-size: 18px;
+        font-size: 1.125rem;
     }
     .home__title {
         font-size: 4rem;
@@ -119,6 +121,6 @@
         margin: 1.4rem auto -2.5rem auto;
     }
     .home__signup__question {
-        font-size: 22px;
+        font-size: 1.125rem;
     }
 }
