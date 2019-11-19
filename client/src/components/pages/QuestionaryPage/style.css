@@ -86,6 +86,11 @@
 .qusetion__span {
     display: flex;  
     white-space: normal;
+    align-items: center !important;
+}
+
+.ant-checkbox-checked {
+    align-self: center;
 }
 
 .Questionary__form {
