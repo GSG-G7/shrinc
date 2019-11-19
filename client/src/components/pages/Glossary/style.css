@@ -1,18 +1,34 @@
 .glossary_container {
   background: #E0E0E0;
   width: 100vw;
+  min-height: 100vh;
   padding: 1rem 1rem 0 1rem;
 }
 
 .glossary_content {
-  color: #32A48F;
+  color: #1C7867;
+  font-family: Roboto, sans-serif;
   margin-left: 0.2rem;
   margin-bottom: 1rem;
 }
 
+.ant-input-search {
+  width: 95% !important;
+  margin-bottom: 1.25rem;
+}
+
 .glossary_container > h1 {
-  margin-bottom: 3rem;
-  font-size: 1.7rem;
+  color: #32A48F;
+  font-size: 1.5rem;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.glossary_container > h3 {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 1.125rem;
+  font-family: Roboto, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -24,6 +40,6 @@
   }
 
   .glossary_content {
-    font-size: 1.2rem ;
+    font-size: 1.2rem;
   }
 }
