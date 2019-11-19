@@ -103,7 +103,7 @@ class Profile extends Component {
             <Icon type="read" /> Languages
           </h2>
           <div className="profile_contact_info">
-            <p>{language.join(' , ')}</p>
+            <p>{language.join(', ')}</p>
           </div>
         </section>
         <section className="profile_contact_container">
