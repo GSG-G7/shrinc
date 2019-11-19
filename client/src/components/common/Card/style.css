@@ -8,7 +8,7 @@
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 0.625rem;
     line-height: 30px;
     display: flex;
     align-items: center;
@@ -22,7 +22,7 @@
     font-style: normal;
     line-height: 30px;
     align-items: center;
-    background: '#f7f7f7';
+    background: #ffffff;
     border-radius: 4px;
     margin-bottom: 20px;
     border: 0;
@@ -40,7 +40,7 @@
     font-family: Sansation, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 25px;
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@
 }
 
 .card__type {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .ant-collapse-item ,
@@ -78,6 +78,6 @@
     }
 
     .card__price {
-        font-size:12px;
+        font-size: 0.75rem;
     }
 }
