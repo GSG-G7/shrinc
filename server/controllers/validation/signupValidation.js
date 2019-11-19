@@ -5,7 +5,7 @@ module.exports = yup.object({
   email: yup.string().email('Invalid email').required(),
   password: yup.string().min(8, 'Password should be at least 8 character').required(),
   confirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
-  city: yup.string().typeError('City should be a string').required(),
+  city: yup.string().typeError('City should be a string').min(3).required(),
   type: yup.mixed().oneOf(['CBT', 'PD', 'Hu', 'In', 'C', 'STPD'], 'Invalid type therapy').required(),
   priceRange: yup.mixed().oneOf(['£40-60', '£60-80', '£80-100', '£100-130', '£130-160', '£160+'], 'Invalid price range').required(),
   postCode: yup.string().typeError('PostCode should be a string').required(),
