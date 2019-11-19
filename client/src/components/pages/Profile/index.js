@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-import { AvailableityTime } from '../../common';
-import Loader from '../../common/Loader';
+import { AvailableityTime, Loader } from '../../common';
 import fullTypeName from './staticData';
 import './style.css';
 

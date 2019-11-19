@@ -2,20 +2,22 @@
   font-family: Roboto, sans-serif;
 }
 
+
 .profile_card_container {
   background: #E0E0E0;
   width: 100vw;
-  min-height: 265px;
+  min-height: 16.5625rem;
   padding: 1rem 1rem 0 1rem;
 }
 
 .profile_username {
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-bottom: 0;
 }
 
 .profile_user_info {
-  font-size: 16px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 .profile_avatar {
@@ -41,7 +43,7 @@
 .profile_card_fees {
   background: #C4C4C4;
   color: #33000E;
-  width: 345px;
+  width: 96%;
   height: 3rem;
   display: block;
   margin: 1.5rem auto;
@@ -98,12 +100,12 @@
   }
 
   .profile_username {
-    font-size: 34px;
+    font-size: 2.125rem;
     margin-bottom: 1.8rem;
   }
 
   .profile_user_info {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .profile_contact_info {
