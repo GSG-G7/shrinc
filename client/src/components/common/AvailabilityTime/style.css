@@ -7,8 +7,9 @@
   border-radius: 1rem; 
 }
 
-.Available_contailner .ant-table td, .ant-table th{
-  width: 6.7rem;
+.Available_contailner .ant-table td,
+.ant-table th {
+  width: 29vw;
   color: #32A48F
 }
 
