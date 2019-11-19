@@ -20,7 +20,7 @@
 }
 
 .ant-collapse > .ant-collapse-item > .ant-collapse-header {
-font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 @media only screen and (min-width: 768px) { 
