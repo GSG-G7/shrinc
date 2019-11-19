@@ -2,6 +2,7 @@
   margin: 2rem auto;
   height: 40vh;
   width: 20rem;
+  z-index: 0;
 }
 
 @media (min-width: 768px) {

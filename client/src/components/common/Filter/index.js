@@ -47,7 +47,7 @@ class Filter extends Component {
   render() {
     const { cities } = this.state;
     const {
-      form: { getFieldDecorator },
+      form: { getFieldDecorator, resetFields },
       disabled,
     } = this.props;
 
@@ -109,6 +109,11 @@ class Filter extends Component {
             Filter
           </Button>
         </Form.Item>
+        <Form.Item>
+          <Button onClick={() => resetFields()} className="filter__reset">
+            Clear
+          </Button>
+        </Form.Item>
       </Form>
     );
   }
@@ -120,6 +125,7 @@ Filter.propTypes = {
   form: PropTypes.shape({
     validateFieldsAndScroll: PropTypes.func.isRequired,
     getFieldDecorator: PropTypes.func.isRequired,
+    resetFields: PropTypes.func.isRequired,
   }).isRequired,
   disabled: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,

@@ -16,6 +16,19 @@
     height: 46px;
 }
 
+.filter__reset{
+    color:#32A48F !important;
+    font-size: 1.25rem !important;
+    font-family: Roboto, Sans-Serif;
+    font-weight: 600 !important;
+    text-align: center;
+    border-radius: 3px;
+    width: 345px;
+    cursor: pointer;
+    height: 46px;
+    border: 2px solid #32A48F !important;
+}
+
 .ant-form-item-children { 
     width: 100%;
     display: flex;
