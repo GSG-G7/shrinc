@@ -15,20 +15,19 @@ class Glossary extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { searchValue } = this.state;
-    if (prevState.searchValue !== searchValue) this.filterItems();
+    if (prevState.searchValue !== searchValue) this.filterItems(searchValue);
   }
 
-  filterItems = () => {
-    const { searchValue } = this.state;
-
+  filterItems = searchValue => {
     let items = glossaryData.filter(item =>
       Object.keys(item)[0]
         .toLowerCase()
         .includes(searchValue)
     );
 
-    if (!items.length) items = glossaryData;
-
+    if (!items.length && !searchValue) {
+      items = glossaryData;
+    }
     this.setState({
       items,
     });
