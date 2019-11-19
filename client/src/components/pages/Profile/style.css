@@ -6,7 +6,7 @@
 .profile_card_container {
   background: #E0E0E0;
   width: 100vw;
-  min-height: 16.5625rem;
+  min-height: 16.56rem;
   padding: 1rem 1rem 0 1rem;
 }
 
@@ -26,10 +26,8 @@
 
 .profile_card {
   display: flex;
-  width: 100%;
   margin-top: 1rem;
-  justify-content: space-evenly;
-  text-align: center;
+  justify-content: space-around;
 }
 
 .profile_card_main_info {
@@ -100,7 +98,7 @@
   }
 
   .profile_username {
-    font-size: 2.125rem;
+    font-size: 2.12rem;
     margin-bottom: 1.8rem;
   }
 

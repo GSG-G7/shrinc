@@ -94,7 +94,7 @@ class Profile extends Component {
             <h3>
               <Icon type="dollar" />
               &nbsp; &nbsp;
-              <span>Fees {priceRange}$ Session</span>
+              <span>Fees {priceRange} / Session</span>
             </h3>
           </div>
         </section>
