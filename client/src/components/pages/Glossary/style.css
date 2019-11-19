@@ -1,7 +1,7 @@
 .glossary_container {
   background: #E0E0E0;
   width: 100vw;
-  min-height:100vh;
+  min-height: 100vh;
   padding: 1rem 1rem 0 1rem;
 }
 
@@ -13,7 +13,7 @@
 
 .ant-input-search {
   width: 95% !important;
-  margin-bottom: 20px;
+  margin-bottom: 12.5rem;
 }
 
 .glossary_container > h1 {
