@@ -15,17 +15,15 @@ module.exports = async (req, res, next) => {
     if (isEmailExist.length) res.status(400).send({ statusCode: 400, message: 'The email is already exist' });
     else if (req.files) {
       const { image } = req.files;
-      await imageSchema.validate({ image });
-      await signupSchema.validate({ ...therapist, avalibility });
+      await imageSchema.validate({ image }, { abortEarly: false });
+      await signupSchema.validate({ ...therapist, avalibility }, { abortEarly: false });
       const uploadedImage = await cloudinary.uploader.upload(image.path);
       const hashedPassword = await bcrypt.hash(therapist.password, 10);
       delete therapistInfo.confirm;
       delete therapistInfo.terms;
       therapistInfo.password = hashedPassword;
-      therapistInfo.language = JSON.stringify(therapistInfo.language);
       therapistInfo.image = [{ url: uploadedImage.url }];
       therapistInfo.avalibility = req.body.avalibility;
-      therapistInfo.insurance = JSON.stringify(therapistInfo.insurance);
       await base('therapist').create([{
         fields: { ...therapistInfo },
       }]);
@@ -35,7 +33,7 @@ module.exports = async (req, res, next) => {
     }
   } catch (e) {
     if (e.name === 'ValidationError') {
-      res.status(400).send({ statusCode: 400, message: 'Validation Error' });
+      res.status(400).send({ statusCode: 400, message: e.inner[0].message });
     } else {
       next(e);
     }

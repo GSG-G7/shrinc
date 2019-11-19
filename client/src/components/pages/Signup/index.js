@@ -81,7 +81,7 @@ class SignupForm extends Component {
 
   successNotification = message => {
     notification.open({
-      message: 'success',
+      message: 'Success',
       description: message,
       duration: 2,
     });
@@ -150,7 +150,7 @@ class SignupForm extends Component {
     const {
       form: { getFieldDecorator },
     } = this.props;
-    const { languages, prices, insurance } = staticData;
+    const { languages, prices, insurance, types } = staticData;
     return (
       <div className="signup-page">
         <Helmet>
@@ -225,7 +225,7 @@ class SignupForm extends Component {
               />
             )}
           </Form.Item>
-          <Form.Item label="City:">
+          <Form.Item label="Click on the map to place your location (We only use the city that you are located in):">
             {getFieldDecorator('city', {
               initialValue: '',
               rules: [
@@ -235,6 +235,19 @@ class SignupForm extends Component {
                 },
               ],
             })(<Map handleCity={this.handleCity} />)}
+          </Form.Item>
+          <Form.Item label="Post Code:">
+            {getFieldDecorator('postCode', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please input post code!',
+                },
+                {
+                  validator: this.validateToNextPassword,
+                },
+              ],
+            })(<Input placeholder="Enter post code" />)}
           </Form.Item>
           <Form.Item label="Type Of Therapy:">
             {getFieldDecorator('type', {
@@ -246,10 +259,9 @@ class SignupForm extends Component {
               ],
             })(
               <Select placeholder="Select a type" onChange={this.handleType}>
-                <Option value="CBT">Cognitive behavioural therapy</Option>
-                <Option value="PD">Psyhcodynamic therapy</Option>
-                <Option value="Hu">Humanistic psychotherapy</Option>
-                <Option value="In">Integrative psychotherapy</Option>
+                {types.map(({ abbreviation, therapy }) => (
+                  <Option value={abbreviation}>{therapy}</Option>
+                ))}
               </Select>
             )}
           </Form.Item>
@@ -271,19 +283,6 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Post Code:">
-            {getFieldDecorator('postCode', {
-              rules: [
-                {
-                  required: true,
-                  message: 'Please input post code!',
-                },
-                {
-                  validator: this.validateToNextPassword,
-                },
-              ],
-            })(<Input placeholder="Enter post code" />)}
-          </Form.Item>
           <Form.Item label="Languages spoken:">
             {getFieldDecorator('language', {
               rules: [
@@ -296,7 +295,7 @@ class SignupForm extends Component {
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="select your country"
+                placeholder="Select your language(s)"
                 optionLabelProp="label"
               >
                 {languages.map(language => (
@@ -321,7 +320,7 @@ class SignupForm extends Component {
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="Select multi insurance"
+                placeholder="Select insurance(s)"
                 optionLabelProp="label"
               >
                 {insurance.map(item => (
@@ -332,24 +331,24 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Approch:">
+          <Form.Item label="Please describe your approach to therapy:">
             {getFieldDecorator('approch', {
               rules: [
                 {
-                  message: 'The approch is not valid!',
+                  message: 'The approach is not valid!',
                 },
                 {
                   required: true,
-                  message: 'Please input your approch!',
+                  message: 'Please input your approach!',
                 },
                 {
                   max: 200,
                   message: 'Maximum 200 characters',
                 },
               ],
-            })(<Input.TextArea placeholder="Enter your approch" />)}
+            })(<Input.TextArea placeholder="Enter your approach" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Please define your availability">
             <Avalibility onChange={this.onChange} />
           </Form.Item>
           <Form.Item label="Add Photo:">
@@ -399,7 +398,12 @@ class SignupForm extends Component {
                   message: 'Please accept the terms of services ',
                 },
               ],
-            })(<Checkbox>I Accept the Terms of Services</Checkbox>)}
+            })(
+              <Checkbox>
+                I consent to share my information with Shrinc and for it to
+                appear in search results on the app.
+              </Checkbox>
+            )}
           </Form.Item>
           <Button
             type="primary"

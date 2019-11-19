@@ -13,4 +13,12 @@ module.exports = {
     'Vitality Health',
     'WPA',
   ],
+  types: [
+    { abbreviation: 'CBT', therapy: 'Cognitive Behavioural Therapy' },
+    { abbreviation: 'PD', therapy: 'Psychodynamic Therapy' },
+    { abbreviation: 'Hu', therapy: 'Humanistic psychotherapy' },
+    { abbreviation: 'In', therapy: 'Integrative psychotherapy' },
+    { abbreviation: 'C', therapy: 'Counselling' },
+    { abbreviation: 'STPD', therapy: 'Short Term Psychodynamic Psychotherapy' },
+  ],
 };

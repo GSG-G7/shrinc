@@ -43,7 +43,7 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="home__signup">
-          <span className="home__signup__question">Are you therapist?</span>
+          <span className="home__signup__question">Are you a therapist?</span>
           <span>
             <Link to="/signup" className="home__signup-link">
               Sign Up

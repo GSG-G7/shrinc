@@ -6,6 +6,13 @@ module.exports = async (req, res, next) => {
     delete (data.fields.password);
     res.send({ statusCode: 200, data });
   } catch (err) {
-    next(err);
+    switch (err.statusCode) {
+      case 404:
+        res.status(404).send(err);
+        break;
+      default:
+        next(err);
+        break;
+    }
   }
 };
