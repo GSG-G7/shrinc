@@ -11,22 +11,7 @@ Medical App that Facilitate reaching to therapists and getting the appropriate t
 * Mohammad Alhallaq
 * Asmaa Thabet
 
-## **Table of Contents** 
-* [Main Problem](#main-problem)
-* [Problem Solution](#problem-solution)
-* [User Stories](#user-stories)
-* [User Journey](#user-journey)
-* [Prototype](#prototype)
-* [Technologies](#technologies)
-* [Launch App](#launch-app)
-  * [Database Setup](#database-setup)   
-    * [setup Airtable](#setup-airtable)   
-    * [setup Cloudinary](#setup-cloudinary)    
-  * [Environment Variables](#environment-variables)
-  * [Start the App](#start-the-app)
-* [Rescources](#rescources)  
-
-## **Main Problem** :no_entry_sign:
+## **Main Problem**    :no_entry_sign:
 
 People who are busy and can't find a therapist quickly and easily or who don't have enough money to ask therapists and get contact with them or who don't know the appropriate type of therapy.
     
