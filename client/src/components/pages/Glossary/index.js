@@ -16,7 +16,9 @@ class Glossary extends Component {
   onChange = v => {
     const searchValue = v.target.value.toUpperCase();
     const items = glossaryData.filter(item =>
-      Object.keys(item)[0].includes(searchValue)
+      Object.keys(item)[0]
+        .toLowerCase()
+        .includes(searchValue)
     );
     this.setState({ items, searchValue });
   };
