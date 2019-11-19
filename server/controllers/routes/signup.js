@@ -22,10 +22,8 @@ module.exports = async (req, res, next) => {
       delete therapistInfo.confirm;
       delete therapistInfo.terms;
       therapistInfo.password = hashedPassword;
-      therapistInfo.language = JSON.stringify(therapistInfo.language);
       therapistInfo.image = [{ url: uploadedImage.url }];
       therapistInfo.avalibility = req.body.avalibility;
-      therapistInfo.insurance = JSON.stringify(therapistInfo.insurance);
       await base('therapist').create([{
         fields: { ...therapistInfo },
       }]);
