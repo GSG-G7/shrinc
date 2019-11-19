@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Icon, Avatar } from 'antd';
+import { Icon, Avatar, notification } from 'antd';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
@@ -32,10 +32,14 @@ class Profile extends Component {
       } = profileData;
 
       this.setState({ fields });
-    } catch (err) {
-      const error500 = err.message.includes('500');
+    } catch ({ message }) {
+      const error500 = message.includes('500');
       if (error500) {
-        push('/500');
+        notification.error({
+          message: 'Internal Server Error',
+          description: error500.message,
+          duration: 2,
+        });
       } else {
         push('/404');
       }
