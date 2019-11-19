@@ -26,7 +26,7 @@ const options = {
     answers: [
       'I am generally happy but something happened recently that has completely thrown me',
       'I have always thought I need to see a therapist but never got round to it. I have no idea where my problems stem from. ',
-      'AMy main source of difficulties are my relationships, past and current ',
+      'My main source of difficulties are my relationships, past and current ',
       'I have a general sense of dissatisfaction with many aspects of my life at present and do not know why',
       'There is one specific area of my life that I would like to change and this is the cause of my problems',
       'I think my difficulties originate in my upbringing, and my significant relationships growing up',
