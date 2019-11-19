@@ -33,7 +33,7 @@ const options = {
     ],
   },
   Q4: {
-    type: 'multi',
+    type: 'single',
     question: '4.Are you happy to talk about your feelings?',
     answers: [
       'Yes, this is what I could come to therapy for',
