@@ -49,7 +49,8 @@ class ResultsPage extends React.Component {
           }));
         } else {
           this.setState({
-            noResult: 'Unfortunately there are no results',
+            noResult:
+              'Unfortunately there are currently no therapists matching that type of therapy. Please try again later.',
           });
         }
       } catch (e) {
