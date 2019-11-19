@@ -50,7 +50,7 @@ class Filter extends Component {
 
     return (
       <div className="Filter-page__container">
-        <h1 className="filter__title">Search for a therapist: </h1>
+        <h1 className="filter__title">Search for a therapist </h1>
         <FilterComponent handleSubmit={this.handleSubmit} disabled={disabled} />
         <hr className="filter__brack-line" />
         <h2 className="card__title">Therapists:</h2>
