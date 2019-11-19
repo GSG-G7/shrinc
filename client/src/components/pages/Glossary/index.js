@@ -18,7 +18,7 @@ class Glossary extends Component {
     const items = glossaryData.filter(item =>
       Object.keys(item)[0].includes(searchValue)
     );
-    this.setState(() => ({ items, searchValue }));
+    this.setState({ items, searchValue });
   };
 
   render() {
