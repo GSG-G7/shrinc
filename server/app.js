@@ -31,7 +31,6 @@ app.use((err, req, res, next) => {
     case 404:
       res.status(404).send(err);
       break;
-
     default:
       res.status(500).send({ message: 'Internal Server Error', statusCode: 500 });
       break;
