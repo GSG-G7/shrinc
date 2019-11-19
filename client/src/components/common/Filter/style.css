@@ -44,3 +44,8 @@
 .ant-collapse-content {
     overflow: visible;
 }    
+
+.ant-form-item > label {
+    font-family: Roboto, sans-serif;
+    font-size: 1.125rem;
+}
