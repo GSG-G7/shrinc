@@ -10,6 +10,10 @@ const FilterResult = ({ resultPoints }) => {
   );
   return (
     <div className="Results__TherapyType">
+      <p className="Results__describtion">
+        These are therapies points that results based on your answers in this
+        questionnaire :
+      </p>
       <h3 className="Results__TherapyType__title">Therapy Type</h3>
       <ul className="result__list">
         {sortItems.map(([type, value]) => (
