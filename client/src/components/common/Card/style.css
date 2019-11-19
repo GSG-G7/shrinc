@@ -8,7 +8,7 @@
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 30px;
     display: flex;
     align-items: center;
@@ -16,12 +16,12 @@
 }
 
 .card__header {
-    font-family: Sansation, sans-serif;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 1.125rem;
+    font-family: Roboto, sans-serif;
     font-style: normal;
-    font-size: 18px;
     line-height: 30px;
     align-items: center;
-    color: #242424;
     background: '#f7f7f7';
     border-radius: 4px;
     margin-bottom: 20px;
@@ -61,6 +61,7 @@
 .ant-collapse-content,
 .ant-collapse-content-active {
     background-color: #E0E0E0 !important;
+    overflow: visible !important;
 }
 
 @media (min-width: 768px) {
@@ -74,5 +75,9 @@
 
     .card__content {
         justify-content: space-between;
+    }
+
+    .card__price {
+        font-size:12px;
     }
 }
