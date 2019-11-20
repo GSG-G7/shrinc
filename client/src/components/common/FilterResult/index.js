@@ -17,7 +17,7 @@ const FilterResult = ({ resultPoints }) => {
       <h3 className="Results__TherapyType__title">Therapy Type</h3>
       <ul className="result__list">
         {sortItems.map(([type, value]) => (
-          <li key={type}>{`${fullTypeName[type]} ( ${type} ) : ${value}`}</li>
+          <li key={type}>{`${fullTypeName[type]} : ${value}`}</li>
         ))}
       </ul>
     </div>
