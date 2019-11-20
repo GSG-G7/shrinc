@@ -8,7 +8,7 @@ const SingleChoiceQuestion = props => {
     onChange,
     options: { question, answers },
     id,
-    value,
+    value: { 0: firstValue },
     keyValue,
   } = props;
   return (
@@ -17,7 +17,7 @@ const SingleChoiceQuestion = props => {
       <RadioGroup
         key={keyValue}
         onChange={onChange}
-        value={value[0]}
+        value={firstValue}
         className="qusetion__group"
       >
         {answers.map((answer, index) => (
