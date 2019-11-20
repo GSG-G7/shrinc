@@ -55,12 +55,12 @@ Libraries: **AntDesign** & **Leaflet**
 
 ## **How to Launch App Locally**  :mega:
 
-> First clone this repo by typing this command in the terminal:  
+*  clone this repo by typing this command in the terminal:  
 `git clone https://github.com/GSG-G7/shrinc.git`
 
-> Run `npm i` to install the packages for the app as general.
+*  Run `npm i` to install the packages for the app as general.
 
-> Run `cd client` and `npm i` to install the packages for client- React Js. 
+*  Run `cd client` and `npm i` to install the packages for client- React Js. 
 
 ### Database Setup  :clipboard:
 
