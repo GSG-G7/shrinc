@@ -67,9 +67,9 @@ Libraries: **AntDesign** & **Leaflet**
 > First clone this repo:  
 `git clone https://github.com/GSG-G7/shrinc.git`
 
-> Run `npm i` to install the dependencies for the app as general.
+> Run `npm i` to install the dependencies and dev dependencies for the app as general.
 
-> Run `cd client` and `npm i` to install dependencies for client- React Js . 
+> Run `cd client` and `npm i` to install the packages for client- React Js . 
 
 ### Database Setup  :clipboard:
 
