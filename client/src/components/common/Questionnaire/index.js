@@ -105,7 +105,9 @@ class Questionnaire extends Component {
         <div className="steps-content">
           {options[questionValue].type === 'multi' ? (
             <>
-              <h4>You may select multiple answers</h4>
+              <h4 className="questionary_h4">
+                You may select multiple answers
+              </h4>
               <MultiChoicesQuestion
                 keyValue={`q${currentStep}`}
                 onMultiChange={this.onMultiChange}

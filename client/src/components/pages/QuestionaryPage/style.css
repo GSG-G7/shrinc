@@ -1,7 +1,7 @@
 .questionary__container {
     display: flex;
     flex-direction: column;
-    margin: 2rem 0.5rem;
+    margin: .5rem 0.5rem;
 }
 
 .questionary__title {
@@ -13,6 +13,17 @@
     display: flex;
     align-items: center;
     text-align: center;
+    margin: 0.6rem 0 1rem 6vw;
+}
+
+.Questionary__form button.ant-btn {
+    padding: 1.1rem !important;
+    line-height: 0rem !important;
+}
+
+.Questionary__form .ant-steps {
+    margin: 0 auto 1.5rem auto;
+    width: 87%;
 }
 
 .ant-steps-item-container {
@@ -53,6 +64,9 @@
     margin-bottom: 20px; 
     margin-left: 20px;
 }
+.Questionary__form {
+    padding: 0.9rem 2.1rem;
+}
 
 .steps-content {
     display: flex;  
@@ -69,24 +83,39 @@
 
 .qusetion {
     width: 100%;
-    min-height: 10vh;
+    min-height: 4vh;
     margin: 0;
-    margin-top: 10px;
     font-size: 1.1rem;
     padding: 0 20px;
 }
-
+.questionary_h4 {
+    margin:2rem 0 1.5rem 0;
+}
+.ant-btn-primary {
+    width: 40%;
+    padding: 1.1rem;
+    line-height: 0.2rem;
+}
 .Questionary__form .ant-radio {
     margin-right: 10px;
+}
+
+.ant-form label {
+    margin: 1.5rem !important;
+}
+
+.ant-checkbox {
+    margin-top: 0.4rem;
 }
 
 .Questionary__form .ant-form label {
     width: 100%;
 }
+
 .qusetion__span {
     display: flex;  
     white-space: normal;
-    align-items: center !important;
+    align-items: left !important;
 }
 
 .ant-checkbox-checked {
