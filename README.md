@@ -111,9 +111,10 @@ To start the App Locally you have to start server First then start client side !
     then you will be able to run [localhost](http://localhost:3000/) and view the app live in the Browser!
 
 ## **Resources**  :mag:
+* [Database Documentation](https://hackmd.io/luNYEmqAQPSA5jETBdmsxQ)
 * [Node Js](https://nodejs.org/en/)
 * [Express Framework](https://expressjs.com/)
-* [Joi library](https://www.npmjs.com/package/joi) 
+* [Yup library](https://github.com/jquense/yup) 
 * [React Library](https://reactjs.org/)
 * [Airtable](https://airtable.com/)
 * [Cloudinary](https://cloudinary.com/)
