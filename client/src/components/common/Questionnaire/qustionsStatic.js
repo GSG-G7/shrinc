@@ -1,5 +1,6 @@
 const options = {
   Q1: {
+    type: 'multi',
     question: '1. What do you plan to achieve from therapy?',
     answers: [
       'Receiving guidance and strategies to solve my problems ',
@@ -10,27 +11,29 @@ const options = {
     ],
   },
   Q2: {
+    type: 'multi',
     question: '2. What do you look for in a therapist?',
     answers: [
       'A professional who can give me good, impartial advice on my problems ',
       'Someone who understands me truly ',
       'A reliable person who I can trust and confide in ',
-      'Just having someone to talk to would help',
       'Someone who can challenge me to resolve my interpersonal problems by showing me by blind spots',
     ],
   },
   Q3: {
+    type: 'multi',
     question: '3.What do you think is the root cause of your problems?',
     answers: [
       'I am generally happy but something happened recently that has completely thrown me',
       'I have always thought I need to see a therapist but never got round to it. I have no idea where my problems stem from. ',
-      'AMy main source of difficulties are my relationships, past and current ',
+      'My main source of difficulties are my relationships, past and current ',
       'I have a general sense of dissatisfaction with many aspects of my life at present and do not know why',
       'There is one specific area of my life that I would like to change and this is the cause of my problems',
       'I think my difficulties originate in my upbringing, and my significant relationships growing up',
     ],
   },
   Q4: {
+    type: 'single',
     question: '4.Are you happy to talk about your feelings?',
     answers: [
       'Yes, this is what I could come to therapy for',
@@ -40,10 +43,12 @@ const options = {
     ],
   },
   Q5: {
+    type: 'single',
     question: '5.How long would you foresee seeing a therapist?',
     answers: ['Less than one month', '2-4 month', '1 year ', '2-3 years'],
   },
   Q6: {
+    type: 'multi',
     question: '6.My ideal therapist would be',
     answers: [
       'Warm, understanding',
@@ -53,6 +58,7 @@ const options = {
     ],
   },
   Q7: {
+    type: 'multi',
     question: '7.I am someone who',
     answers: [
       'Is deeply curious about oneself ',
@@ -65,6 +71,7 @@ const options = {
     ],
   },
   Q8: {
+    type: 'multi',
     question: '8.Therapy for me is',
     answers: [
       'A solution to a problem',
@@ -75,11 +82,13 @@ const options = {
     ],
   },
   Q9: {
+    type: 'single',
     question:
       '9.My difficulties are mostly related to one or more traumatic events in my life, that is/are still very much alive in my thoughts',
     answers: ['Yes', 'No'],
   },
   Q10: {
+    type: 'single',
     question:
       '10.I know already that main main problem is a phobia (strong anxiety about a thing or situation that causes me to avoid it) and I would like to focus on treating this symptom in a short time',
     answers: ['Yes', 'No'],

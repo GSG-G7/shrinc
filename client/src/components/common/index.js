@@ -5,6 +5,7 @@ import FilterComponent from './Filter';
 import Avalibility from './availabilityTable';
 import AvailableityTime from './AvailabilityTime';
 import Map from './Location';
+import Questionnaire from './Questionnaire';
 
 export {
   Card,
@@ -12,6 +13,7 @@ export {
   Loader,
   FilterResult,
   Avalibility,
-  AvailableityTime,
   Map,
+  Questionnaire,
+  AvailableityTime,
 };

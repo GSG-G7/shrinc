@@ -36,7 +36,7 @@
     margin: 30px 0; 
 }
 
-.ant-radio-checked {
+.ant-radio-checked, .ant-checkbox-checked {
     align-self: flex-start;
 }
 
@@ -86,6 +86,11 @@
 .qusetion__span {
     display: flex;  
     white-space: normal;
+    align-items: center !important;
+}
+
+.ant-checkbox-checked {
+    align-self: center;
 }
 
 .Questionary__form {
