@@ -98,7 +98,7 @@ Cloudinary_SECRET
 
 ### Start the App :electric_plug:
 
-To start the App Locally you have to start server First then start client side !
+To start the App Locally you can start server First then start client side or vice versa!
 > To run the Server , In your terminal Type: 
 
     `npm run dev`
