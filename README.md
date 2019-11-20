@@ -2,15 +2,6 @@
 
 Medical App that Facilitate reaching to therapists and getting the appropriate therapy :sparkles: :sparkles:
 
-## **Team Lead** :sunglasses:
-* Abdallah Ammar 
-
-## **Team Members** :smiley:
-* Hashem Taha 
-* Fadi Omar 
-* Mohammad Alhallaq
-* Asmaa Thabet
-
 ## **Main Problem**    :no_entry_sign:
 
 People who are busy and can't find a therapist quickly and easily or who don't have enough money to ask therapists and get contact with them or who don't know the appropriate type of therapy.
@@ -104,6 +95,9 @@ Libraries: **AntDesign** & **Leaflet**
 * You will gain [Cloud_Name], [Cloudinary_KEY], [Cloudinary_SECRET] environmental variables needed to upload images to database.
 * Set the database variables in your .env file as follows.
 
+### Database Client Documentation
+* [Database Documentation](https://hackmd.io/luNYEmqAQPSA5jETBdmsxQ) :eyes:
+
 ### Environment Variables :key:
 Environment variables are one of the ways we keep our product safe. If you want to access our app locally you will need to add your own.
 
@@ -141,8 +135,16 @@ To start the App Locally you can start server First then start client side or vi
 
 Now you can view the app live in the Browser!
 
+## **Team Lead** :sunglasses:
+* Abdallah Ammar 
+
+## **Team Members** :smiley:
+* Hashem Taha 
+* Fadi Omar 
+* Mohammad Alhallaq
+* Asmaa Thabet
+
 ## **Resources**  :mag:
-* [Database Documentation](https://hackmd.io/luNYEmqAQPSA5jETBdmsxQ)
 * [Node Js](https://nodejs.org/en/)
 * [Express Framework](https://expressjs.com/)
 * [Yup library](https://github.com/jquense/yup) 
