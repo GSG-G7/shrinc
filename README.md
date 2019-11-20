@@ -17,7 +17,7 @@ People who are busy and can't find a therapist quickly and easily or who don't h
     
 ## **Problem Solution** :bulb:
 
-Make app to facilitate user reaching to the appropirate therpay and connect with therapist in the right time with less costs.
+Make app to facilitate user reaching to the appropriate therapy and connect with therapist in the right time with less costs.
 
 ## **User Stories**  :books:
 
@@ -45,7 +45,7 @@ Make app to facilitate user reaching to the appropirate therpay and connect with
 
 ### **User who want to take a therapy** :pill:
 
-As a user I can determine my status by answering a Questionnaire in order to find a specific therapist that I believe he/she will be appropriate for me and I can see list of Therapies according to questionnaire result, or I can choose to search (filter) for therapists by various categories like location, cost, specialty, or even by Skype/remote possibility Or I can visit a therapist profile to get more information about him/her, or learn more about therapists types, and I can see Glossary that explains scientific and strange words and I can move freely using the menu in the app, also I can get more about the app using the description that written in seprate about section.
+As a user I can determine my status by answering a Questionnaire in order to find a specific therapist that I believe he/she will be appropriate for me and I can see list of Therapies according to questionnaire result, or I can choose to search (filter) for therapists by various categories like location, cost, specialty, or even by Skype/remote possibility Or I can visit a therapist profile to get more information about him/her, or learn more about therapists types, and I can see Glossary that explains scientific and strange words and I can move freely using the menu in the app, also I can get more about the app using the description that written in separate about section.
 
 ### **User who gives proper therapy to patients** :syringe:
 As a therapist I can sign up in the app as a a therapy by filling the form that let me enter full details about me to let the people see my profile and contact with me. 
@@ -110,7 +110,7 @@ To start the App Locally you have to start server First then start client side !
 
     then you will be able to run [localhost](http://localhost:3000/) and view the app live in the Browser!
 
-## **Rescources**  :mag:
+## **Resources**  :mag:
 * [Node Js](https://nodejs.org/en/)
 * [Express Framework](https://expressjs.com/)
 * [Joi library](https://www.npmjs.com/package/joi) 
