@@ -62,7 +62,7 @@ Database: **Airtable**
 Styling:  **CSS**   
 Libraries: **AntDesign** & **Leaflet**
 
-## **Launch App**  :mega:
+## **How to Launch App Locally**  :mega:
 
 > First clone this repo by typing this command in the terminal:  
 `git clone https://github.com/GSG-G7/shrinc.git`
@@ -75,9 +75,29 @@ Libraries: **AntDesign** & **Leaflet**
 
 #### setup Airtable :triangular_ruler:
 * You should login to  [Airtable](https://airtable.com) Account to have access to its API.    
-* Click on Shrinc Workspace that it will redirect you to its Documentation API.    
-* In The Documentation you will find [Airtable_KEY ], [Base_ID] environmental variables needed to run app.
+* Create your own Workspace with the fields explained below that it will redirect you to its Documentation API.    
+* In The Airtable Documentation you will find [Airtable_KEY ], [Base_ID] environmental variables needed to run app.
 * Set the database variables in your .env file as follows.
+
+##### **Airtable Fields**
+
+| field      |  DataType              |
+| ---------- | -----------------------|
+| fullName   |   Single Line text     |
+| email      |      Email             |
+| password   |   Single Line text     |
+| city       |   Single Line text     |
+| priceRange |   Single Line text     |
+| type       |   Single Line text     |
+| avalibility|   Single Line text     |
+| remote     |   Checkbox             |
+| skype      |   Single Line text     |
+| image      |   Attachment           |
+| is_valid   |   Checkbox             |
+| postCode   |    Single Line text    |
+| approch    |    Single Line text    |
+| insurance  |    Multipe select      |
+| language   |    Multipe select      |
 
 #### setup Cloudinary :star:
 * You should login to [Cloudinary](https://cloudinary.com/) Account.
