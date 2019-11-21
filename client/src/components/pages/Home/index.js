@@ -29,7 +29,7 @@ const HomePage = () => {
               className="home__buttons__types-btn"
             >
               <Icon type="copy" className="home__buttons__types-icon" />
-              Find the Right Therapy for You
+              find the right therapy for you
             </Button>
           </Link>
           <Link to="/filter" className="home__buttons__filter">
@@ -38,7 +38,7 @@ const HomePage = () => {
               className="home__buttons__filter-btn"
             >
               <Icon type="filter" className="home__buttons__types-icon" />
-              Search for Therapists
+              search for therapists
             </Button>
           </Link>
         </div>
