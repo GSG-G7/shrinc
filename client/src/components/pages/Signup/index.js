@@ -157,7 +157,7 @@ class SignupForm extends Component {
           <title>Sign Up</title>
         </Helmet>
         {loading ? <Loader className="signup_loader" /> : ''}
-        <h2 className="signup-page__title">Therapist Signup</h2>
+        <h2 className="signup-page__title">Therapist Sign up</h2>
         <Form onSubmit={this.handleSubmit} className="signup-page__form">
           <Form.Item label="Full Name:">
             {getFieldDecorator('fullName', {
@@ -348,7 +348,7 @@ class SignupForm extends Component {
               ],
             })(<Input.TextArea placeholder="Enter your approach" />)}
           </Form.Item>
-          <Form.Item label="Please define your availability">
+          <Form.Item label="Please define your availability if possible">
             <Avalibility onChange={this.onChange} />
           </Form.Item>
           <Form.Item label="Add Photo:">
@@ -411,7 +411,7 @@ class SignupForm extends Component {
             htmlType="submit"
             disabled={loading}
           >
-            Signup
+            Sign up
           </Button>
         </Form>
       </div>
