@@ -24,12 +24,12 @@ const menuData = [
     icon: <TypesTherapist />,
   },
   {
-    label: 'Explore therapies',
+    label: 'Find the right therapy',
     url: '/questionnaire',
     icon: <Questionnaire />,
   },
   {
-    label: 'Therapist search',
+    label: 'Search for therapist',
     url: '/filter',
     icon: <Search />,
   },
