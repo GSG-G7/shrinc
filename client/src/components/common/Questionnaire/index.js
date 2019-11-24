@@ -48,7 +48,7 @@ class Questionnaire extends Component {
 
   openNotificationWithIcon = () => {
     notification.error({
-      message: 'you shuold at least choose an option',
+      message: 'Please select at least one option',
       duration: 2,
     });
   };
