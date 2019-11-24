@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Questionnaire } from "../../common";
-import "./style.css";
+import { Questionnaire } from '../../common';
+import './style.css';
 
 const QuestionaryPage = () => (
   <div className="questionary__container">

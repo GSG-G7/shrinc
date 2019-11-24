@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import fullTypeName from "./staticData";
-import "./style.css";
+import fullTypeName from './staticData';
+import './style.css';
 
 const FilterResult = ({ resultPoints }) => {
   const sortItems = Object.entries(resultPoints).sort(
@@ -30,8 +30,8 @@ FilterResult.propTypes = {
     Hu: PropTypes.number,
     In: PropTypes.number,
     PD: PropTypes.number,
-    STPD: PropTypes.number
-  }).isRequired
+    STPD: PropTypes.number,
+  }).isRequired,
 };
 
 export default FilterResult;
