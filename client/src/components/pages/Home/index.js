@@ -19,7 +19,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="home__description">
-        The new way to access psycotherapy
+        The new way to access psychotherapy
       </div>
       <div className="home__actions">
         <div className="home_buttons">
@@ -29,7 +29,7 @@ const HomePage = () => {
               className="home__buttons__types-btn"
             >
               <Icon type="copy" className="home__buttons__types-icon" />
-              find the right therapy for you
+              Find the right therapy for you
             </Button>
           </Link>
           <Link to="/filter" className="home__buttons__filter">
@@ -38,7 +38,7 @@ const HomePage = () => {
               className="home__buttons__filter-btn"
             >
               <Icon type="filter" className="home__buttons__types-icon" />
-              search for therapists
+              Search for therapists
             </Button>
           </Link>
         </div>

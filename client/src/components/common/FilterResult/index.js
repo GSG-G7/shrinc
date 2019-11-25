@@ -11,10 +11,9 @@ const FilterResult = ({ resultPoints }) => {
   return (
     <div className="Results__TherapyType">
       <p className="Results__describtion">
-        Here is how you scored for our other therapy types. Scores are relative
-        to each other :
+        Here is how you scored for our the various types of therapy. Scores are
+        relative to each other:
       </p>
-      <h3 className="Results__TherapyType__title">Therapy Type</h3>
       <ul className="result__list">
         {sortItems.map(([type, value]) => (
           <li key={type}>{`${fullTypeName[type]} : ${value}`}</li>

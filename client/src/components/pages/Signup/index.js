@@ -96,7 +96,7 @@ class SignupForm extends Component {
   compareToFirstPassword = (rule, value, callback) => {
     const { form } = this.props;
     if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
+      callback('The passwords do not currently match');
     } else {
       callback();
     }
@@ -157,21 +157,21 @@ class SignupForm extends Component {
           <title>Sign Up</title>
         </Helmet>
         {loading ? <Loader className="signup_loader" /> : ''}
-        <h2 className="signup-page__title">Therapist Sign up</h2>
+        <h2 className="signup-page__title">Therapist sign up</h2>
         <Form onSubmit={this.handleSubmit} className="signup-page__form">
-          <Form.Item label="Full Name:">
+          <Form.Item label="Full name:">
             {getFieldDecorator('fullName', {
               rules: [
                 {
-                  message: 'The name is not valid!',
+                  message: 'The name is not valid',
                 },
                 {
                   required: true,
-                  message: 'Please input your full name!',
+                  message: 'Please input your full name',
                 },
                 {
-                  min: 7,
-                  message: 'must be at least 7 character',
+                  min: 5,
+                  message: 'Name must be at least 5 characters',
                 },
               ],
             })(<Input placeholder="Enter your full name" />)}
@@ -181,11 +181,11 @@ class SignupForm extends Component {
               rules: [
                 {
                   type: 'email',
-                  message: 'The input is not valid E-mail!',
+                  message: 'The input is not a valid E-mail',
                 },
                 {
                   required: true,
-                  message: 'Please input your E-mail!',
+                  message: 'Please input your E-mail',
                 },
               ],
             })(<Input placeholder="Enter your email" />)}
@@ -195,11 +195,11 @@ class SignupForm extends Component {
               rules: [
                 {
                   required: true,
-                  message: 'Please input your password!',
+                  message: 'Please input your password',
                 },
                 {
                   min: 8,
-                  message: 'at least 8 character',
+                  message: 'Password must be at least least 8 characters',
                 },
                 {
                   validator: this.validateToNextPassword,
@@ -207,12 +207,12 @@ class SignupForm extends Component {
               ],
             })(<Input.Password placeholder="Enter your password" />)}
           </Form.Item>
-          <Form.Item label="Confirm Password" hasFeedback>
+          <Form.Item label="Confirm password" hasFeedback>
             {getFieldDecorator('confirm', {
               rules: [
                 {
                   required: true,
-                  message: 'Please confirm your password!',
+                  message: 'Please confirm your password',
                 },
                 {
                   validator: this.compareToFirstPassword,
@@ -231,17 +231,17 @@ class SignupForm extends Component {
               rules: [
                 {
                   required: true,
-                  message: 'Please mark your location on map',
+                  message: 'Please mark your location on the map',
                 },
               ],
             })(<Map handleCity={this.handleCity} />)}
           </Form.Item>
-          <Form.Item label="Post Code:">
+          <Form.Item label="Post code:">
             {getFieldDecorator('postCode', {
               rules: [
                 {
                   required: true,
-                  message: 'Please input post code!',
+                  message: 'Please input your post code',
                 },
                 {
                   validator: this.validateToNextPassword,
@@ -249,12 +249,12 @@ class SignupForm extends Component {
               ],
             })(<Input placeholder="Enter post code" />)}
           </Form.Item>
-          <Form.Item label="Type Of Therapy:">
+          <Form.Item label="Type of therapy:">
             {getFieldDecorator('type', {
               rules: [
                 {
                   required: true,
-                  message: 'Please select type!',
+                  message: 'Please select a type of therapy',
                 },
               ],
             })(
@@ -265,12 +265,12 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Price Range:">
+          <Form.Item label="Price range:">
             {getFieldDecorator('priceRange', {
               rules: [
                 {
                   required: true,
-                  message: 'Please select price range!',
+                  message: 'Please select a price range',
                 },
               ],
             })(
@@ -288,7 +288,7 @@ class SignupForm extends Component {
               rules: [
                 {
                   required: true,
-                  message: 'Please select your languages!',
+                  message: 'Please select the languages that you speak',
                 },
               ],
             })(
@@ -331,15 +331,15 @@ class SignupForm extends Component {
               </Select>
             )}
           </Form.Item>
-          <Form.Item label="Please describe your approach to therapy:">
+          <Form.Item label="Please describe your approach:">
             {getFieldDecorator('approch', {
               rules: [
                 {
-                  message: 'The approach is not valid!',
+                  message: 'The approach is not valid',
                 },
                 {
                   required: true,
-                  message: 'Please input your approach!',
+                  message: 'Please input your approach',
                 },
                 {
                   max: 200,
@@ -348,15 +348,15 @@ class SignupForm extends Component {
               ],
             })(<Input.TextArea placeholder="Enter your approach" />)}
           </Form.Item>
-          <Form.Item label="Please define your availability if possible">
+          <Form.Item label="Please define your availability:">
             <Avalibility onChange={this.onChange} />
           </Form.Item>
-          <Form.Item label="Add Photo:">
+          <Form.Item label="Add photo:">
             {getFieldDecorator('image', {
               rules: [
                 {
                   required: true,
-                  message: 'Please upload your image!',
+                  message: 'Please upload your image',
                 },
               ],
             })(
@@ -373,7 +373,7 @@ class SignupForm extends Component {
               </Upload>
             )}
           </Form.Item>
-          <Form.Item label="Remote Therapy:">
+          <Form.Item label="Do you offer remote consultations?">
             <Switch name="remote" onChange={this.handleRemote} />
           </Form.Item>
           {remote ? (
@@ -382,7 +382,7 @@ class SignupForm extends Component {
                 rules: [
                   {
                     required: true,
-                    message: 'Please input your skype!',
+                    message: 'Please input your skype',
                   },
                 ],
               })(<Input name="skype" placeholder="Enter your skype" />)}

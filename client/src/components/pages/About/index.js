@@ -12,7 +12,7 @@ const About = () => {
       <h2 className="about-page__title">About us</h2>
       <ul>
         <li className="about-page__point">
-          Our Mission
+          Our mission
           <p className="about-page__content">
             At Shrinc we believe that finding the right psychotherapy for you
             can life changing. However, finding a good psychotherapist can be
@@ -25,17 +25,17 @@ const About = () => {
           Finding a therapist has never been easier
           <p className="about-page__content">
             The Shrinc database allows you to quickly and easily search for
-            therapists according to location, price and specialisation. If you
+            therapists according to location, price and specialization. If you
             are new to therapy, you can use the Find the right therapy feature
             which will help to guide you to the most appropriate therapy type.
             Shrinc also contains a brief overview of each of the main forms of
             psychotherapy. This then links to the database to allow you to
             easily search for the relevant therapists in your area. Shrinc also
-            offer remote consultation sessions for those users that are either
+            offers remote consultation sessions for those users that are either
             not local to their chosen therapist, or cannot attend sessions in
             person. All our therapists are registered with the main UK
             accrediting bodies to ensure a high standard of training and care.
-            Booking and paying for your session can also be done through Shrinc.
+            Booking and paying for your session can also be done through Shrinc,
             with automatic appointment reminders and payment notifications
             occurring before the session takes place.
           </p>
