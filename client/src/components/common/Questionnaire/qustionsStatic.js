@@ -15,14 +15,14 @@ const options = {
     question: '2. What do you look for in a therapist?',
     answers: [
       'A professional who can give me good, impartial advice on my problems ',
-      'Someone who understands me truly ',
+      'Someone who truly understands me',
       'A reliable person who I can trust and confide in ',
       'Someone who can challenge me to resolve my interpersonal problems by showing me by blind spots',
     ],
   },
   Q3: {
     type: 'multi',
-    question: '3.What do you think is the root cause of your problems?',
+    question: '3. What do you think is the root cause of your problems?',
     answers: [
       'I am generally happy but something happened recently that has completely thrown me',
       'I have always thought I need to see a therapist but never got round to it. I have no idea where my problems stem from. ',
@@ -34,7 +34,7 @@ const options = {
   },
   Q4: {
     type: 'single',
-    question: '4.Are you happy to talk about your feelings?',
+    question: '4. Are you happy to talk about your feelings?',
     answers: [
       'Yes, this is what I could come to therapy for',
       'No, I find this really hard',
@@ -44,12 +44,12 @@ const options = {
   },
   Q5: {
     type: 'single',
-    question: '5.How long would you foresee seeing a therapist?',
+    question: '4. Are you happy to talk about your feelings?',
     answers: ['Less than one month', '2-4 month', '1 year ', '2-3 years'],
   },
   Q6: {
     type: 'multi',
-    question: '6.My ideal therapist would be',
+    question: '6. My ideal therapist would be',
     answers: [
       'Warm, understanding',
       'Knowledgeable, impartial',
@@ -59,7 +59,7 @@ const options = {
   },
   Q7: {
     type: 'multi',
-    question: '7.I am someone who',
+    question: '7. I am someone who',
     answers: [
       'Is deeply curious about oneself ',
       'Wants to challenge one’s fears',
@@ -72,7 +72,7 @@ const options = {
   },
   Q8: {
     type: 'multi',
-    question: '8.Therapy for me is',
+    question: '8. Therapy for me is',
     answers: [
       'A solution to a problem',
       'An opportunity to transform',
@@ -84,13 +84,13 @@ const options = {
   Q9: {
     type: 'single',
     question:
-      '9.My difficulties are mostly related to one or more traumatic events in my life, that is/are still very much alive in my thoughts',
+      '9. My difficulties are mostly related to one or more traumatic events in my life, that is/are still very much alive in my thoughts',
     answers: ['Yes', 'No'],
   },
   Q10: {
     type: 'single',
     question:
-      '10.I know already that main main problem is a phobia (strong anxiety about a thing or situation that causes me to avoid it) and I would like to focus on treating this symptom in a short time',
+      '10. I know already that main main problem is a phobia (strong anxiety about a thing or situation that causes me to avoid it) and I would like to focus on treating this symptom in a short time',
     answers: ['Yes', 'No'],
   },
 };

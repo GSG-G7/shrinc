@@ -109,8 +109,8 @@ class ResultsPage extends React.Component {
 
         <div className="Results__TherapistsNames">
           <h3 className="Results__TherapistsNames__suggest">
-            According to your answers, we would suggest that you search for
-            therapists specializing in:&nbsp;&nbsp;
+            According to your answers, the recommended type of therapy for you
+            is:&nbsp;&nbsp;
             <small className="Results__TherapyType__name">
               {type.join(' and ')}
             </small>
